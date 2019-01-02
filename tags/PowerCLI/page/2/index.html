@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>Tag: PowerCLI-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+            
+<div class="alert alert-app-level alert-success">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    List of posts in the Tag: PowerCLI
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="content">
+    	
+       		
+<div class="card clickable" onclick="location.href='/learn-basics-of-powershell-powercli-under-1-5-hours.html'">
+        <div class="card-header">
+            <h3 class="card-title" >
+              Learn basics of PowerShell & PowerCLI under 1.5 hours
+            </h3>
+        </div>
+        <div class="card-block">
+        <div class="card-text">
+        <!-- Content -->
+            <h3 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h3><p>Automation in datacenter is a must for any IT-Admin. And scripting is the most important skill they can have. PowerShell is the most important scripting language in today’s virtualised environment. This is a session on basics of PowerShell and PowerCLI which I did for a customer. If you are just starting or plan to start with PowerShell and wondering where to start, then this session is for you.<br>
+            
+                  <span class="label label-warning">Automation</span>
+            
+                  <span class="label label-warning">PowerCLI</span>
+            
+        </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-info-outline"><a href="/learn-basics-of-powershell-powercli-under-1-5-hours.html">Read More</a></button>
+          <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img>
+          <button class="btn btn-sm btn-link">2017-02-17</button>
+        </div>
+</div>
+
+    	
+       		
+<div class="card clickable" onclick="location.href='/finally-it-is-here-powershell-for-linux-and-mac.html'">
+        <div class="card-header">
+            <h3 class="card-title" >
+              Finally it is here-PowerShell for Linux and Mac
+            </h3>
+        </div>
+        <div class="card-block">
+        <div class="card-text">
+        <!-- Content -->
+            <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>The most awaited feature is finally here. Never thought I would see Microsoft saying they love Linux and open source. But I suppose this was on the cards cause you can not ignore a vast population of IT landscape. So finally PowerShell is here for Linux and Mac environment.Here is a step by step guide on how you would install the Alpha release on your Mac. To download the package visit the<br>
+            
+                  <span class="label label-warning">Automation</span>
+            
+                  <span class="label label-warning">PowerCLI</span>
+            
+        </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-info-outline"><a href="/finally-it-is-here-powershell-for-linux-and-mac.html">Read More</a></button>
+          <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img>
+          <button class="btn btn-sm btn-link">2016-08-19</button>
+        </div>
+</div>
+
+    	
+       		
+<div class="card clickable" onclick="location.href='/how-to-remote-execute-scripts-inside-a-vm-in-vsphere.html'">
+        <div class="card-header">
+            <h3 class="card-title" >
+              How to Remote execute scripts inside a VM in vSphere
+            </h3>
+        </div>
+        <div class="card-block">
+        <div class="card-text">
+        <!-- Content -->
+            <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Hello All,<br>Hope you are doing well. Today I want to talk about remotely executing scripts inside a VM which is hosted in vSphere environment. Recently I received the following requirement from a colleague for a customer.<br>
+            
+                  <span class="label label-warning">Automation</span>
+            
+                  <span class="label label-warning">PowerCLI</span>
+            
+        </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-info-outline"><a href="/how-to-remote-execute-scripts-inside-a-vm-in-vsphere.html">Read More</a></button>
+          <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img>
+          <button class="btn btn-sm btn-link">2015-12-04</button>
+        </div>
+</div>
+
+    	
+
+    <nav >
+  <a class="newer-posts" href="../../"><button class="btn btn-primary btn-sm">Previous</button></a>
+  <span class="page-number">Page 2 of 3</span>
+  <a class="older-posts" href="../3/"><button class="btn btn-success btn-sm">Next</button></a>
+</nav>
+
+</div>
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="../../../../auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="../../../../journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="../../../../oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="../../../../vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="../../../../how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

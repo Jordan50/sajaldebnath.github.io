@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>vRealize Operations Manager CUSTOM DASHBOARD - Part 1-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           vRealize Operations Manager CUSTOM DASHBOARD - Part 1
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2015-09-29
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose:"></a>Purpose:</h4><p>Recently I had a request from a customer to build a custom Dashboard for vRealize Operations Manager for their environment. I thought of sharing my experience with you so that in the process I can show how to build a solution to a requirement. In doing so I will cover customization of vROps to a great extent. This is going to be a multi-part post. The requirement and environment is described below:<br><a id="more"></a></p>
+<h4 id="Environment"><a href="#Environment" class="headerlink" title="Environment:"></a>Environment:</h4><p>It is a vCloud Director environment with multiple organizations hosted in it. Also inside few of the organizations VM’s from multiple department of that organization are hosted. All the VM’s belonging to a particular Department follows a particular naming convention.</p>
+<h4 id="Requirement"><a href="#Requirement" class="headerlink" title="Requirement:"></a>Requirement:</h4><p>To provide a custom dashboard to the end users where the end user can only see the required information about the VM’s belonging to their Department. The Dashboard should provide CPU, Memory utilization of the VM’s and other VM related information. The dashboard should not be a complicated one as the end users are not very comfortable with the myriad information provided by vROps.</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h4><p>The fine points to the requirement and their respective solutions are provided below:</p>
+<ul>
+<li><strong>Decision 1:</strong> The first point is, how to identify different group of VM’s belonging to different departments so that we can show information about only those VM’s.<ul>
+<li><strong>Solution:</strong> Had there been separate Organization VDC’s for different departments then could have easily installed vCloud Director plugin and could get the segregation. But here multiple department VM’s are hosted in a single Org. VDC. The positive side is each set of VM’s has their own unique naming convention. To create the segregation I will create separate Custom Groups for different VM’s. I will actually different Department’s for different group of VM’s. Also I will keep the membership dynamic so that whenever a new VM is added with the same naming convention, by default it will be part of this group.</li>
+</ul>
+</li>
+<li><strong>Decision 2</strong>: How to limit a user from a department to see only those VM’s not someone else’s.<ul>
+<li><strong>Solution</strong>: The solution to this requirement is easy enough. Just create a custom role, create a user and give the user permission to those Custom Groups only where he has rights to. Since I want to limit the end users to see nothing else than the Dashboard so I had taken the read only permission and further customized it according to my requirement.</li>
+</ul>
+</li>
+<li><strong>Decision 3</strong>: What to show the end users or the layout of the dashboard. The dashboard layout is provided below:</li>
+</ul>
+<p><img src="/images/2015/09/vROpsCustomDashboard1.png" alt="vROps Custom Dashboard Layout" class="responsive"></p>
+<p>vROps Custom Dashboard Layout</p>
+<p>The interactions and behavior of the Widgets are provided below:</p>
+<ol>
+<li>When logged in as admin, a list of all Departments is listed in 1. Department List Widget.</li>
+<li>When a department is selected overall health of the Department VM’s is shown in the 2. Overall Health of Department widget</li>
+<li>The third widget is 3. VM List of the Department. It is a Object List Widget. This is a standalone widget. By default it shows a list of all the VM’s in the environment. Note when logged in as Admin, this particular widget will show all VM’s.</li>
+<li>The rest of the widgets from 4 to 8 shows information regarding the VM selected in 3rd Widget. So they take input from this Widget.</li>
+<li>10th Widget is an Alert List Widget which shows the alerts pertaining to the Department only.</li>
+</ol>
+<p>Note in the step 3 above when logged in as Admin you get all the VM list, but when logged in as an end user you get to see only the VM’s related to the Custom group.</p>
+<p>This concludes the Part 1 of the series. In Part 2 I am going to talk about exact configurations of the user roles, Dashboard and Widgets. In the last part we will stitch everything together to build the solution.</p>
+<p>So keep reading.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

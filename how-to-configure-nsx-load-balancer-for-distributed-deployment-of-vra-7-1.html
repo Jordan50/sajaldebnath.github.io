@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>How to configure NSX Load balancer for distributed deployment of vRA 7.1-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           How to configure NSX Load balancer for distributed deployment of vRA 7.1
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/NSX/">#NSX</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2016-08-30
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Hey guys, hope you are doing good. Few days back I discussed about the choice between a distributed deployment and a simple one. Near the end I said, if you want to do a distributed deployment then it is better that we use a virtual load balancer like NSX. So this blog is all about configuring NSX load balancer for a distributed deployment for vRA 7.1.<br><a id="more"></a></p>
+<p>For the purpose of this blog I will use NSX 6.2, vSphere 6.0 U2, vCenter 6.0 U2 and vRA 7.1 (well I wanted to test out 7.1 J).</p>
+<p>I will not cover NSX environment deployment and Load Balancer configuration for NSX as there are enough blogs already available for this. I will simply start with the Load Balancer.</p>
+<p>As you may know that Load balancer can be configured as “One Arm Mode” or “Inline Mode”. Since I already have another Distributed Router configured in my lab so I am using “One Arm Mode”. It is simpler and I wanted to load balance in the same network segment.</p>
+<p>This is an important reason for choosing the One Arm Mode.</p>
+<p>Provided below are the network details of the configuration:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Hostname</strong></th>
+<th><strong>IP Address</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iaas-web1.lab.local</td>
+<td>10.134.91.178</td>
+<td>IaaS Web Windows 1</td>
+</tr>
+<tr>
+<td>iaas-web2.lab.local</td>
+<td>10.134.91.179</td>
+<td>IaaS Web Windows 2</td>
+</tr>
+<tr>
+<td>iaas-mgr1.lab.local</td>
+<td>10.134.91.180</td>
+<td>IaaS Manager Service Windows 1</td>
+</tr>
+<tr>
+<td>iaas-mgr2.lab.local</td>
+<td>10.134.91.181</td>
+<td>IaaS Manager Service Windows 2</td>
+</tr>
+<tr>
+<td>vra1.lab.local</td>
+<td>10.134.91.182</td>
+<td>VRA Appliance 1</td>
+</tr>
+<tr>
+<td>vra2.lab.local</td>
+<td>10.134.91.183</td>
+<td>VRA Appliance 2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Load Balancer IP</strong></th>
+<th><strong>IP Address</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vra.lab.local</td>
+<td>10.134.91.201</td>
+<td>vRA VIP</td>
+</tr>
+<tr>
+<td>iaas-web.lab.local</td>
+<td>10.134.91.202</td>
+<td>IaaS Web VIP</td>
+</tr>
+<tr>
+<td>iaas-mgr.lab.local</td>
+<td>10.134.91.203</td>
+<td>IaaS Mgr VIP</td>
+</tr>
+</tbody>
+</table>
+<p>Here I am not following a full distributed deployment model. Since this is a lab environment so I am not creating separate servers for DEM and Agent. I will install these two roles in the available servers. But will do these in distributed way i.e, there will be two DEM’s (DEM1 and DEM2) and two Agents of the same configuration. Anyways that is part of vRA implementation. I want to cover only the Load Balancer configuration here.</p>
+<p>So here it goes….</p>
+<p>Open the NSX Configuration page and create a NSX Edge appliance with the following configuration for the UPLINK.</p>
+<p><img src="/images/2016/08/Picture1-2.png" alt="Open the NSX Edge configuration page" class="responsive"></p>
+<p>Open the NSX Edge configuration page</p>
+<p>I have already created an Edge Appliance by the name <strong>Sajal-LAB-LB</strong>.</p>
+<p><img src="/images/2016/08/Picture2-2.png" alt="Create one NSX Edge Appliance" class="responsive"></p>
+<p>Create one NSX Edge Appliance</p>
+<p>Note the uplink configuration. I have connected the uplink to the portgroup where my servers will be. </p>
+<p>Also note, the primary IP is the VIP of vRA, since I will use the same appliance for load balancing all the components so I have added all the rest of the VIP’s as secondary IP address of the UPLINK. This is ok with my lab environment. If you want you can create separate Edge Appliances in LB mode for each of them separately as well. You can configure this while creating the LB or at a later time by double clicking on the Edge Appliance and going to <strong>Mange –&gt; Interfaces </strong> page and clicking on Edit button after selecting the interface.</p>
+<p><img src="/images/2016/08/Picture3-2.png" alt="Uplink configuration" class="responsive"></p>
+<p>Uplink configuration</p>
+<p>After the configuration, the Interface should look like the following picture. Since this is a One-Arm LB configuration, so no other interfaces are configured.</p>
+<p><img src="/images/2016/08/Picture4.png" alt="Load Balancer Config" class="responsive"></p>
+<p>Next, go to <strong>Load Balancer</strong> tab and enable Load Balancing by selecting EDIT button in the <strong>Global Configuration</strong> tab (left side) and making necessary changes.</p>
+<p><img src="/images/2016/08/Picture5.png" alt="Enabling Load Balancer service" class="responsive"></p>
+<p>Enabling Load Balancer service</p>
+<p>Next, we need to create Application Profiles. For this we need to select “Application Profiles” from the left side button of the Load Balancer tab.</p>
+<p><img src="/images/2016/08/Picture6.png" alt="Application Services" class="responsive"></p>
+<p>Application Services</p>
+<p>Since I am configuring LB for 3 components namely vRA Appliance, IaaS Web and IaaS Manager servers, so I will create 3 application profiles. The names of the profiles are:</p>
+<ul>
+<li>IaaS-Web</li>
+<li>IaaS-Manager</li>
+<li>vRealize Automation VA Web</li>
+</ul>
+<p>The points to note here, I have selected <strong>SSL Passthrough</strong>, this is easier to configure. What I am asking the LB to do is simply pass the SSL through the LB so that it will be handled by Server. If I did not select it here, then LB will handle it by itself. In that case I am doing SSL offloading to LB. But that is more complex to configure and in future if any changes in certificate is required, then LB configuration is also needs to change. So, for simplicity I configured SSL Passthrough.</p>
+<p>Another point to note, since vRA appliance web page has a default timeout of 1800 seconds, so I selected an Expiration timeout of 1800 Seconds. For two of the components (vRA and IaaS Web), I have selected a session persistence based on the <strong>Source IP</strong> of the client.</p>
+<p>There is no session persistence for IaaS-Manager component as at any point of time only one active Manager server can be there. Manager servers are always configured as Active-Passive configuration. So no session persistence for this component.</p>
+<p><img src="/images/2016/08/Picture10.png" alt="IaaS Manager with no persistence" class="responsive"></p>
+<p>IaaS Manager with no persistence</p>
+<p><img src="/images/2016/08/Picture11.png" alt="IaaS-Web Profile" class="responsive"></p>
+<p>IaaS-Web Profile</p>
+<p><img src="/images/2016/08/Picture12.png" alt="vRA VA Application Profile" class="responsive"></p>
+<p>vRA VA Application Profile</p>
+<p>After all three of profiles are configured, the page should look like the following:</p>
+<p><img src="/images/2016/08/Picture9.png" alt="All the three Application Profiles configured" class="responsive"></p>
+<p>All the three Application Profiles configured</p>
+<p>Next we need to configure Service Monitoring. This will enable LB to learn the status of the members (whether they are UP or DOWN), based on the status the traffic will be routed to the required node. So be very careful while configuring these. I did not notice an extra in a single line and result was my vRA Pool members were down. So no traffic was being routed to the main vRA portal. Once I cross checked the Service Monitoring configuration then I got it corrected. So be careful while configuring these (I know I am repeating this :) ) . Start this configuration by selecting “Service Monitoring” from left tab and clicking the green + sign from the new pane. I will create a total of 3 Service Monitors:</p>
+<ul>
+<li>IaaS Manager</li>
+<li>IaaS Web</li>
+<li>vRealize Automation VA Web</li>
+</ul>
+<p><img src="/images/2016/08/Service1.png" alt="IaaS Web Configuration" class="responsive"></p>
+<p>IaaS Web Configuration</p>
+<p>Next one is “vRealize Automation VA Web”</p>
+<p><img src="/images/2016/08/Service2.png" alt="vRealize Automation VA Web" class="responsive"></p>
+<p>The last one is “IaaS Manager”</p>
+<p><img src="/images/2016/08/Service3.png" alt="IaaS Manager" class="responsive"></p>
+<p>IaaS Manager</p>
+<p>Once all three are configured, the screen should look like the following:</p>
+<p><img src="/images/2016/08/Service4.png" alt="Service Monitor Screen" class="responsive"></p>
+<p>Service Monitor Screen</p>
+<p>All these service monitors will be tied with the pools that we are going to create in the next step. We need to configure Pools now. We will configure the following 4 pools:</p>
+<ul>
+<li>pool_vra-va-web_443</li>
+<li>pool_vra-rconsole_8444</li>
+<li>pool_iaas-web_443</li>
+<li>pool_iaas-manager_443</li>
+</ul>
+<p>Note the pool rconsole, it is for Remote Console. You can omit it if you do not want to provide remote console.</p>
+<p>We will start the configuration with the <strong>pool_iaas-manager_443</strong>. To configure, first click on the green + button to add new Pool. Give it the name, choose the algorithm as Round Robin. For monitor choose the monitor “IaaS Manager”.</p>
+<p>Next we will add the Members. Click on the green + button under Members. Provide the node a name, next either provide the IP Address of the node or you can simply select the node as an object. Next we need to provide which port we want to configure for. For this purpose we will select 443 as the port.</p>
+<p><img src="/images/2016/08/Picture15.png" alt="Add first iaas manager node" class="responsive"></p>
+<p>Add first iaas manager node</p>
+<p>Similarly will add IaaS-Mgr2 node as member.</p>
+<p><img src="/images/2016/08/Picture16.png" alt="Add second iaas manager node" class="responsive"></p>
+<p>Add second iaas manager node</p>
+<p>Once both the members are configured then the pool should look like the following:</p>
+<p><img src="/images/2016/08/Picture17.png" alt="pool_iaas-manager_443" class="responsive"></p>
+<p>pool_iaas-manager_443</p>
+<p>Like wise we will configure all the rest of the pools. But note that for remote console i.e, for <strong>pool_vra-rconsole_8444</strong>, the nodes will have 8444 as the port. So after all the pools are configured, the screen should look like the following:</p>
+<p><img src="/images/2016/08/Picture22.png" alt="All the pools configured" class="responsive"></p>
+<p>All the pools configured</p>
+<p>For vra remote console pool (pool_vra-rconsole_8444) configuration will be same as pool_vra-va_443, only difference being the port number, in place of 443 it should be 8444.</p>
+<p>Next we need to configure the virtual servers. We will configure the following 4 virtual servers:</p>
+<ul>
+<li>vs_iaas-manager_443</li>
+<li>vs_vra-va-web_443</li>
+<li>vs_vra-vr-rconsole_443</li>
+<li>vs_iaas-web_443</li>
+</ul>
+<p>To configure the above, go to Virtual Servers section and click on the green + button to add new virtual server.  For each one of them select <strong>Enable Virtual Server</strong> and <strong>Enable Acceleration</strong>.</p>
+<p>For vs_vra-va-web_443 select application profile as <strong>vRealize Automation VA Web</strong>, provide the name, provide the IP address (VIP), select protocol as HTTPS, port number as 443 and the default pool as pool_vra-va-web_443. Once done click on OK to save the configuration.</p>
+<p><img src="/images/2016/08/Picture23.png" alt="vs\_vra-va-web\_443" class="responsive"></p>
+<p>vs_vra-va-web_443</p>
+<p>Similarly configure vs_iaas-manager_443 and vs_iaas-web_443 virtual servers. The difference between these pools and vs_vra-vr-rconsole_443 is given in the below screenshot. The port being the only difference.</p>
+<p><img src="/images/2016/08/Picture25.png" alt="vs\_vra-va-rconsole\_8444" class="responsive"></p>
+<p>vs_vra-va-rconsole_8444</p>
+<p>Once all the required pools are configured the screen should look like the below screenshot.</p>
+<p><img src="/images/2016/08/Picture27.png" alt="Final screenshot for Virtual Servers" class="responsive"></p>
+<p>Final screenshot for Virtual Servers</p>
+<p>Now your Load balancer is configured and you are ready to go.</p>
+<p>But before proceeding for the vRA installation note the following. If you continue with this configuration, load balancer forwards half of the packets to the second node which is not there before the configuration of the cluster (at the time of deployment you have one active member). So essentially the installation fails.</p>
+<p>To have a proper installation, go to pools configuration and select <strong>“NONE” as monitors</strong> (otherwise pool will show all the members as down, since the services are not up yet and the installation fails). Also disable second member node in all the pools (so half of the packets are not forwarded to the second node).</p>
+<p>Once the vRA installation is completed, come back to load balancer and enable all the member nodes of the pool and also set the proper monitors.</p>
+<p>Below is a screenshot for a properly installed environment. You can check the pool status from the below screenshot.</p>
+<p><img src="/images/2016/08/Picture31.png" alt="Pool Statistics" class="responsive"></p>
+<p>Pool Statistics</p>
+<p>Once the vRA installation completes, you will be able to access it using the vRA url. In my case it is <strong><a href="https://vra.lab.local" target="_blank" rel="noopener">https://vra.lab.local</a></strong></p>
+<p><img src="/images/2016/08/Picture28.png" alt="main page" class="responsive"></p>
+<p>main page</p>
+<p><img src="/images/2016/08/Picture29.png" alt="login screen" class="responsive"></p>
+<p>login screen</p>
+<p>Note the login page above. A nice <strong>Forgot Password</strong> link. You can now click on the link to reset your password. This used to show a message “Contact your administrator to reset your password”. Now it asks for user name and email id.</p>
+<p><img src="/images/2016/08/passwordresetlink.png" alt="Password reset option" class="responsive"></p>
+<p>Password reset option</p>
+<p>Also remember I configured vro pool so that I can access and configure the internal vRO server? Below is a screenshot of the same page.</p>
+<p><img src="/images/2016/08/Picture34.png" alt="vRO configuration page" class="responsive"></p>
+<p>vRO configuration page</p>
+<p>But to do that you need to enable configurator service in vRA appliance.</p>
+<p>Just login to the appliance and run the following command:</p>
+<pre class=" language-shell"><code class="language-shell">
+# service vco-configurator start
+</code></pre>
+
+<p>One final point to note, once you configure vRA and configure a Directory for authentication (for example Active Directory) for at least one tenant, you need to configure the identity providers as well.</p>
+<p>By default the authentication will happen with one identity provider. We need to change that to load balancer VIP.</p>
+<p>First we will add another identity provider (the second node). We can do that by logging to the tenant as Tenant Admin and then Administration–&gt; Identity Provider–&gt; Add provider. Select the second node and then provide the Bind Password and Domain admin password.:</p>
+<p><img src="/images/2016/08/identityprovider1.png" alt="Add the second identity provider" class="responsive"></p>
+<p>Add the second identity provider</p>
+<p>Once the above is done then change the IDP hostname to the VIP of the load balancer.</p>
+<p><img src="/images/2016/08/identityprovider2.png" alt="Change the IDP Hostname" class="responsive"></p>
+<p>Change the IDP Hostname</p>
+<p>Now you are finally ready to go.</p>
+<p>Hope you found this article useful.</p>
+<p>Next article is going to be NSX LB configuration for external vRO.</p>
+<p>Till then stay tuned.</p>
+<p>Do let me know your feedback about the post. What you would like to see me covering etc.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

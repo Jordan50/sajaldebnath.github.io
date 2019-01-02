@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>Dont do it simply because you can - Distributed vs Simple Architecture-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           Dont do it simply because you can - Distributed vs Simple Architecture
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/General/">#General</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2016-08-17
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Hello all, it’s been long since my last blog. In between, I became a father, changed profile, changed location etc., in all a lot happened at personal and professional front.</p>
+<a id="more"></a>
+<p>Coming back to blog, this particular topic was bugging me from last couple of months. In few of my last discussions with customers, it seemed we discussed only one point, that is to decide between fully distributed vs simple installation architecture.More often I have seen people choosing a deployment model not based on careful considerations but based on what the general belief is. This blog tries to shed light on the considerations that should be made before making that decision.</p>
+<p>I have met enough customers to safely assume that more than 90% of times a customer will ask us for a distributed deployment irrespective of the size of the environment or total uptime required of the solution. I agree to the fact that it will remove single point of failure thus increasing availability of the overall solution. But the question is should we always choose distributed environment simply because of this point or simply because we can do it?</p>
+<p>My point, it depends, and you will be surprised to know how many times I may recommend a simple install over a distributed environment.</p>
+<p>Before you think I have gone crazy, let us check the reasons for me saying so.</p>
+<h4 id="First-point-of-consideration"><a href="#First-point-of-consideration" class="headerlink" title="First point of consideration:"></a><strong>First point of consideration:</strong></h4><p>All the management components do not directly affect the running workload. So a downtime of the management components should not have a direct impact to your existing running environment. During that time, you will not be able to manage or do new things in your environment. But this no way is impacting your current SLA for the already running workload. This should be ok in most cases, but if someone has a public cloud and the main management portal goes down obviously it has bigger impact on business and should be avoided.For example, let’s consider the following situations.</p>
+<p><strong>vCenter goes down</strong> – Existing VM’s keep running, no new deployment or management is possible. In case of vRA with vCenter, no new deployment at cloud level is possible as well, but the Cloud portal works.</p>
+<p> <strong>vRA components go down</strong> – Cloud portal is not available, existing workloads keeps running. You can still SSH or RDP to the VM’s hosted in cloud. End users operations are not hampered.</p>
+<h4 id="Second-Point-of-consideration"><a href="#Second-Point-of-consideration" class="headerlink" title="Second Point of consideration:"></a><strong>Second Point of consideration:</strong></h4><p><strong>Distributed Environment: </strong>Let’s check the implications of a distributed architecture more closely.</p>
+<p>Most of the times, because of the following two reasons this is chosen.</p>
+<ol>
+<li>To remove a single point of failure (increase availability)</li>
+<li>To support a larger environment (if a single node can support say 10000 elements then 2 nodes will support 20000 elements)</li>
+</ol>
+<p>A lot of times point two is not applicable. In very few of the instances you would find a customer who exceeds the technical limitation of products. For example, how many times you have actually seen a single vCenter server to support 1000 ESXi hosts and 15000 powered off VM’s in production? Or for that matter a single vCenter appliance taking care of 10000 powered on VM’s? I am yet to see one. Did you ever see a single ESXi host supporting 1024 VM’s or 4096 vCPU’s deployed in a host? Have you ever seen any customer who is actually touching or nearing to those technical limitation? I doubt.</p>
+<p>Besides if you have an environment this big then definitely Distributed way is THE WAY for you.</p>
+<p> Coming back to the point, it seems the majority of times the reason a distributed architecture is chosen is to remove a single point of failure and increase availability.</p>
+<p>So let’s consider a full distributed environment for a vRA cloud environment and see the effects.</p>
+<p>For vRealize Automation components to be full distributed, we need the following:</p>
+<ul>
+<li>Deployed vRA appliance – 2+</li>
+<li>IaaS web server – 2+</li>
+<li>IaaS Manager Service Server – 2+</li>
+<li>IaaS DEM Server – 1+</li>
+<li>Agent Server – 1+</li>
+</ul>
+<p>A total of minimum of 8 servers and the following.</p>
+<ul>
+<li>MSSQL Server in HA mode – 2+</li>
+</ul>
+<p>If you consider the vCenter environment, then you have the following:</p>
+<ul>
+<li>PSC – 2+</li>
+<li>vCenter – 2+</li>
+</ul>
+<p>So a total of 10+ VM’s.</p>
+<p>All these components will have Load Balancer in front. So architecturally vCenter environment looks like following:</p>
+<p><img src="/images/2016/08/Picture1-3.png" alt="Distributed vCenter Deployment Architecture" class="responsive"></p>
+<p>Distributed vCenter Deployment Architecture</p>
+<p>Or more precisely:</p>
+<p><img src="/images/2016/08/Picture2-3.png" alt="Distributed vCenter Deployment Architecture with Load Balancer" class="responsive"></p>
+<p>Distributed vCenter Deployment Architecture with Load Balancer</p>
+<p>And the vRA environment should be as given below:</p>
+<p><img src="/images/2016/08/Picture3-3.png" alt="Distributed vRealize Automation deployment Architecture" class="responsive"></p>
+<p>Distributed vRealize Automation deployment Architecture</p>
+<p>The placement of a Load Balancer has a lot of effect in this environment. Let’s consider a physical load balancer in traditional environment, i.e. somewhere upstream after firewall (at least 2 or 3 hops away from the host on which the VM resides).</p>
+<p>Now, let’s check how a normal user request for a VM is handled. A user request comes to the front LB and based on the decision, it goes to the respective vRA appliance. From there it again goes out to LB and comes back to a IaaS web server. Next the request again goes out to LB and based on the decision a Manager server is chosen and finally goes for DEM. The same story applies when the VM creation request goes out to vCenter, it reaches LB for choosing PSC and then vCenter node.</p>
+<p>In all, considering all these multiple HOPS to LB think how many extra hops are there simply because of the nature of the deployment. Considering the number of extra hops consider the effect on the overall response time.</p>
+<p><strong>Single node deployment:</strong></p>
+<p>Now let’s consider the effects of a simple deployment. For our discussion let’s consider the number of supported elements is well within the capability of a single node.</p>
+<p>First point, a request will not have to make so many round trips to LB. So obviously response time should be higher than a full distributed environment. So performance is higher.</p>
+<p>But the negative effect is now you have a single point of failure. So let’s consider the different availability options to increase the overall uptime?</p>
+<ol>
+<li>The first line of defense is underlying HA with VM monitoring option. Typically, a physical node failure is sensed within 12 seconds and a restart takes place by 15 seconds. For the sake of discussion let’s consider the OS and the application of the VM comes up within 5 minutes. Considering a node failover happens once in a month, total downtime is 5 minutes in a total of 43200 minutes (considering 30-day month). That means you get an uptime of 99.988%. Same goes for VM hung situation or application hung situation. As we are monitoring at the VM level as well.</li>
+<li>Second line of defense is snapshot, if the OS or application gets corrupted we simply revert back to a snapshot. First let’s consider an external database is used, then there is not much change in the original VM, so recovering from a snapshot is sufficient and say it requires 20 seconds. So total uptime is now 99.999%. But if internal database is used, then simply reverting to an earlier snapshot is not enough. In this case we need to revert to an earlier snapshot to recover the OS and then we need to restore the database from the backup (we need to have a regular backup mechanism for the database). This will require more time, say 10 minutes. In that case your uptime is 99.977% (considering internal database and recovery time of 10 minutes).</li>
+<li>Third line of defense is backups. If everything gets corrupted then you need to restore entire appliance from a backup which say take 30 minutes. So in this case you get a 99.931% uptime in a month.</li>
+</ol>
+<p>So the choice is based on required uptime. If the business can sustain a 99.931% uptime for management components (at the worst case) and the total supported elements are well within the range, then I will certainly suggest a simple install because of the following reasons:</p>
+<ul>
+<li>Simpler to manage</li>
+<li>Simpler to update</li>
+<li>Will perform better (as compared to full distributed environment)</li>
+<li>Better response time</li>
+<li>Less complex</li>
+</ul>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a><strong>Conclusion:</strong></h4><p>At the end I would say, do not do a full distributed deployment simply because you can. Consider all the above points. Choosing a simple single node deployment is not so bad after all.</p>
+<p>Another point to note, if I need to build a fully distributed environment then I would prefer using a virtual load balancer like NSX Edge, which will be much closer to the VM’s than that of a physical one kept in a traditional architecture.</p>
+<p>I am simplifying an already complex topic and the final answer is it all depends. Every environment and requirement is different and there is no single rule to follow, but simply do not discard a simple deployment model because of the so called reasons. Consider it seriously and it may be way better for your environment than the distributed one.Till then Happy designing and let me know your view points.  Note: The above discussion is from a virtualized datacenter perspective.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

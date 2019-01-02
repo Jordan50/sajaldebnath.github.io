@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>vRealize Operations Manager - Monitoring vs Forensic-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           vRealize Operations Manager - Monitoring vs Forensic
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2016-10-04
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Did you ever wonder or faced the following questions from a customer regarding vRealize Operations Manager?</p>
+<ul>
+<li>Why the resource utilization metrics shown by OS and other monitoring tools does not match with those shown in vRealize Operations Manager?<a id="more"></a></li>
+<li>Why vRealize Operations Manager shows so many parameters and is complex to look at?</li>
+<li>Why the reclamation suggestions provided by vRealize Operations Manager does not align with other tools?</li>
+<li>Why only badges are shown instead of utilization in <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">vRealize Automation</a> when you integrate it with vRealize Operations Manager?</li>
+</ul>
+<p>If your answer is yes to any of the above, then this blog is for you. Before I go ahead and discuss the above questions, let’s cover some basics first.</p>
+<h4 id="What-is-Monitoring"><a href="#What-is-Monitoring" class="headerlink" title="What is Monitoring?"></a><strong>What is Monitoring?</strong></h4><p>Monitoring can be defined as observing the current behavior of any system to make sure that it runs as expected or well within the defined boundaries. We use this method in our everyday life in all possible areas. For this discussion, I am confining myself to only Datacenter monitoring and more specifically to Virtualized Datacenter. From Datacenter perspective, monitoring means the process of using manual or automated tools and techniques to continuously observe the different components of Datacenter to make sure that the health of every one of them is in compliance with defined criteria’s. Traditionally from Datacenter perspective we majorly monitor the following components:</p>
+<ul>
+<li>Physical Hardware (Server)</li>
+<li>Network</li>
+<li>Operating System and Applications</li>
+<li>Security</li>
+</ul>
+<p>In every datacenter we typically have Network Operations Center (NOC) and Security Operations Center (SOC) where we monitor network and security operations of an Organization. Traditionally we have a live display or Dashboard where we project and continuously monitor these environments. We have solutions like Cacti, Nagios and players like BMC, CA etc. in this monitoring space.</p>
+<h4 id="How-monitoring-a-Virtualized-Datacenter-is-different"><a href="#How-monitoring-a-Virtualized-Datacenter-is-different" class="headerlink" title="How monitoring a Virtualized Datacenter is different?"></a><strong>How monitoring a Virtualized Datacenter is different?</strong></h4><p>With traditional Datacenter monitoring we were monitoring only the hardware, network, storage, Operating Systems and Applications. But virtualization changed the scenario. It introduced another major and vital component between Servers and the operating systems, which is THE HYPERVISOR. Thus with and without virtualization the troubleshooting and monitoring criteria changes significantly. Functionally the rest of the components remains same (Physical Server, Network, Storage and OS/Applications), but the way resource management is done in Virtualized environment is different from traditional one. Please NOTE, though I said everything is same it is actually not, with Software Defined Network and Storage it is different, but that is the subject of discussion for another time. Let’s see how it is different in virtual environment. In traditional environment all the resources of a server is dedicated to the running operating system and in turn to the application/applications running inside that operating system (OS). Here, the operating system manages all the physical resources available in the underlying physical hardware. In contrast, in virtualized server, the Hypervisor manages the resources for the virtual machines and thus the resources are shared by many different VM’s and in turn the OS and Applications running inside them. But the entire process is abstracted to the OS running inside the VM. It can see only the resources provided to it by the admin and thinks it has all the resources only for it’s use which is what actually allocated for it. This is not a fact. We are tricking the VM into thinking like this. It is more clear in the following picture. </p>
+<p><img src="/images/2016/10/traditional-vs-virtual.png" alt="traditional-vs-virtual" class="responsive"></p>
+<p>Traditional vs Virtual Architecture</p>
+<p>Also troubleshooting in virtualized environment is different because a resource crunch at the hypervisor layer may lead to performance problem in VM. For example, say a virtual machine is using only 50% of all the resources allocated to it, but since there is a storage latency at Hypervisor level, the VM may perform poorly. So now you have another critical layer to monitor for. </p>
+<p>Actually, I will go so far to say that in Virtualized Environment, Hypervisor perspective is <strong>THE MOST</strong> important perspective for maintaining performance in that environment. <strong>For obvious reasons, traditional monitoring tools fail to understand or provide the insight required for monitoring a virtualized datacenter. We need more modern, specialized and sophisticated tools for that.</strong> </p>
+<p>So, traditional tools and way of monitoring is not sufficient for this type of Datacenter. </p>
+<p>Next question is what to monitor for? Once you are clear about what you need to monitor then we can decide which tool to use. </p>
+<p><strong>What parameters to monitor?</strong> Here I am not going to discuss about physical server, Datacenter Network or Storage health, as that remains same (not considering Software Defined Storage or network). In this blog I am going to talk only about Operating Systems or Applications monitoring. </p>
+<p>In traditional environment we are content with monitoring different parameters and metrics for server utilization (typically CPU, Memory, Network and Storage). But as discussed above, in virtualized environment what an Operating System sees inside a virtual machine is not the entire picture. It is only part of the picture. </p>
+<p><strong>Note:</strong> From here onwards I will be more specific to VMware environment, but the general idea and discussion can be applied to any hypervisor environment. It’s just that <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">VMware hypervisor</a> is more sophisticated and has advanced many technologies for managing resources which is not present in other hypervisors. </p>
+<p>As a virtualization admin I am more interested about the overall utilization of the physical server. If a VM is under resource constraint (for example, I have given it 4 GB RAM and it requires 6 GB) and I have enough free resources at the hypervisor level, then simply increasing the resources for that VM will solve the problem. But consider the following scenario. The physical server has 64 GB physical RAM. If I keep aside 4 GB RAM for <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">ESXi Hypervisor</a>, that leaves us with 60 GB RAM. Next, let’s assume I have deployed 50 VM’s with 3 GB vRAM each in that server. So the total allocation resource is 150 GB vRAM. I am over allocating by 90 GB. </p>
+<p>Till the time VM’s use less RAM and the overall current requirement stays below 60GB this environment runs fine with no issues. But if somehow all the VM’s starts using 50% of the vRAM allocated to each of them at the same time (you cannot say NO ) then your active RAM requirement is 75 GB which is greater than what the server has (60GB) and you run into performance problem. </p>
+<p>You see, all your individual VM’s utilization is 50%, but overall you have severe performance issue. It is evident that in virtual environment you should monitor not only for allocation or current utilization but also for <strong>DEMAND</strong> and should be more interested about the <strong>TREND</strong> than just the current Utilization. Using normal monitoring tools, monitoring only the current utilization is not sufficient because in virtualized environment you typically over-provision resources (if not memory then always CPU) and you need to know the trend for the resource utilization so that you can predict the utilization as well. </p>
+<p>This leads to predicting the capacity as well. You need to know well in advance when you will be out of resources and need to procure more. This is particularly important for dynamic environments where the environment grows at a faster pace (service provider or private/public cloud environment). Also when a problem occurs in a VM, you should be able to see the entire environment from a single page and co-relate between all the different parameters and understand the cause and effect and thus finding Root-Cause of a problem in the shortest time possible.</p>
+<h4 id="How-vRealize-Operations-Manager-is-different"><a href="#How-vRealize-Operations-Manager-is-different" class="headerlink" title="How vRealize Operations Manager is different?"></a><strong>How vRealize Operations Manager is different?</strong></h4><p>vRealize Operations Manager does all the above and more. It is not a traditional monitoring tool. It does not even monitor the parameters in real time. It collects the metrics in 5 minute interval and shows the data likewise. So in traditional sense you cannot call it a monitoring tool (in traditional sense a monitoring tool typically monitors the parameters continuously in real-time). </p>
+<p>Though many will differ with me, but I prefer to call it an <strong>“Analytical and Forensic tool”</strong> rather than a simple monitoring tool. You can do monitoring with it, but it’s main beauty lies in the analytical and forensic capabilities. It is a Swiss knife for Datacenter monitoring and analytics. This tool intimates you about a problem even before it arises. It warns you about the probable issues that may come in near and not so near future. It analyzes and tell you when you will be out of resources. </p>
+<p>You can run What-If scenarios (what if the utilization increases or a new project comes, when you will need to add more resources). If any issue arises in your environment, then you can simply click on the notification and drill down to minute details to find out what caused the problem. Actually it automatically does a Root-Cause analysis and gives you probable solutions as well. </p>
+<p>With the help of this tool I was able to find root cause of a critical issue in less than 10 minutes with all the evidence I needed, which the traditional infra teams cloud not find in 15 days (a story for a separate time). </p>
+<p>It can show you reclamation values and you can initiate those tasks from this tool. You need to analyze which VM’s taking up most of the resources in the Datacenter? No worries. Same goes for any other parameters. You need to run other analytics on any of the entities? Here you go. Like the Forensic tools and methods you use to find out a security breach, you can apply similar approach to find the root cause of any problem in your datacenter through this tool. </p>
+<p>Provided below is a screenshot showing what actions you can do on VM’s from this tool. </p>
+<p><img src="/images/2016/10/Actions-on-VMs.png" alt="vRealize Operations Manager Picture 2" class="responsive"></p>
+<p>Actions on VM’s</p>
+<p>It is designed and built to do a lot many things and you should focus on those. If you only want to see the current CPU, Memory, Network, Storage utilization of the VM’s then why do you need this? Any 3rd party traditional monitoring tool can do that. If you want to transform your Datacenter into a modern Datacenter with every bit of it under your control where you already know what is happening and what is going to happen then this is for you. </p>
+<p>So you see this is not your traditional monitoring tool. It is way more than that. It is up to you whether you want to use it only to see the current utilization and compare that parameter with other tools or utilize it fully to get the full benefits. Get your expectations right, learn how to use it, how to interpret the values and this will be the best tool you can have.</p>
+<h4 id="Why-do-the-parameters-mismatch"><a href="#Why-do-the-parameters-mismatch" class="headerlink" title="Why do the parameters mismatch?"></a><strong>Why do the parameters mismatch?</strong></h4><p>A valid question, most often you see the memory utilization reported by OS or a reporting tool (for e.g, System Center for Microsoft Operating Systems) differ from that of vRealize Operations Manager. Why is that? You see hypervisor has its own way of managing resources and it looks at the resources differently from that of a typical operating system. A typical operating system looks only at the memory that it is asking for. But hypervisor has different methods. For example, ESXi has four ways of physical memory management.</p>
+<ul>
+<li>Transparent Page Sharing</li>
+<li>Memory Ballooning</li>
+<li>Memory Compression</li>
+<li>Swapping</li>
+</ul>
+<p>All of the above helps ESXi to safely give us the option to do over-provisioning of memory. So if a VM asks for new memory pages that does not always mean it is taking extra physical memory space. It may be possible some other VM has the same exact page and that page gets shared with this VM. So essentially this VM got a new page but from ESXi perspective no extra page or memory space is required to serve the request. More about these can be found <a href="http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/perf-vsphere-memory_management.pdf" target="_blank" rel="noopener">here</a>. </p>
+<p>Hence a new memory request for a VM does not always mean a new memory page served by ESXi. So from inside the operating system it may be reported that the utilization of that OS instance is 60%, but from vRealize Operations Manager it may report that the utilization of that VM is only 50%. Notice the difference, from inside the VM, OS reports the utilization of the OS, but from outside the VM, vRealize Operations Manager reports the VM utilization which may be different and in all probability will be less than the one reported from within. Also when you talk about virtualization and memory management by Hypervisor, you need to know the following parameters and what they mean:</p>
+<ul>
+<li>Allocation (Capacity)</li>
+<li>Demand</li>
+<li>Usage</li>
+</ul>
+<p>The above three parameters as reported in vRealize Operations Manager. </p>
+<p><img src="/images/2016/10/capacity-demand-usage.png" alt="vRealize Operations Manager Picture1" class="responsive"></p>
+<p>Capacity-Demand-Usage</p>
+<p>Capacity (Allocation) means the amount of resources allocated to a VM. In the above picture the VM has a memory capacity of 1 GB. That means while creating the VM, 1 GB vRAM was allocated to it. </p>
+<p>Demand, is the amount of resource demanded by the VM at any particular time. In the above picture the VM has a current demand of 84.48 MB. </p>
+<p>Usage is the amount of resource provided by underlying hypervisor to the VM. In this case the Usage is 217.18 MB. In a typical well performing environment Demand should always be less than Allocation and Usage. If Demand is greater than Allocation, then you have a VM which is undersized. You need to increase resources for that VM. If Demand is greater than Usage, then you have resource crunch/contention at hypervisor level and you should either increase resources at hypervisor level or decrease number of VM’s running on that hypervisor. </p>
+<p>The guest of the VM or generic monitoring tools typically reports capacity and usage parameters. In the above screenshot you can see considerably higher Usage shown in vRealize Operations Manager whereas Demand is pretty less. This is because, if there is no contention then the amount of memory assigned to a VM is not reclaimed, irrespective of whether the memory pages are active or not. </p>
+<p>In simple terms, in this case the VM once touched 217.18 MB of it’s allocated 1 GB RAM, since then the Usage is shown as 217.18 MB. Though the current demand (utilization) is 84.48 MB, but since the memory space was allocated by ESXi server, it is reported as current Usage. </p>
+<p>If the ESXi host is under resource contention then memory is reclaimed and the Usage goes down. Since vRealize Operations Manager is an agentless solution and it does not collect generic utilization parameters inside the guest OS, so it has no way of knowing the utilization from Guest OS perspective. </p>
+<p>The Usage it reports is from Hypervisor perspective. Which is completely different from OS perspective. As explained above a memory requirement from Guest OS perspective does not always covert to a memory requirement from ESXi perspective. This is the reason most of the times you will see that Guest OS or other monitoring tools report higher utilization whereas vRealize Operations Manager reports lower utilization. </p>
+<p>When calculating current Capacity or future requirement or suggesting reclamation values vRealize Operations Manager considers Demand and is aggressive in nature. This is the reason you find discrepancy in these values reported in traditional against that of vRealize Operations Manager. </p>
+<p>Also note, when deciding whether a VM is idle or over-worked vRealize Operations Manager checks for certain parameters which is set in Policies. </p>
+<p>The policy is set in the following way: If a VM’s CPU or Memory utilization is less than 10% for more than 90% of time, then the VM is considered as an idle VM. Similarly, if a VM’s CPU or Memory utilization is more than 90% for more than 90% of time, then the VM is considered as an overworked VM. </p>
+<p>The above values are examples and you can customize the percentage of time and utilization. What this essentially means is, say in a week if a VM is 10% utilized for 90% of the times then this VM is idle. So essentially, if that VM is 90% utilized for less than 10% of time which is upto 16.8 hours within a week, still it is considered an idle VM. Your typical tool will report the 90% utilization but vRealize Operations Manager will say it is oversized and idle VM. So if the VM had 4 GB RAM, vRealize Operations Manager may recommend for 1 GB. Now if you reduce the RAM to 1 GB then the VM will face severe problem during those 16.8 hours when it requires 3.6 GB of vRAM.</p>
+<h4 id="Why-only-Badges-are-shown"><a href="#Why-only-Badges-are-shown" class="headerlink" title="Why only Badges are shown?"></a><strong>Why only Badges are shown?</strong></h4><p>I have faced this question multiple times, why only Health badge for a VM is shown in vRealize Automation when you integrate it with vRealize Operations Manager.</p>
+<p>People expect and want to see realtime CPU and Memory utilization for the workloads. Please understand what you are asking for is a very nominal thing. <strong>What this tool is providing is way beyond that.</strong> Knowing only utilization, you need to monitor it, make the decision for yourself. While making that decision at a glance you never know whether it is a intermittent spike or long standing issue. What is the final aim here? To run the application in a healthy state, right? Should you be bothered about the utilization, when the tool is taking care of all of that? It knows what the VM wants and requires and tell you whether it is HEALTHY or not. Whether the spike is well within range or a recurring issue. This is what you should be bothered about. About the state of the VM. This is what you actually want to know and this is what exactly what it shows. </p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a><strong>Conclusion:</strong></h4><p>In conclusion, I can say the following:</p>
+<ol>
+<li>DO NOT COMPARE vRealize Operations Manager with your traditional monitoring tools (set the expectation right). It is NOT A SIMPLE MONITORING SOLUTION.</li>
+<li>While monitoring the VM’s, check and be concerned with the DEMAND of the VM (this is what it requires to run without any performance problems). Based on this change the allocation.</li>
+<li>Check the overall demand and usage for ESXi servers. If Demand goes beyond Usage, then you have a problem in your hand.</li>
+<li>Memory utilization reported by OS of the VM’s or other tools are more accurate than vRealize Operations Manager. As these values are reported from within the VM where they have more insight into the VM. In future releases of vRealize Operations Manager this is going to be more accurate available out-of-the-box (now you need to tweak the default policies).</li>
+<li>Check and double check vRealize Operations Manager policies and tweak it according to your environment, because every environment is different.</li>
+<li>Double check the reclaim values and apply realistically. For e.g if a VM has 12 GB vRAM and vRealize Operations Manager suggests 4 GB, don’t just reduce the value to 4 GB. First reduce the value to 8 GB, monitor for some time and if everything goes well then further reduce to 4 GB.</li>
+<li>While calculating overall capacity of hypervisor trust vRealize Operations Manager. It is based on Demand and is pretty good at predicting the load.</li>
+<li>Change the way you monitor your environment, specially if it a big one. With thousands of VMs you can not monitor utilization for each and every component. With the utilization metrics you need to find the health yourself. This tool gives it out of the box. It learns, knows and tells you about the health of the components. Take advantage of this.</li>
+<li>Go ahead give it a try. Download it from this <a href="https://my.vmware.com/web/vmware/info/slug/infrastructure_operations_management/vmware_vrealize_operations/6_3" target="_blank" rel="noopener">location</a>.</li>
+</ol>
+<p>To know more about this great product please visit the <a href="https://www.vmware.com/support/pubs/vrealize-operations-manager-pubs.html" target="_blank" rel="noopener">documentation area</a>. Also check the great training available from <a href="https://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=58804" target="_blank" rel="noopener">VMware Education</a>. Following are the main reasons for which I use this tool:</p>
+<ul>
+<li>Overall Health Monitoring</li>
+<li>performance analysis</li>
+<li>Troubleshooting and forensic analysis of issues</li>
+<li>Capacity Analysis</li>
+<li>Reporting</li>
+</ul>
+<p>Do let me know which features of this product you use. How it helps in making your life easy.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

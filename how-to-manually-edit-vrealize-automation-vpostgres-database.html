@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>How to manually edit vRealize Automation vPostgres database-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           How to manually edit vRealize Automation vPostgres database
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2017-08-23
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Did you ever have the need to manually edit the vRealize Automation vPostgres database? This post covers exactly that topic. It provides detailed steps on how you can access the database and modify it. So without further ado start reading the post.</p>
+<a id="more"></a>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>There are times when we are forced to modify the inbuilt database of vRA server.  Whereas very little documentation is available around it. This is for a good reason though. Modifying the database manually is very dangerous. It can render the entire environment useless. So <span style="color:red"><strong>DO NOT do it</strong></span> or at least avoid doing it. Unless you are hundred percent sure of what you are doing. I will consider you are warned enough. So, now I will go ahead and explain exactly how you can do it.</p>
+<h4 id="Steps-to-modify-vRealize-Automation-vPostgres-Database"><a href="#Steps-to-modify-vRealize-Automation-vPostgres-Database" class="headerlink" title="Steps to modify vRealize Automation vPostgres Database:"></a>Steps to modify vRealize Automation vPostgres Database:</h4><p>Follow the below steps in sequence to modify the database. Before I explain the procedure, let me explain the use case first. I had the following problem: </p>
+<p><strong>Issue:</strong> I had one custom resource type item (SQL:Database) in vRA. I had mistakenly deleted the original database from DB. Also, removed the Database entry from vCO SQL Databases list. So, now the item existed only in vRA DB. </p>
+<p><strong>Action Taken</strong>: I created a Remove Database custom resource action in vRA and applied it on the item. It did not help. So the only option left was to manually remove the entry from vPostgres database. If you are stuck in a similar situation. Then this will be helpful for you. The logical steps are:</p>
+<ul>
+<li>First, enable access to vPostgres database</li>
+<li>Then find out the password of the postgres user</li>
+<li>Connect to the database and complete the tasks</li>
+</ul>
+<p>In my case, I wanted to connect to the database remotely from another machine. Use pgAdmin as a GUI tool and do the task from there. In your case, you may want to just log into the database locally and edit the database from SQL prompt. I chose GUI tool as I wanted to visually explore the database.</p>
+<h4 id="Enabling-access-to-vPostgres-Database"><a href="#Enabling-access-to-vPostgres-Database" class="headerlink" title="Enabling access to vPostgres Database:"></a>Enabling access to vPostgres Database:</h4><p>First, log into the vRA appliance or SSH to it using root account. Next edit <strong>pg_hba.conf</strong> file</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token function">vi</span> /storage/db/pgdata/pg_hba.conf
+</code></pre>
+
+<p>Check for the presence of the line</p>
+<pre class=" language-bash"><code class="language-bash">
+local      all              postgres                            trust
+</code></pre>
+
+<p>What this enables, is using the local machine you can use vcac user to login to the database. Since I wanted to access it remotely, I added the following line:</p>
+<pre class=" language-bash"><code class="language-bash">
+host       all              all         10.110.23.148/24               trust
+</code></pre>
+
+<p>The above line allows any user from the machine 10.110.23.148 to connect to the database. In the next step, edit the postgresql.conf file.</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token function">vi</span> /storage/db/pgdata/postgresql.conf
+</code></pre>
+
+<p>In that file add the following line</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token comment" spellcheck="true">#listen_addresses = 'localhost'         # what IP address(es) to listen on;</span>
+listen_addresses <span class="token operator">=</span> <span class="token string">'*'</span>
+</code></pre>
+
+<p>What I am doing here, is listening to everything. The above steps will let me connect to the database from my machine at 10.110.23.148.</p>
+<h4 id="Get-the-vcac-user-password"><a href="#Get-the-vcac-user-password" class="headerlink" title="Get the vcac user password:"></a>Get the vcac user password:</h4><p>In the next stage, we need to get the password for the vcac user. Detailed steps for doing so is provided in this <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2144071" target="_blank" rel="noopener">VMware KB article</a>. Run the following command</p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token function">cat</span> /etc/vcac/server.xml <span class="token operator">|</span><span class="token function">grep</span> password<span class="token operator">=</span><span class="token string">"*"</span>
+</code></pre>
+
+<p>You get an output similar to: </p>
+<pre class=" language-bash"><code class="language-bash">
+<span class="token operator">&lt;</span>resource abandonwhenpercentagefull<span class="token operator">=</span><span class="token string">"0"</span> auth<span class="token operator">=</span><span class="token string">"Container"</span> driverclassname<span class="token operator">=</span><span class="token string">"org.postgresql.Driver"</span> factory<span class="token operator">=</span><span class="token string">"com.vmware.vcac.tools.tomcat.db.CafeEncryptedDataSourceFactory"</span> fairqueue<span class="token operator">=</span><span class="token string">"false"</span> initialsize<span class="token operator">=</span><span class="token string">"10"</span> jdbcinterceptors<span class="token operator">=</span><span class="token string">"ResetAbandonedTimer"</span> jmxenabled<span class="token operator">=</span><span class="token string">"true"</span> logabandoned<span class="token operator">=</span><span class="token string">"true"</span> logvalidationerrors<span class="token operator">=</span><span class="token string">"true"</span> maxactive<span class="token operator">=</span><span class="token string">"100"</span> maxidle<span class="token operator">=</span><span class="token string">"20"</span> maxwait<span class="token operator">=</span><span class="token string">"120000"</span> minevictableidletimemillis<span class="token operator">=</span><span class="token string">"60000"</span> minidle<span class="token operator">=</span><span class="token string">"10"</span> name<span class="token operator">=</span><span class="token string">"jdbc/cafe"</span> **password<span class="token operator">=</span><span class="token string">"s2enc~646fCCJWPaSYJe91XKBpkrc1E+3N83n7ZIF3a+PGEaI="</span> **<span class="token operator">=</span><span class="token string">""</span> removeabandoned<span class="token operator">=</span><span class="token string">"true"</span> removeabandonedonborrow<span class="token operator">=</span><span class="token string">"true"</span> removeabandonedonmaintenance<span class="token operator">=</span><span class="token string">"true"</span> removeabandonedtimeout<span class="token operator">=</span><span class="token string">"240"</span> suspecttimeout<span class="token operator">=</span><span class="token string">"60"</span> testonborrow<span class="token operator">=</span><span class="token string">"true"</span> testonreturn<span class="token operator">=</span><span class="token string">"false"</span> testwhileidle<span class="token operator">=</span><span class="token string">"true"</span> timebetweenevictionrunsmillis<span class="token operator">=</span><span class="token string">"30000"</span> type<span class="token operator">=</span><span class="token string">"javax.sql.DataSource"</span> url<span class="token operator">=</span><span class="token string">"jdbc:postgresql://127.0.0.1:5433/vcac"</span> username<span class="token operator">=</span><span class="token string">"vcac"</span> validationinterval<span class="token operator">=</span><span class="token string">"30000"</span> validationquery<span class="token operator">=</span><span class="token string">"select 1"</span> validationquerytimeout<span class="token operator">=</span><span class="token string">"2"</span><span class="token operator">></span> 
+<span class="token operator">&lt;</span>/resource<span class="token operator">></span></code></pre>
+
+<p>Note the encrypted value after the password field. In this case the value is  <strong>“s2enc~646fCCJWPaSYJe91XKBpkrc1E+3N83n7ZIF3a+PGEaI=”.</strong>  In the next step we will find the actual password.</p>
+<pre class=" language-bash"><code class="language-bash">
+/usr/lib/vcac/tools/config/bin/vcac-config prop-util -d --p s2enc~646fCCJWPaSYJe91XKBpkrc1E+3N83n7ZIF3a+PGEaI<span class="token operator">=</span> <span class="token operator">|</span> <span class="token function">less</span>
+</code></pre>
+
+<p>This will give you the password.</p>
+<h4 id="Connecting-to-vPostgres-using-pgAdmin"><a href="#Connecting-to-vPostgres-using-pgAdmin" class="headerlink" title="Connecting to vPostgres using pgAdmin:"></a>Connecting to vPostgres using pgAdmin:</h4><p>Now all that is left is to connect to the database using the user id and password. Create a new connection to the vPostgres database and connect to it. Post connection it looks like the following: </p>
+<p><img src="/images/2017/08/vPostgres-added-346x188.png" alt="Image 1" class="responsive"></p>
+<p>Note the expanded view on the left. Next, we will explore the tables: </p>
+<p><img src="/images/2017/08/Exploring-Views-1.png" alt="Image 2" class="responsive"></p>
+<h4 id="Modifying-the-Database"><a href="#Modifying-the-Database" class="headerlink" title="Modifying the Database:"></a>Modifying the Database:</h4><p>Note the vRA items screen. It shows the information. </p>
+<p><img src="/images/2017/08/With-Items.png" alt="Image 3" class="responsive"></p>
+<p>Since I have resources which are custom resources. So the table I am interested in is <strong>asd_resource</strong>. This will have a list of items for custom resource. Now one of deleting is object by object. We need to follow this if say we have 10 items and we want to delete one or two of them.</p>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> asd_resource <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'sajalpgdb'</span><span class="token punctuation">;</span>
+</code></pre>
+
+<p>It will show the information with the resource id as well. Note the id. Try to delete the item by running the following command:</p>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">DELETE</span> <span class="token keyword">from</span> asd_resource  <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'sajalpgdb'</span><span class="token punctuation">;</span>
+</code></pre>
+
+<p>In all probability, it is going to fail showing a list of other tables where the item exists with the same name. For example, the table containing information about requests has reference to this. For this reason, the entry can not be deleted. So, you need to delete those references first and then, at last, delete the reference from this table. For example, provided below a list of possible places:</p>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> cat_resource <span class="token keyword">WHERE</span> name <span class="token operator">=</span> <span class="token string">'sajalpgdb'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">from</span> cat\_resource\_owners  <span class="token keyword">WHERE</span> resource_id <span class="token operator">=</span> <span class="token string">'c7ae9023-da0c-4960-b279-ae4dea6d0e8d'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">from</span> cat\_resource\_owners  <span class="token keyword">WHERE</span> resource_id <span class="token operator">=</span> <span class="token string">'c7ae9023-da0c-4960-b279-ae4dea6d0e8d'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">from</span> cat\_request <span class="token keyword">WHERE</span> resource\_id <span class="token operator">=</span> <span class="token string">'c7ae9023-da0c-4960-b279-ae4dea6d0e8d'</span><span class="token punctuation">;</span>
+</code></pre>
+
+<p>Likewise, it will go one, until the time we clear last of them. Since I have a lab environment which does not have much information. So I used another command which is very helpful:</p>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">TRUNCATE</span> asd_resource <span class="token keyword">CASCADE</span><span class="token punctuation">;</span>
+<span class="token keyword">TRUNCATE</span> cat_resource  <span class="token keyword">CASCADE</span><span class="token punctuation">;</span>
+</code></pre>
+
+<p>What this does (TRUNCATE), it will clear the table from all information. Also, it will clear all the other references to these data (CASCADE). </p>
+<p><img src="/images/2017/08/Truncate-1.png" alt="Image 4" class="responsive"></p>
+<p><img src="/images/2017/08/Truncate-2.png" alt="Image 5" class="responsive"></p>
+<p>Post the operation my vRA items list is blank: </p>
+<p><img src="/images/2017/08/Clean-Items.png" alt="Image 6" class="responsive"></p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>This is an easy and quick hack to tweak the inbuilt database. But please remember, <span style="color:red"><strong>this is destructive and strictly forbidden</strong></span>. Take responsibility and then perform these operations. Only do these as last resort and at that time also let VMware Support team do the work. Only do yourself if you are 200% sure of what you are doing. Hope after all that warning you still found this to be useful :).</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

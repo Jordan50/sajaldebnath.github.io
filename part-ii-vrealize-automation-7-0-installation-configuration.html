@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>PART II - vRealize Automation 7.0 Installation &amp; Configuration-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           PART II - vRealize Automation 7.0 Installation & Configuration
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2015-12-22
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>This is the second part of the three part series of vRealize Automation 7.0 installation and configuration blog series. In this part I am going to take a closer look at the installation of IaaS server through initial Wizard.</p>
+<p><strong>Pre-Requisites:</strong> Before we go ahead and start the installation and configuration we need to prepare the IaaS server.<br><a id="more"></a><br>A lot of pre-requisites will be set by the Wizard (as we can see later) but couple of points we need to configure manually. I will cover them at a later stage but at this stage we will install a Windows VM with Database installed in it. For supported versions check <a href="https://www.vmware.com/pdf/vrealize-automation-70-support-matrix.pdf" target="_blank" rel="noopener">vRA Support Matrix</a>. In my case I have taken the following:</p>
+<ul>
+<li>A VM with Windows 2008 R2 SP1 installed in it.</li>
+<li>For database I have taken MSSQL Server Express 2012.</li>
+<li>A domain account <a href="mailto:vradmin@lab.com" target="_blank" rel="noopener">vradmin@lab.com</a> with local administrator rights.</li>
+</ul>
+<p>All the pre-requisites will be set by the Wizard but “Log on as a Batch Job” right needs to be given to the user. This needs to be set manually. Provided below are the details by which you can do that:</p>
+<p><strong>Enable “Log on as a Batch Job” right</strong></p>
+<ol>
+<li>Type in <strong>secpol.msc /s at Start -&gt;Run</strong></li>
+<li>Select <strong>“Local Policies” in MSC snap in</strong></li>
+<li>Select <strong>“User Rights Assignment”</strong></li>
+<li>Right click on <strong>“Log on as batch job”</strong> and select <strong>Properties</strong></li>
+<li>Click <strong>“Add User or Group”</strong>, and include the relevant user (in my case vradmin)</li>
+</ol>
+<p>This will set the proper rights. There is another step we need to set but I will talk about it shortly. Also before we start the installation we need to install the vRA Management agent in the IaaS server so that vRA Appliance will be able to able to detect the IaaS server. </p>
+<p>The installer is available at <a href="https://vra.lab.com/installer" target="_blank" rel="noopener">https://vra.lab.com/installer</a> page. The package name is <strong>vCAC-IaaSManagementAgent-Setup.msi</strong>. Pre- requisite for this package installation is <strong>.NET Framework 4.5</strong>. Once the package is downloaded in the IaaS server double click on it to start the installation. </p>
+<p><strong>vRA Management Agent installation:</strong> Follow the below methods to install the agent.</p>
+<ul>
+<li>After the double click once the installation window opens click next</li>
+</ul>
+<p><img src="/images/2015/12/Image005-1.png" alt="Picture 1" class="responsive"></p>
+<p>Picture 1</p>
+<ul>
+<li>Next provide the details of the vRA server. Note the appliance address is appended by port number 5480. Also click on Load to load the fingerprint from the vRA server and after checking it to be right click on the confirmation button. Click on next button to go to next page.</li>
+</ul>
+<p><img src="/images/2015/12/Image006-1.png" alt="Picture 2" class="responsive"></p>
+<p>Picture 2</p>
+<ul>
+<li>Next provide the user id and password with local admin rights in the system. I used the account which I will use for later installations as well. Click on next.</li>
+</ul>
+<p><img src="/images/2015/12/Image007-1.png" alt="Picture 3" class="responsive"><br>Picture 3</p>
+<ul>
+<li>Next page Click on Install button to start the installation. Once done click on Finish to close the window.</li>
+</ul>
+<p><img src="/images/2015/12/Image008-1.png" alt="Picture 4" class="responsive"></p>
+<p>Picture 4</p>
+<ul>
+<li>Note the agent gets installed as any other Windows application. If for some reason you want to start the reinstallation you need to manually uninstall this agent from Programs and Features Panel. </li>
+</ul>
+<p><strong>Uninstalling IaaS components does not uninstall this agent.</strong></p>
+<p><img src="/images/2015/12/Image016-1.png" alt="Picture 5" class="responsive"></p>
+<p>Picture 5</p>
+<p>Ok so agent installation is done. Now we can start the configuration. As earlier we can start the Wizard by accessing it from <strong>https://&lt;vra appliance FQDN/IP&gt;:5480</strong> and logging in with <strong>root/<passwd></passwd></strong>. </p>
+<p><strong>IaaS installation through Wizard:</strong> So let’s start the installation. This time we will start the installation with IaaS installation option selected.</p>
+<ul>
+<li>Similar to the situation explained in Part I post, the wizard starts with the warning and then deployment selection page.</li>
+</ul>
+<p><img src="/images/2015/12/Image001-1.png" alt="Picture 6" class="responsive"></p>
+<p>Picture 6</p>
+<p><img src="/images/2015/12/Image002-1.png" alt="Picture 7" class="responsive"></p>
+<p>Picture 7</p>
+<p><img src="/images/2015/12/Image003-1.png" alt="Picture 8" class="responsive"></p>
+<p>Picture 8</p>
+<ul>
+<li>Next page will let us download the “vRA Management Agent”. So if we have not already done so, we can download this package from here and install it in IaaS server at this stage. Once installed I can see the IaaS server at the lower half of the screen. It will also show details like when was the last time it was connected and Time Drift between vRA and IaaS server. Also in this page you can change the Time setting or set the time settings. Once you complete all these setting click next.</li>
+</ul>
+<p><img src="/images/2015/12/Image017-1.png" alt="Picture 9" class="responsive"></p>
+<p>Picture 9</p>
+<ul>
+<li>The next step is the most important one as this step checks the “Pre-Requisites”. To to start the checking click on “Run” button. Since I only installed .NET Framework 4.5, Java 1.7 and the Management Agent and did not do any further configuration. So for obvious reason the test fails. You will get details of which exact steps failed and what is the action that is required.</li>
+</ul>
+<p><img src="/images/2015/12/Image018-1.png" alt="Picture 10" class="responsive"></p>
+<p>Picture 10</p>
+<ul>
+<li>The most interesting part in this page is the “Fix” button. If for any reason the test fails you can Click on Fix button and it will try to fix the problems for you. It will do the IIS Server installation and set all other pre-requisites. COOL. So I started the Fix. Once it is fixed IaaS server will restarted.</li>
+</ul>
+<p><img src="/images/2015/12/Image019-1.png" alt="Picture 11" class="responsive"></p>
+<p>Picture 11</p>
+<ul>
+<li>Once the IaaS server is restarted let’s again start the checking.</li>
+</ul>
+<p><img src="/images/2015/12/Image020-1.png" alt="Picture 12" class="responsive"></p>
+<p>Picture 12</p>
+<ul>
+<li>We can see that the Pre-Requisites are met. We can see the details of the each task status as well. Remember the “Log on as Batch Job” permission which is required but not set by the Pre-Requiste checker. Also I installed MSSQL Server Express 2012 R2 in the server.</li>
+</ul>
+<p><img src="/images/2015/12/Image021-1.png" alt="Picture 13" class="responsive"></p>
+<p>Picture 13</p>
+<ul>
+<li>Next we will start the vRA configuration and need to provide the vRA details. First we need to provide the vRA host FQDN.</li>
+</ul>
+<p><img src="/images/2015/12/Image022-1.png" alt="Picture 14" class="responsive"></p>
+<p>Picture 14</p>
+<ul>
+<li>Next provide the SSO Password.</li>
+</ul>
+<p><img src="/images/2015/12/Image023-1.png" alt="Picture 15" class="responsive"></p>
+<p>Picture 15</p>
+<ul>
+<li>After this step we need to provide the Database server details. Also I had to manually enable TCP/IP Network Protocol using the method described in <a href="https://technet.microsoft.com/en-us/library/hh231672(v=sql.110" target="_blank" rel="noopener">How to enable TCP/IP Network Protocol in MSSQL Server</a>.aspx). In this page you can use the Default settings for the database or change it according to your requirement (it lets you select a different location for storing the database files).</li>
+</ul>
+<p><img src="/images/2015/12/Image025-1.png" alt="Picture 16" class="responsive"></p>
+<p>Picture 16</p>
+<ul>
+<li>Next you need to provide the DEM server details like instance name, user id and password.</li>
+</ul>
+<p><img src="/images/2015/12/Image026-1.png" alt="Picture 17" class="responsive"></p>
+<p>Picture 17</p>
+<ul>
+<li>After this you need to provide the Agent details like the Agent name and Endpoint name. Also you need to provide the Agent Type details.</li>
+</ul>
+<p><img src="/images/2015/12/Image027-1.png" alt="Picture 18" class="responsive"></p>
+<p>Picture 18</p>
+<ul>
+<li>Next, provide details of the vRA Certificate and either you an generate a certificate or Import and existing one. Also you can Save Generated Certificate for further use.</li>
+</ul>
+<p><img src="/images/2015/12/Image028-1.png" alt="Picture 19" class="responsive"></p>
+<p>Picture 19</p>
+<ul>
+<li>Next we need to generate Web Certificate. Note the extra option for providing the certificate you get in the page.</li>
+</ul>
+<p><img src="/images/2015/12/Image029-1.png" alt="Picture 20" class="responsive"></p>
+<p>Picture 20</p>
+<ul>
+<li>In the next Page you need to provide Manager Service Certificate.</li>
+</ul>
+<p><img src="/images/2015/12/Image030-1.png" alt="Picture 21" class="responsive"></p>
+<p>Picture 21</p>
+<ul>
+<li>In the next page we will validate all the setting we have done till now. Click on the Validate button to start the validation.</li>
+</ul>
+<p><img src="/images/2015/12/Image031-1.png" alt="Picture 22" class="responsive"></p>
+<p>Picture 22</p>
+<ul>
+<li>It starts the checker and you will get details of the checks done and task percentage.</li>
+</ul>
+<p><img src="/images/2015/12/Image032-1.png" alt="Picture 23" class="responsive"></p>
+<p>Picture 23</p>
+<ul>
+<li>Note some of the tests failed. This was the stage where I noticed though pre-requisites were done at a previous stage but TCP/IP Network setting was missing in DB and had to manually set it. Once I corrected the problem again click on the Validate button to revalidate the settings.</li>
+</ul>
+<p><img src="/images/2015/12/Image033-1.png" alt="Picture 24" class="responsive"></p>
+<p>Picture 24</p>
+<ul>
+<li>Next we can see that all the tests were successfully validated.</li>
+</ul>
+<p><img src="/images/2015/12/Image034-1.png" alt="Picture 25" class="responsive"></p>
+<p>Picture 25</p>
+<p>In the next stage you get a suggestion to create Snapshots of the respective VM’s so that in case it is necessary you can always failback to it.</p>
+<p><img src="/images/2015/12/Image035-1.png" alt="Picture 26" class="responsive"></p>
+<p>Picture 26</p>
+<ul>
+<li>So I took the Snapshots and in the next page started the Installation. Once the installation is completed successfully, in the next page provide the license details.</li>
+</ul>
+<p><img src="/images/2015/12/Image001-2.png" alt="Picture 27" class="responsive"></p>
+<p>Picture 27</p>
+<ul>
+<li>Next, choose the Telemetry option (Optional)</li>
+</ul>
+<p><img src="/images/2015/12/Image002-2.png" alt="Picture 28" class="responsive"></p>
+<p>Picture 28</p>
+<ul>
+<li>In the next stage you need to choose whether you want to do the initial configuration. If you choose this option and an administrative user “configurationadmin” would be created for you in default tenant and when you login to the default tenant with this user id you will get a catalog item for an Initial configuration workflow. This workflow will do the initial configuration for you. In my case I selected this option as I want to test it out. So in this page I had to provide a password for the user and then click on “Create Initial Content” button.</li>
+</ul>
+<p><img src="/images/2015/12/Image003-2.png" alt="Picture 29" class="responsive"></p>
+<p>Picture 29</p>
+<ul>
+<li>Once done it will give you the status of the task and next steps to do for the configuration.</li>
+</ul>
+<p><img src="/images/2015/12/Image004-1.png" alt="Picture 30" class="responsive"></p>
+<p>Picture 30</p>
+<ul>
+<li>Click next and you are done. Pretty easy and Cool</li>
+</ul>
+<p><img src="/images/2015/12/Image005-2.png" alt="Picture 31" class="responsive"></p>
+<p>Picture 31</p>
+<p>Since all the installation is done, I will cover the configuration portion in the next part. I will cover this default initial configuration as well as manual configuration. So Stay Tuned for Part III !!!!!</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

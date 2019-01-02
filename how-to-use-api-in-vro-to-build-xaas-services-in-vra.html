@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>How to use API in vRO to build XaaS services in vRA-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           How to use API in vRO to build XaaS services in vRA
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> <a href="/categories/vRealize-Suite/vRealize-Orchestrator/">#vRealize Orchestrator</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2016-12-27
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>The purpose of this post is to show how to build XaaS services in vRealize Automation (vRA) by using available API’s in vRealize Orchestrator (vRO). Target audience for this post is System Admins, Cloud Admins etc. who are not full fledged developers but has some experience in scripting and build Blueprints in vRA. Also in the process this post will clarify how to use vRO and also<br><a id="more"></a><br>how to explore API structure and use them in building custom workflows.</p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>First, a bit of background of this post. Recently, I got a request from a customer to build a custom workflow for the following use case: Build a catalog item in vRA which when requested will do the following:</p>
+<ol>
+<li>It should have a Form which does the following<ul>
+<li>Shows a list of available business groups in tenant. User should be able to select one of the Business Groups</li>
+<li>A list of all available entitlements. User should be able to select one or multiple Entitlements</li>
+<li>Let the user input a user name</li>
+</ul>
+</li>
+<li>Once the above information is provided and the user finishes the request, provided username should be added to the selected Business group and the entitlements.</li>
+</ol>
+<p>Obviously, all of the above tasks are typically done through normal admin tasks in vRA, but giving this workflow will let the user streamline the requests and delegate the tasks. By default, users will be part of a group where they can run this workflow. So, they can run this workflow and make themselves part of the business groups and entitlements. For security reasons there will be approval policies associated with the workflow so that all the requests will be moderated. There are no out of the box workflows available which we can use to do this. To build the above we will require building a custom workflow in vRO and exporting it as a XaaS item in vRA. It is very easy to build workflows in vRO using other pre-defined actions or workflows. But it becomes a bit complicated when none of the pre-built workflows or actions will work for you and you need to write own Javascript using the API’s. It seems for normal non-developer community there is not enough documentation available which explains the workings. There are few available blogs explaining things a bit but nothing clears the finer points. So, this post tries to explain those points while building the above solution step by step.</p>
+<h4 id="Few-Concepts-before-we-start"><a href="#Few-Concepts-before-we-start" class="headerlink" title="Few Concepts before we start:"></a>Few Concepts before we start:</h4><p>Before I go ahead and dive into building the solution let’s cover some basic concepts:</p>
+<h5 id="General-programming-perspective"><a href="#General-programming-perspective" class="headerlink" title="General programming perspective:"></a>General programming perspective:</h5><p><strong>API:</strong> Typically, a program has two interfaces, GUI which is mostly used by Human Users and another is API (Application Programming Interface) through which another program or piece of software interact with the program. Using API, we can programmatically communicate with another software. </p>
+<p><strong>Class:</strong> In Object-Oriented Programming, a Class is what a Blueprint is in vRealize Automation. They define the structure but is not the actual implementation. We use this structure to declare objects. </p>
+<p><strong>Object:</strong> An Object is the actual representation of a running entity. They are similar to what a running workload is in vRealize Automation. Actual workloads are the implementation and Blueprint in the structure. So, Class is like Blueprint but Object is the deployed workload from the Blueprint. </p>
+<p><strong>Method:</strong> These are the pre-defined tasks that can be performed on the Objects. Taking the similar analogy, methods are tasks that can be performed on the workloads. For example, “Power On”, “Power Off”, “Suspend” are the tasks that can be performed on a deployed VM in vRA, similarly, length() is a defined method in a string object. </p>
+<p><strong>Attribute:</strong> These are the properties of an Object. For example, name, amount of RAM etc. of a VM, are the properties of that VM. Attribute is similar properties of an object.</p>
+<h5 id="vRealize-Orchestrator-vRO-Perspective"><a href="#vRealize-Orchestrator-vRO-Perspective" class="headerlink" title="vRealize Orchestrator - (vRO) Perspective:"></a>vRealize Orchestrator - (vRO) Perspective:</h5><p><strong>Action:</strong> Actions are small unit of program which can take multiple inputs but always return a single value. They can be perceived as a Function which when called does certain tasks and return a single value (the value may be of void type). </p>
+<p><strong>Module:</strong> A module is a collection of Actions.</p>
+<h4 id="Implementation-in-vRO"><a href="#Implementation-in-vRO" class="headerlink" title="Implementation in vRO"></a>Implementation in vRO</h4><p><strong>Decision Making process:</strong></p>
+<ul>
+<li><p>Requirement: We must show a form where user will provide input.</p>
+<ul>
+<li>Process: We will take help of Presentation option in vRO to ask for the input from users. We will build a Form in vRA to show the required information.</li>
+</ul>
+</li>
+<li><p>Requirement: We need to pre-populate the form with Business Group and Entitlement list from current environment.</p>
+<ul>
+<li>Process: We will take help of Actions to achieve this</li>
+</ul>
+</li>
+</ul>
+<p>There is no Out of the Box defined workflow or Action which will give us a list of all the Business Groups or Entitlement. So, we will create two custom Actions which when run will return a list of Business Groups which we will use to pre-populate the form. </p>
+<p><strong>Actions:</strong> The first custom action is “<strong>listBusinessGroups</strong>”. This script will return a list of Business Groups in Array of String format. The code regarding this is provided below:</p>
+<pre class=" language-javascript"><code class="language-javascript">
+
+    <span class="token comment" spellcheck="true">//Defining the variable of array of strings type which will hold the business group names</span>
+    <span class="token keyword">var</span> bgNames <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Finding the CAFÉ host and then the Business Groups in that Tenant</span>
+
+    <span class="token keyword">var</span> cafeHost <span class="token operator">=</span> Server<span class="token punctuation">.</span><span class="token function">findAllForType</span><span class="token punctuation">(</span><span class="token string">"vCACCAFE:VCACHost"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> businessGroups <span class="token operator">=</span> vCACCAFEEntitiesFinder<span class="token punctuation">.</span><span class="token function">getBusinessGroups</span><span class="token punctuation">(</span>cafeHost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Storing the names of all the Business Groups in the variable bgNames</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> businessGroups<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        bgNames<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>businessGroups<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// returning the variable bgNames</span>
+    <span class="token keyword">return</span> bgNames<span class="token punctuation">;</span>
+
+</code></pre>
+
+<p>Next action item is “<strong>listAllEntitlements”</strong>. When run, this script will return a list of available Entitlements. Code regarding this action is provided below</p>
+<pre class=" language-javascript"><code class="language-javascript">
+
+    <span class="token comment" spellcheck="true">// Defining the variable type of array of strings to hold the entitlement names</span>
+    <span class="token keyword">var</span> entitlements <span class="token operator">=</span> \<span class="token punctuation">[</span>\<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Finding the CAFÉ host and the entitlements</span>
+    <span class="token keyword">var</span> cafeHost <span class="token operator">=</span> Server<span class="token punctuation">.</span><span class="token function">findAllForType</span><span class="token punctuation">(</span><span class="token string">"vCACCAFE:VCACHost"</span><span class="token punctuation">)</span>\<span class="token punctuation">[</span><span class="token number">0</span>\<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> entitlementlist <span class="token operator">=</span> vCACCAFEEntitiesFinder<span class="token punctuation">.</span><span class="token function">findEntitlements</span><span class="token punctuation">(</span>cafeHost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Storing the entitlement names in the variable entitlements</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>entitlementlist<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">=</span><span class="token string">""</span> entitlements<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>entitlementlist\<span class="token punctuation">[</span>i\<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">}</span><span class="token operator">=</span><span class="token string">""</span> returning<span class="token operator">=</span><span class="token string">""</span> the<span class="token operator">=</span><span class="token string">""</span> variable<span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">with</span><span class="token operator">=</span><span class="token string">""</span> entitlements<span class="token operator">=</span><span class="token string">""</span> name<span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">return</span><span class="token operator">=</span><span class="token string">""</span> entitlements<span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> <span class="token operator">&lt;=</span><span class="token string">""</span> code<span class="token operator">=</span><span class="token string">""</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>entitlementlist<span class="token punctuation">.</span>length<span class="token punctuation">;</span><span class="token operator">></span></code></pre>
+
+<p><strong>Main Workflows:</strong> Next we will write the main Workflow to add the user to selected business group and entitlements. The workflow name is “<strong>addUserToBG-Entitlements</strong>”. The main workflow will have two scriptable tasks, one for adding user to Business Group and another for adding user to entitlements. Details of this workflow and the scriptable tasks are provided below. </p>
+<p><strong>The Inputs:</strong> </p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bgName</td>
+<td>String</td>
+<td>Business Group where user needs to be added</td>
+</tr>
+<tr>
+<td>userName</td>
+<td>string</td>
+<td>User name to be added</td>
+</tr>
+<tr>
+<td>entitlementnames</td>
+<td>Array/string</td>
+<td>List of entitlement names</td>
+</tr>
+</tbody>
+</table>
+<p>One important point to note here, both the actions which we already defined  returns an “Array of Strings” as output, but here <strong>bgName is a String</strong> whereas <strong>entitlementnames</strong> is an <strong>Array of String</strong>. This is because we want user to select a single Business Group, whereas they can select multiple entitlements. </p>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>businessGroups</td>
+<td>Array/vCACCAFE:BusinessGroup</td>
+<td>List of Business Groups</td>
+</tr>
+<tr>
+<td>finalBG</td>
+<td>vCACCAFE:BusinessGroup</td>
+<td>Business Group where user needs to be added</td>
+</tr>
+<tr>
+<td>vCACACAFEHost</td>
+<td>vCACCAFE:VCACHost</td>
+<td>CAFE Host</td>
+</tr>
+<tr>
+<td>entitlement</td>
+<td>vCACCAFE:Entitlement</td>
+<td>Entitlement Where user to be added</td>
+</tr>
+<tr>
+<td>entitlementslist</td>
+<td>Array/vCACCAFE:Entitlement</td>
+<td>A list of all the entitlements</td>
+</tr>
+</tbody>
+</table>
+<p>In vRO, attributes are Global variables, we can use these variables from any workflow and they are consistent throughout the lifetime of the main workflows. For more information on different variables please read the wonderful blog at <a href="http://www.vvork.info/2015/06/variables-in-vrealize-orchestrator.html" target="_blank" rel="noopener">http://www.vvork.info/2015/06/variables-in-vrealize-orchestrator.html</a>. </p>
+<p><img src="/images/2016/12/Attributes.png" alt="Image 1" class="responsive"></p>
+<p>Attribute of the vRO workflow</p>
+<p><strong>Schema:</strong> Provided below is the schema presentation of the workflow: </p>
+<p><img src="/images/2016/12/Schema.png" alt="Image 2" class="responsive"></p>
+<p>Schema of vRO workflow</p>
+<p>The first and major step is to define the form which will be presented to user at runtime. We can do that using the Presentation Tab. The input variables will automatically be shown in Presentation tab. We need to select the variables and then add parameter for them. For parameter type we will select “Predefined Answer” and for Value we will select OGNL. In OGNL type we will select the action items we defined earlier. Provided below are the screenshots for them. </p>
+<p><img src="/images/2016/12/Presentation-1.png" alt="Image 3" class="responsive"></p>
+<p>First input parameter presentation</p>
+<p><img src="/images/2016/12/Presentation-2.png" alt="Image 4" class="responsive"></p>
+<p>Second Parameter Presentation</p>
+<p>Note for the values we selected the respective action items. Next we will focus on the individual Scriptable tasks. Also provided below is the Visual binding of the parameters for the first scriptable task (Add user to Business Group): </p>
+<p><img src="/images/2016/12/Visual-Binding-1.png" alt="Image 5" class="responsive"></p>
+<p>Visual Binding for first vRO workflow</p>
+<p>Code for the first scriptable task is provided below:</p>
+<pre class=" language-javascript"><code class="language-javascript">
+
+    <span class="token comment" spellcheck="true">// Encapsulating the entire script in try - catch statement</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// Getting a list of all business groups</span>
+        businessGroups <span class="token operator">=</span> vCACCAFEEntitiesFinder<span class="token punctuation">.</span><span class="token function">getBusinessGroups</span><span class="token punctuation">(</span>vCACACAFEHost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Running a for loop to match business group name with the user</span>
+    <span class="token comment" spellcheck="true">// provided business group name. Once the match is found get the Business</span>
+    <span class="token comment" spellcheck="true">// group object</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> businessGroups<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>bgName <span class="token operator">==</span> businessGroups\<span class="token punctuation">[</span>i\<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">var</span> finalBG <span class="token operator">=</span> businessGroups\<span class="token punctuation">[</span>i\<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Getting a list of all existing users in the Business Group</span>
+    <span class="token keyword">var</span> userNames <span class="token operator">=</span> finalBG<span class="token punctuation">.</span><span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>userNames<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        size <span class="token operator">=</span> userNames<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">var</span> alreadyExists<span class="token punctuation">;</span>
+    alreadyExists <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Checking to see if the user already exists in the Business group</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span> size <span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>userName <span class="token operator">==</span> userNames\<span class="token punctuation">[</span>j\<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"User "</span> <span class="token operator">+</span> userName <span class="token operator">+</span> <span class="token string">" is already added to the Business Group "</span><span class="token operator">+</span>finalBG<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">".         The user will be skipped."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                alreadyExists <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>alreadyExists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// If this is true that means user is not already present in the BG</span>
+        userNames\<span class="token punctuation">[</span>size\<span class="token punctuation">]</span> <span class="token operator">=</span> userName<span class="token punctuation">;</span>
+        finalBG<span class="token punctuation">.</span><span class="token function">setUsers</span><span class="token punctuation">(</span>userNames<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>finalBG<span class="token punctuation">.</span>activeDirectoryContaier<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            finalBG<span class="token punctuation">.</span><span class="token function">setActiveDirectoryContainer</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Adding user to business Group "</span> <span class="token operator">+</span> finalBG<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Adding the user to Business Group</span>
+        vCACACAFEHost<span class="token punctuation">.</span><span class="token function">createInfrastructureClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInfrastructureBusinessGroupsService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>finalBG<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"User added to Business Group "</span> <span class="token operator">+</span> finalBG<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">catch</span><span class="token punctuation">(</span>errorCode<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// In case of any error throw the error</span>
+        System<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>errorCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> errorCode<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+
+<p>Visual Binding for the second scriptable task (Add user to Entitlements) is provided below: </p>
+<p><img src="/images/2016/12/Visual-Binding-2.png" alt="Image 6" class="responsive"></p>
+<p>Visual Binding of second vRO workflow</p>
+<p>Code for the second scriptable task is provided below:</p>
+<pre class=" language-javascript"><code class="language-javascript">
+
+    <span class="token comment" spellcheck="true">// Encapsulating the entire script block in try - catch statement</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// getting a list of all the entitlements</span>
+        entitlementslist <span class="token operator">=</span> vCACCAFEEntitiesFinder<span class="token punctuation">.</span><span class="token function">findEntitlements</span><span class="token punctuation">(</span>vCACACAFEHost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// Running the loop to get the entitlement which user specified</span>
+        <span class="token comment" spellcheck="true">// entitlementnames holds all the entitlement names which user specified</span>
+        <span class="token comment" spellcheck="true">// entitlementlist holds the list of all the entitlements.</span>
+        <span class="token comment" spellcheck="true">// note entitlementnames is an array of strings while entitlementslist is an array of entitlement object</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>entitlementnames<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token operator">=</span><span class="token string">""</span> j<span class="token operator">=</span><span class="token string">"0;"</span> j<span class="token operator">&lt;</span>entitlementslist<span class="token punctuation">.</span>length<span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">if</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">(</span><span class="token operator">=</span><span class="token string">""</span> entitlementnames\<span class="token punctuation">[</span>i\<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"="</span> entitlementslist\<span class="token punctuation">[</span>j\<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">=</span><span class="token string">""</span> entitlement<span class="token operator">=</span><span class="token string">"entitlementslist\[j\];"</span> <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">}</span><span class="token operator">=</span><span class="token string">""</span> at<span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">this</span><span class="token operator">=</span><span class="token string">""</span> stage<span class="token operator">=</span><span class="token string">""</span> we<span class="token operator">=</span><span class="token string">""</span> found<span class="token operator">=</span><span class="token string">""</span> our<span class="token operator">=</span><span class="token string">""</span> object<span class="token operator">=</span><span class="token string">""</span> validating<span class="token operator">=</span><span class="token string">""</span> the<span class="token operator">=</span><span class="token string">""</span> system<span class="token punctuation">.</span><span class="token function">getmodule</span><span class="token punctuation">(</span><span class="token string">"com.vmware.library.vcaccafe.util"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validateobject</span><span class="token punctuation">(</span>entitlement<span class="token punctuation">,</span><span class="token operator">=</span><span class="token string">""</span> <span class="token string">"entitlement"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> getting<span class="token operator">=</span><span class="token string">""</span> cafe<span class="token operator">=</span><span class="token string">""</span> host<span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">var</span><span class="token operator">=</span><span class="token string">""</span> service<span class="token operator">=</span><span class="token string">""</span> client<span class="token operator">=</span><span class="token string">"host.createCatalogClient().getCatalogEntitlementService();"</span> alreadyexists<span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> alreadyexists<span class="token operator">=</span><span class="token string">"false;"</span> checking<span class="token operator">=</span><span class="token string">""</span> to<span class="token operator">=</span><span class="token string">""</span> see<span class="token operator">=</span><span class="token string">""</span> user<span class="token operator">=</span><span class="token string">""</span> already<span class="token operator">=</span><span class="token string">""</span> exists<span class="token operator">=</span><span class="token string">""</span> <span class="token keyword">in</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">(</span><span class="token keyword">var</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> <span class="token operator">&lt;=</span><span class="token string">""</span> entitlement<span class="token punctuation">.</span><span class="token function">getprincipals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token operator">=</span><span class="token string">""</span> j<span class="token operator">++</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">{</span><span class="token operator">=</span><span class="token string">""</span> <span class="token punctuation">(</span>username<span class="token operator">=</span><span class="token string">"="</span> entitlement<span class="token punctuation">.</span><span class="token function">getprincipals</span><span class="token punctuation">(</span><span class="token punctuation">)</span>\<span class="token punctuation">[</span>j\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getref</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">""</span> system<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"user="</span><span class="token string">" "</span><span class="token operator">=</span><span class="token string">""</span> <span class="token operator">+</span><span class="token operator">=</span><span class="token string">""</span> username<span class="token operator">=</span><span class="token string">""</span> is<span class="token operator">=</span><span class="token string">""</span> assigned<span class="token operator">=</span><span class="token string">""</span> <span class="token string">"+entitlement.getname()+"</span><span class="token punctuation">.</span><span class="token operator">=</span><span class="token string">""</span> will<span class="token operator">=</span><span class="token string">""</span> be<span class="token operator">=</span><span class="token string">""</span> skipped<span class="token punctuation">.</span><span class="token string">");="</span><span class="token string">" (!alreadyexists)="</span><span class="token string">" means="</span><span class="token string">" not="</span><span class="token string">" principal="</span><span class="token keyword">new</span><span class="token string">" vcaccafecatalogprincipal();="</span><span class="token string">" principal.settype(vcaccafeprincipaltype.user);="</span><span class="token string">" principal.setref(username);="</span><span class="token string">" principal.settenantname(host.tenant);="</span><span class="token string">" system.getmodule("</span>com<span class="token punctuation">.</span>vmware<span class="token punctuation">.</span>library<span class="token punctuation">.</span>vcaccafe<span class="token punctuation">.</span>util<span class="token string">").addelementtolist(entitlement,="</span><span class="token string">" "</span>getprincipals<span class="token string">",="</span><span class="token string">" principal);="</span><span class="token string">" system.log("</span>assigning<span class="token operator">=</span><span class="token string">""</span> entitlement<span class="token punctuation">.</span><span class="token function">getname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">""</span> <span class="token string">"..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> client<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>entitlement<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">=</span><span class="token string">""</span> system<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"user="</span><span class="token string">" entitlement.getname());="</span><span class="token string">" catch(errorcode){="</span><span class="token string">" system.error(errorcode);="</span><span class="token string">" throw="</span><span class="token string">" errorcode;="</span><span class="token string">" code="</span>"<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>entitlementnames<span class="token punctuation">.</span>length<span class="token punctuation">;</span><span class="token operator">></span></code></pre>
+
+<p>The explanation for the codes and other detailed discussion points are provided in the video. Mainly, the following points are covered in the video:</p>
+<ol>
+<li>General Modes of vRO</li>
+<li>How to create custom actions and workflows</li>
+<li>How to explore and use API’s</li>
+<li>Details of the above provided codes</li>
+<li>How to build a XaaS item in vRA</li>
+<li>How to build a Form in vRA</li>
+<li>Final result</li>
+</ol>
+<div class="video-container"><iframe src="//www.youtube.com/embed/3Dx9qBvm5Rg" frameborder="0" allowfullscreen></iframe></div>
+<p>Provided below is another short video to explain how to explore the API in vRO and use them in Scripts. </p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/FYmBdz_ot70" frameborder="0" allowfullscreen></iframe></div>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>This post explains the API explorer in vRO and how we can use them to write custom scripts and workflows to build XaaS services in vRealize Automation. Do let me know your feedback on this topic or any other topic that you want me to cover.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>Automating Infrastructure with vRealize Code Stream and Artifactory-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           Automating Infrastructure with vRealize Code Stream and Artifactory
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/DevOps/">#DevOps</a> <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Code-Stream/">#vRealize Code Stream</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2017-02-15
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>The purpose of this post is to show how to automate infrastructure in virtualized dataceter through vRealize Code Stream and using other tools like Artifactory. Target audience for this post are System Admins, Cloud Admins etc. who are not full fledged developers but has some experience in scripting and automation or building blueprints in vRA. Also in the process this post clarifies on how to use vRealize Code Stream for any other automation<br><a id="more"></a><br>purpose that you want.</p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>One point of clarification before I go ahead and start discussing about this topic. vRealize Code Stream (vRCS) is an amazing tool which gives probably the best Continuous Integration/Continuous Delivery (CI/CD) experience for DevOps environment. But in this topic I am using the same set of tools and using it to automate my infrastructure. There are other traditional ways you can achieve the same result and perhaps you have been doing it for long in that way. But I want to showcase how easily you can do the same tasks with vRCS and more elegantly. Interested enough???? Read On…..</p>
+<h4 id="vRealize-Code-Stream-What-is-it"><a href="#vRealize-Code-Stream-What-is-it" class="headerlink" title="vRealize Code Stream-What is it?"></a>vRealize Code Stream-What is it?</h4><p>In VMware words “VMware vRealize Code Stream provides release automation and continuous delivery to enable frequent, reliable software releases while reducing operational risks”. So, vRealize Code Stream is an automation tool which helps you to get the following:</p>
+<ul>
+<li>Application Delivery Automation</li>
+<li>Pipeline Modeling</li>
+<li>Artefact Management</li>
+<li>Release Dashboard and Reports</li>
+</ul>
+<p>Among many other points. The strength of the solution is simplicity and integration capability. You typically integrate the solution with tools like Artifactory (for artefact management) and Jenkins (build automation), vRealize Automation (infrastructure deployment) to automate your entire product development, build, test and deployment life cycle.</p>
+<h4 id="Example-Setup"><a href="#Example-Setup" class="headerlink" title="Example Setup:"></a>Example Setup:</h4><p>A typical example of the setup is provided below:</p>
+<ul>
+<li>Have a Artifactory server deployed in your environment. Say Java is the development tool for your Organization. Integrate Maven with Artifactory. Artifactory will provide the artefacts management capability.</li>
+<li>Next deploy a Jenkins server. Integrate Jenkins with Git repository for source control management. Also integrate Artifactory with Jenkins. Configure Maven for Jenkins as well.</li>
+<li>For testing purpose for example, use Selenium and integrate it again with Jenkins.</li>
+<li>Integrate vRealize Code Stream with vRealize Automation. Where you have deployed and configured vRealize Automation.</li>
+<li>You can build a pipeline in vRCS where the for example two stages are defined, Dev and Prod. Both stages start with deploying a VM in respective area in vRA and then deploy packages from Artifactory and then runs some tests in Selenium, runs few jobs from Jenkins.</li>
+</ul>
+<h4 id="Sample-Use-Case"><a href="#Sample-Use-Case" class="headerlink" title="Sample Use Case:"></a>Sample Use Case:</h4><p>In above setup, whenever a developer submits a code in Git, it fires a job in Jenkins so it builds the respective code and pushes it to Artifactory Server. You can then start the pre-defined pipeline in vRCS which will do the following for you:</p>
+<ul>
+<li>Deploys a VM in vRealize Automation in Dev environment</li>
+<li>Deploys the application from Artifactory server to the newly deployed VM</li>
+<li>Runs few pre-defined tests</li>
+<li>Runs few Jenkins jobs</li>
+</ul>
+<p>Depending on the output of the above tests (you can apply Gating Rules) next stage i.e, Prod is executed which runs similar pre-defined tasks. All these are done automatically without any manual intervention. So essentially from the point where developer submits the code to the production deployment no manual tasks is needed. Thus with vRCS will can essentially build a no-touch environment. You may be thinking, this sounds so developer-ish, so complex. It is actually not. It is a simple drag-drop-select environment which you can see in the video.</p>
+<h4 id="What-is-covered"><a href="#What-is-covered" class="headerlink" title="What is covered?"></a>What is covered?</h4><p>As mentioned above, in this post I am not going to cover a DevOps life cycle. I am actually covering something completely different. For all the System Admins and Cloud Admins out there, we know we have a lot of scripts running in our environment to automate the entire infrastructure (at least the areas we can cover). For example consider the following:</p>
+<ul>
+<li>Today NSX has automated the network and security areas completely. But in most datacenters, after a VM running some server is deployed and all the patches, security measures are implemented then it goes to security team for their audit. Once it passes that audit then it goes to production. What if I can automate that audit itself?</li>
+<li>In most cases the servers are not connected directly to internet and you have some kind of repository for patch management (yum repository, RHEL Satelite Server, WSUS server etc.). All these provide patch management in your environment. What if I write my own RPM’s and want to merge it into the repository? I write my own python scripts which I want to run in all the servers (new or old)? I have a bunch of Shell, PowerShell and PowerCLI scripts and want to manage and run them from a central repository. How do I do that?</li>
+</ul>
+<h4 id="Demonstrated-use-case"><a href="#Demonstrated-use-case" class="headerlink" title="Demonstrated use case:"></a>Demonstrated use case:</h4><p>This is exactly what I am trying to showcase. In the given video I am demonstrating an environment where the VM deployment is done through vRealize Automation. I have an Artifactory server working as a central repository for RPM packages, Python packages and my Shell Script and other documents. I want to achieve the following simple use case: Want to configure a pipeline which once executed will do the following:</p>
+<ul>
+<li>Deploy a VM in Dev area through vRA</li>
+<li>Modify environment in deployed VM so that Artifactory server will be used as a central YUM Repository and Python Package repository</li>
+<li>Download and install rpm packages and python packages from Artifactory.</li>
+<li>Install and setup a WebServer inside the VM</li>
+</ul>
+<p>I could easily do some testing and based on the testing result I could set a gating rule (I can set an approval policy as well) and run the same things in production environment. But since through this post I wanted to showcase other use cases of vRCS so by this time you have a general understanding of the product (how to use it) and further utilize it as per your requirement. Interested enough? Watch this video of 28 minutes. </p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/SeIy-uY0LTk" frameborder="0" allowfullscreen></iframe></div>
+<h4 id="Suggested-Reads"><a href="#Suggested-Reads" class="headerlink" title="Suggested Reads:"></a>Suggested Reads:</h4><p>Greg Kullberg has amazing series of session on vRealize Code Stream. I strongly suggest you to watch them. Specially the following ones:</p>
+<ul>
+<li><a href="http://www.vmware.com/products/vrealize-code-stream.html" target="_blank" rel="noopener">Modeling a Pipeline In vRealize Code Stream 2.x</a></li>
+<li><a href="https://www.youtube.com/watch?v=2PPJIhxB3Lc&amp;index=3&amp;list=PLrFo2o1FG9n7Pr4Fq-7exPvN6ThDYRcPV" target="_blank" rel="noopener">Executing and Tracking Pipelines in vRealize Code Stream 2.x</a></li>
+<li><a href="https://www.youtube.com/watch?v=u6ZkL82OVYQ&amp;index=4&amp;list=PLrFo2o1FG9n7Pr4Fq-7exPvN6ThDYRcPV" target="_blank" rel="noopener">Working with Code Stream 2.x and vRealize Orchestrator</a></li>
+<li><a href="https://www.youtube.com/watch?v=78AXncoRQ0A&amp;index=5&amp;list=PLrFo2o1FG9n7Pr4Fq-7exPvN6ThDYRcPVfactory" target="_blank" rel="noopener">vRCS 2.2 Resolving Artifacts from Artifactory</a></li>
+</ul>
+<p>Also, as I always say, your best friend is <a href="https://www.vmware.com/support/pubs/vrcs-pubs.html" target="_blank" rel="noopener">VMware documentation for vRCS</a>.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>The idea behind this post was to showcase a slightly different use case of vRealize Code Stream. In the process explain what it is. Though implementation of the use case you should be able to get a clear idea of how you can utilize vRealize Code Stream for not only DevOps environment but also for automating your daily life. I hope this post helps you in reducing few of your daily challenges faced in any datacenter. As always do give me your feedback. It is through your feedback I get to know whether I am writing useful topics or not. So happy reading and watching till the next post.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

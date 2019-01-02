@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>Integrating NSX with vRealize Automation-Part I-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           Integrating NSX with vRealize Automation-Part I
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/NSX/">#NSX</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> <a href="/categories/vRealize-Suite/vRealize-Orchestrator/">#vRealize Orchestrator</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2016-09-27
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>NSX and vRealize Automation are two major products from VMware. You use vRealize Automation to build a Cloud environment and use NSX for building a Software-Defined-Network environment. Individually they are awesome products and when you mix them up, you get an overdose of awesomeness. Fun apart, the actual power of Software Defined Datacenter comes into play when you use them together.<br><a id="more"></a><br>With NSX you can build Dynamic routing, load balancing, firewall rules etc. Now think of this scenario, how cool will it be if you can spin a multi layer application all by a single click along with it’s network, firewall rules and load balancer auto-configured at the runtime. So every time anyone deploys one such instance their respective configurations are also build by runtime. At the time of deletion all these network, firewall and load balancers are also deleted automatically. I am not even talking about other features that NSX brings into the game. So in this blog series I am going to talk about how to integrate NSX with vRealize Automation and then use the network functionalities provided by NSX to build a multi-machine blueprint and use it to deploy three tier workload. In the first part I will cover the integration of NSX and vRealize Automation. In the second part I will cover the building of the blueprint and in the third part will consist of the results. So without further ado let’s start the series. The process which integrates NSX with vRealize Automation (vRA) is detailed below:</p>
+<ol>
+<li>First you need to install NSX plugin in vRealize Orchestrator (vRO). Both internal and external vRO is supported. For this blog I chose to use external vRO appliance.</li>
+<li>Second, you need to add the NSX manager as an endpoint in vRO appliance.</li>
+<li>You need to add vRealize Orchestrator as an End Point in vRealize Automation and run a discovery of resources.</li>
+<li>Now all the NSX information will be available in vRealize Automation to be consumed by the blueprints.</li>
+</ol>
+<p>Let’s start with the plugin installation in vRO.</p>
+<h4 id="Installation-of-the-NSX-Plugin-in-vRO"><a href="#Installation-of-the-NSX-Plugin-in-vRO" class="headerlink" title="Installation of the NSX Plugin in vRO"></a>Installation of the NSX Plugin in vRO</h4><p>To upload and install NSX plugin you need to download the NSX plugin for vRO from the VMware <a href="https://my.vmware.com/web/vmware/details?downloadGroup=NSXV_624_TOOLS&amp;productId=417" target="_blank" rel="noopener">download link</a>. </p>
+<p>Note the following from the site: This plug-in (1.0.4) can be utilized by vRA 7.1.0, vRO 7.1.0, NSX-vSphere 6.2.2, NSX-vSphere 6.2.4. </p>
+<p>So, this works with only the above versions of the products. But the general process applies to other versions as well. Once you have downloaded the plugin, you need to go to controlcenter of vRealize Orchestrator. You can use both the internal vRO or an external appliance. </p>
+<p>Also, to go to ControlCenter you can either directly go to the controlcenter by going to <strong>https://<ip or="" fqdn="" of="" vro="" server="">:8283/vco-controlcenter/</ip></strong> or by going to the default page and from there select the Orchestrator Control Center link: <strong>https://&lt;IP or FQDN of vRO Server:8281/vco/</strong> </p>
+<p><img src="/images/2016/09/vro-plugin1.png" alt="vro-plugin1.png" class="responsive"></p>
+<p>vRO Control Center</p>
+<p>Clicking on the link takes you to the control center page and will ask for your password. Use the “root” user id and the password that you have set at the time of deployment. </p>
+<p><img src="/images/2016/09/vro-plugin2.png" alt="vro-plugin2.png" class="responsive"></p>
+<p>Providing ID and Password</p>
+<p> Once in the Control Center scroll down to select <strong>“Manage Plug-Ins”</strong>.</p>
+<p><img src="/images/2016/09/vro-plugin3.png" alt="vro-plugin3" class="responsive"></p>
+<p>Click on Manage Plug-Ins</p>
+<p>In the Manage Plug-Ins window select on Browse to browse to the folder where the plugin is and select the same. </p>
+<p><img src="/images/2016/09/vro-plugin4.png" alt="vro-plugin4" class="responsive"></p>
+<p>Click on Browse</p>
+<p>Select the Plugin and Click on Open. </p>
+<p><img src="/images/2016/09/vro-plugin6.png" alt="vro-plugin6" class="responsive"></p>
+<p>Select plugin</p>
+<p>Once the plugin is selected, click on Install. </p>
+<p><img src="/images/2016/09/vro-plugin7.png" alt="vro-plugin7" class="responsive"></p>
+<p>Start of Installation</p>
+<p>Accept the EULA and Click on Install to start the installation. </p>
+<p><img src="/images/2016/09/vro-plugin9.png" alt="vro-plugin9" class="responsive"></p>
+<p>Accepting EULA</p>
+<p>Once the installation is completed, you get a prompt to restart the server. The same page also gives you a link to the “Startup Options” page from where you can do the same. </p>
+<p><img src="/images/2016/09/vro-plugin10.png" alt="vro-plugin10" class="responsive"></p>
+<p>After installation, go to restart serve page</p>
+<p>From the “Startup Options” page click on Restart button to restart the server. </p>
+<p><img src="/images/2016/09/vro-plugin11.png" alt="vro-plugin11" class="responsive"></p>
+<p>Restart the server</p>
+<p>Once the restart is completed. You are done. The plugin has been installed. </p>
+<p><img src="/images/2016/09/vro-plugin12.png" alt="vro-plugin12" class="responsive"></p>
+<p>Server restarted</p>
+<p>Double check the installation of the plugin. NSX plugin should be listed and should be selected as well. </p>
+<p><img src="/images/2016/09/vro-plugin13.png" alt="vro-plugin13" class="responsive"></p>
+<p>Since the plugin is installed, next you need to configure and integrate with vRA.</p>
+<h4 id="Configuration-of-NSX-in-vRO-vRealize-Automation"><a href="#Configuration-of-NSX-in-vRO-vRealize-Automation" class="headerlink" title="Configuration of NSX in vRO / vRealize Automation"></a>Configuration of NSX in vRO / vRealize Automation</h4><p>In this part you need to do the following two steps:</p>
+<ul>
+<li>Add the NSX endpoint in vRealize Orchestrator</li>
+<li>Add the vRealize Orchestrator as an endpoint in vRealize Automation Server</li>
+</ul>
+<p>You need to start with the Orchestrator. So login to the Orchestrator Client with the credentials. Please note the following:</p>
+<ul>
+<li>If you are using the internal vRO server of vRealize Automation, then the “Host Name” field should have the format as <strong><ip or="" fqdn="" of="" vra="" server:443=""></ip></strong>.</li>
+<li>If you are using the external vRO server, then the “Host Name” field should have the format as <strong><ip or="" fqdn="" of="" external="" vro="" server:8281=""></ip></strong></li>
+</ul>
+<p>Note, the port difference. For internal vRO server of a vRA server you need to use port 443 and for external vRO server you need to use port 8281. </p>
+<p><img src="/images/2016/09/integration1.png" alt="integration1" class="responsive"></p>
+<p>Connecting to vRealize Orchestrator</p>
+<p>Once logged in, by default you would be in “Run” mode of vRO. To add the NSX endpoint go to Workflows tab. </p>
+<p><img src="/images/2016/09/integration2.png" alt="integration2" class="responsive"></p>
+<p>Opening Workflows tab</p>
+<p>Next, go to Library –&gt; NSX –&gt; Configuration –&gt; Create NSX Endpoint. We will run this particular workflow to add the NSX manager as an endpoint. Click on the Green button at the top to run the workflow. </p>
+<p><img src="/images/2016/09/integration3.png" alt="integration3" class="responsive"></p>
+<p>Running Workflow</p>
+<p>When the workflow is run it provides a form where you can provide the information. You need to provide the following information:</p>
+<ul>
+<li>Endpoint Name</li>
+<li>NSX user name</li>
+<li>NSX Password</li>
+<li>NSX URL</li>
+</ul>
+<p>The next two options are pre-populated and you can keep them at their default. </p>
+<p><img src="/images/2016/09/integration4.png" alt="integration4" class="responsive"></p>
+<p>Providing details of NSX Manager</p>
+<p>Wait for the successful run of the workflow. When it completes successfully, NSX Manager is added as a managed endpoint in vRO. </p>
+<p><img src="/images/2016/09/integration5.png" alt="integration5" class="responsive"></p>
+<p>Successful Completion of NSX endpoint addition</p>
+<p>Once the endpoint is added successfully, you can go ahead and check the details from the endpoint. It should show each and every component you have configured in your NSX Manager. </p>
+<p><img src="/images/2016/09/integration6.png" alt="integration6" class="responsive"></p>
+<p>Details checking</p>
+<p>Your configuration at vRO is finished. Next you need to go to vRA and add this vRO as an Endpoint. Login to vRA server tenant as “IaaS Administrator” so that you can add an Endpoint. Go to <strong>Infrastructure –&gt; Endpoint –&gt; Endpoint</strong>. Click on <strong>New –&gt; Orchestration –&gt; vRealize Orchestrator</strong>. </p>
+<p><img src="/images/2016/09/integration7.png" alt="integrations7" class="responsive"></p>
+<p>Adding vRO Endpoint</p>
+<p>Provide the Endpoint a name. Provide the name of the vRO server in the appropriate box. Please note the following:</p>
+<ul>
+<li>If you are using the internal vRO server then the Address is <strong>“https://&lt;IP or FQDN of vRO/vco”</strong></li>
+<li>If you are using external vRO server then the address is <strong>“https://&lt;IP or FQDN of vRO:8281/vco”</strong></li>
+</ul>
+<p>So, for external vRO server you need to provide the port number as 8281. For internal vRO no need to specify any port. </p>
+<p><img src="/images/2016/09/integration8.png" alt="integration8" class="responsive"></p>
+<p>Details of vRO</p>
+<p>Click on the button next to “Credentials” to add a credential to use. It will provide a new window. Click on New button to add a new credential (you can use an existing one as well). </p>
+<p><img src="/images/2016/09/integration9.png" alt="integration9" class="responsive"></p>
+<p>Add new credential</p>
+<p>Provide details of the credential and click on Green button to save the details. </p>
+<p><img src="/images/2016/09/integration10.png" alt="integration10" class="responsive"></p>
+<p>Details</p>
+<p>Click on OK button to save the credential and use it. </p>
+<p><img src="/images/2016/09/integration11.png" alt="integration11" class="responsive"></p>
+<p>Important point. Here you need to add a Custom Property for vRO specifying the priority. Since I did not provide this property, it will give me an error. </p>
+<p><img src="/images/2016/09/integration12.png" alt="integration12" class="responsive"></p>
+<p>Priority setting error</p>
+<p>Set a customer property with <strong>“VMware.VCenterOrchestrator.Priority”</strong> and set a value in it. I set 1 as property value. Click on OK to save the endpoint. </p>
+<p><img src="/images/2016/09/integration15.png" alt="integration15" class="responsive"></p>
+<p>Custom property value set</p>
+<p>Once saved, it will start the data collection. Wait for the data collection to be complete. </p>
+<p><img src="/images/2016/09/integration17.png" alt="integration17" class="responsive"></p>
+<p><img src="/images/2016/09/integration18.png" alt="integration18" class="responsive"></p>
+<p>Once the data collection is completed successfully our configuration is complete. To check whether everything is running fine, go ahead and configure NSX as a resource point in vCenter Endpoint. So go to the configured vCenter Endpoint and select <strong>“Specify manager for network and security platform”</strong>. You need to provide nsx manager IP or FQDN and credential for that. </p>
+<p><img src="/images/2016/09/integration19.png" alt="integration19" class="responsive"></p>
+<p>Details of NSX and part of vCenter Endpoint</p>
+<p>Next, we need to force a Data Collection at vCenter Endpoint so that it will get all the entities available from NSX Manager. For this go to Compute Resources and select the Compute Resource which came from that vCenter Endpoint. Right Click and Select “Data Collection” </p>
+<p><img src="/images/2016/09/integration20.png" alt="integration20" class="responsive"></p>
+<p>Under Network and Security Inventory click on <strong>“Request Now”</strong> button to start the data collection. Note, here I got a failed data collection as earlier I added the NSX manager before adding the NSX manager in vRO and adding vRO as an endpoint. So vRealize Automation could reach NSX manager from vCenter endpoint (it was a valid URL) but it did not know how to get the data from NSX Manager. </p>
+<p><img src="/images/2016/09/integration21.png" alt="integration21" class="responsive"></p>
+<p>Now after all these configurations the data collection is successful. Click on OK to go back to earlier page. </p>
+<p><img src="/images/2016/09/integration23.png" alt="integration23" class="responsive"></p>
+<p>You can check and reserve resources from NSX now. To do that, go to Reservation and add/modify a reservation to include network elements. </p>
+<p><img src="/images/2016/09/integration24.png" alt="integration24" class="responsive"></p>
+<p>Note, I can see all the portgroups created by NSX Manager and the Transport Zone, Security Group and Routed Gateways. </p>
+<p><img src="/images/2016/09/integration25.png" alt="integration25" class="responsive"></p>
+<p>Select what you require and click ok to save the reservation. </p>
+<p><img src="/images/2016/09/integration26.png" alt="integration26" class="responsive"></p>
+<p>Reservation</p>
+<p>Configuration and Integration of NSX to vRealize Automation environment is complete. Now you should be able to use the entities presented by NSX environment from inside vRealize Automation.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>In the Part I on this blog series I have covered how to install NSX plugin in vRealize Orchestrator and then integrate vRealize Orchestrator as an Endpoint in vRealize Automation server. Also after this post you should be able to utilize entities from NSX in vRealize Automation reservations. In the next part I am going to cover how to utilize these entities in a Blueprint and create those functionalities at the runtime.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>How to programmatically push data in vRealize Operations Manager-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           How to programmatically push data in vRealize Operations Manager
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation and Scripting</a> <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/Automation-and-Scripting/PowerCLI/">#PowerCLI</a> <a href="/categories/Automation-and-Scripting/Python/">#Python</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2017-06-03
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Did you ever feel the need to push custom data to vRealize Operations Manager (vROps)? Did you wish, you could see that one parameter or metric specific to your environment in vROps? This post provides exactly that information. Here I demonstrate a script which pushes custom data into vROps. At the same time, I explained how you can customize it according to your requirement.<br><a id="more"></a></p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>A few weeks back I got the request from two of my colleagues for friends Luciano Gomes and Iwan (e1) Rahabok about a script which can push data into vRealize Operations Manager. Both of them requested similar task albeit the data was different. So I picked Luciano’s request as he already had the script which will generate the input. All I had to do is modify the script a bit so that I can consume the data in my required format and push the data to vROps. His script generates “Creation Time” and “Hostname inside guest” for each virtual machine in an environment. He wanted to see these two values under each VM resource in vROps. So the task is defined in front of me.  </p>
+<h4 id="Prior-Work-on-pushing-data-to-vRealize-Operations-Manager"><a href="#Prior-Work-on-pushing-data-to-vRealize-Operations-Manager" class="headerlink" title="Prior Work on pushing data to vRealize Operations Manager:"></a>Prior Work on pushing data to vRealize Operations Manager:</h4><p>Understand, this is not a new topic. Very good blog posts are already available on similar topics. But before I explain my method, please check the following excellent blogs on similar topics:</p>
+<ul>
+<li><a href="http://www.valcolabs.com/2014/06/24/programmatically-push-custom-data-into-vcenter-operations/" target="_blank" rel="noopener">Programmatically Push Custom Data into vCenter Operations</a> - The original awesome post by Josh Coen - Sadly Http Adapter is no longer in vogue and may be extinct soon.</li>
+<li><a href="https://virtualviking.net/2015/12/15/vraidmon-a-vrealize-operations-adapter-written-in-python/" target="_blank" rel="noopener">vraidmon – A vRealize Operations Adapter Written in Python</a> - By Pontus (you rule)</li>
+<li><a href="http://vman.ch/vrops-suite-api-properties-import/" target="_blank" rel="noopener">vRops – suite-api – addProperties</a> - By vMAN - Does similar things but calling out direct REST API</li>
+<li><a href="http://next.nutanix.com/t5/Scripts/VMware-vRealize-Operations-Adapter-for-Nutanix/td-p/4716" target="_blank" rel="noopener">VMware vRealize Operations Adapter for Nutanix</a> - By Andreas Diemer - The best is for the last</li>
+</ul>
+<h4 id="Why-a-new-method"><a href="#Why-a-new-method" class="headerlink" title="Why a new method?"></a>Why a new method?</h4><p>If you are wondering why a new method and script?  The topic and method of these blog posts can be divided into two categories. In the first category, you have an easy way, but the method used is to push a whole new set of information, e.g, creating a new adapter, resource kind, and type. Then push custom data in this new resource. Here my end goal is not that. All the VM’s are already present in the environment. All I need to do is push custom value into it. In the second category, custom data is pushed to vRealize Operations Manager, but the method is direct REST API calls. Which makes the script pretty complex. So I tried to find an easy way and hence this post and script.</p>
+<h4 id="What-I-chose-and-why"><a href="#What-I-chose-and-why" class="headerlink" title="What I chose and why?"></a>What I chose and why?</h4><p>I chose to create new Properties for existing resources (VM’s). Since the data I am pushing is text in nature so created new Properties. If the data was of numeric in nature, then I would have chosen new stats. Based on the requirement you can chose either of them. They are detailed in the following locations: https://<vrops server="">/suite-api/docs/rest/index.html The methods are:</vrops></p>
+<pre class=" language-javascript"><code class="language-javascript">
+POST <span class="token operator">/</span>api<span class="token operator">/</span>resources<span class="token operator">/</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span><span class="token operator">/</span>stats
+POST <span class="token operator">/</span>api<span class="token operator">/</span>resources<span class="token operator">/</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span><span class="token operator">/</span>properties
+</code></pre>
+
+<p>Note, I did not create any new adapter or resourcekind or resource type. All I am doing is adding properties or stats.</p>
+<h4 id="Where-to-get-it"><a href="#Where-to-get-it" class="headerlink" title="Where to get it?"></a>Where to get it?</h4><p>You can get the script by going to <a href="https://github.com/sajaldebnath/vrops-data-push" target="_blank" rel="noopener">GitHub page</a> (<a href="https://github.com/sajaldebnath/vrops-data-push" target="_blank" rel="noopener">https://github.com/sajaldebnath/vrops-metric-collection</a>)and downloading it from there. There are samples provided with the script.</p>
+<h4 id="What-is-included"><a href="#What-is-included" class="headerlink" title="What is included:"></a>What is included:</h4><p>There are two Python script files and three PowerShell script files. The Powershell scripts are used to gather the data that needs to be pushed to vROPs. The Python files are used to process and push the data to vROps</p>
+<h4 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites:"></a>Pre-Requisites:</h4><p>These programs were written in Python2.7 and Powershell 5.0 versions.So your system should have Python 2.7 and Powershell 5.0. Also, download and install the nagini module from vRealize Operations Manager. It can be found at “https:///suite-api” . Visit the page, download and install the Python Client. Typically Windows boxes don’t have Python installed in it. Download and install Python 2.7.x version on your Windows machine.</p>
+<h4 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run:"></a>How to run:</h4><p>Download all the files to the same location. The program has three parts. </p>
+<p><strong>Part 1: Setting up the environment:</strong>  For the first time run, <strong>Set-VCdetails.ps1</strong> using PowerShell. You can simply open PowerShell windows and run the script with <strong>*C:\ .\Set-VCdetails.ps1</strong>. This will ask you for the following information:</p>
+<ul>
+<li>vCenter Server Name:</li>
+<li>vCenter User Id:</li>
+<li>Password:</li>
+</ul>
+<p>Once this information is provided, it will create <strong>vcdetails.txt</strong> (contains vCenter server name and user name) and <strong>passwd.txt</strong> (contains the password in encrypted format). Next run <strong>set-env.py</strong> file. You can run it like following: </p>
+<pre class=" language-shell"><code class="language-shell">
+# python set-env.py
+</code></pre>
+
+<p>This will ask for the following inputs:</p>
+<ul>
+<li>Adapter Kind:</li>
+<li>Resource Kind:</li>
+<li>vROPs server IP/FQDN:</li>
+<li>user id:</li>
+<li>vROps password:</li>
+</ul>
+<p>Once all the above information is provided, the script generates env.json in the same location. The provided password is saved in encrypted format. </p>
+<p><strong>Part 2: Getting the data from vCenter server:</strong>  Run the “Get-VMDetails.ps1” file with PowerShell cmdline. This will get values from vcdetails.txt and passwd.txt file and generate <strong>data.json</strong> file in the same location. This <strong>data.json</strong> will have the desired output values. </p>
+<p><strong>Part 3: Pushing the data to vROps server:</strong> Next run <strong>data-push.py</strong> from cmdline with </p>
+<pre class=" language-shell"><code class="language-shell">
+# python data-push.py
+</code></pre>
+
+<p>This will gather required information from <strong>env.jon, data.json</strong> and push data to vROps server You should schedule two jobs, one for <strong>Get-VMDetails.ps1</strong> and another for <strong>data-push.py</strong> to run these scripts one after other. Check the format of the <strong>data-push.json</strong> file to further utilize the data. </p>
+<p><strong>Points to Note:</strong> Though this has specific use cases implemented, you should be able to easily modify the scripts to suit your need.</p>
+<h4 id="What-great"><a href="#What-great" class="headerlink" title="What great?"></a>What great?</h4><p>As you can see from the script, all I had to do was two separate calls to vROps using nagini methods. The first one is to find out UUID of each VM. The second one does the actual job. A single <strong>add_properties</strong> method does all the heavy lifting for me.</p>
+<p>I do not need to make direct REST calls, nagini is a wrapper for that. It does all the heavy lifting.</p>
+<p>Watch the following video for the detailed run and sample output.</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/behW2uIHalg" frameborder="0" allowfullscreen></iframe></div>
+<h4 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement:"></a>Acknowledgement:</h4><p>Python client for vRealize Operations Manager (nagini) is not very well documented. I struggled with a particular method call as I couldn’t figure out which format it expects data. Thanks to Vibhu Rastogi for arranging a call and Shankar Kommineni, thank you. You rock man. Thanks for the help and explanation.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>You can use the script if you want to get push custom data directly to vROps server. I did not test the script extensively. It will be a real help if you can test it out and let me know the outcome. Also, any further suggestions are welcome. I hope this helps you as it helped me. Customize it as per your requirement.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>

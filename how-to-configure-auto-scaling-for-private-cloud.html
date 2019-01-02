@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- Including the Head tag and metadata -->
+
+
+<head>
+  <!--Meta-->
+    <meta charset="UTF-8">
+    <title>How to configure Auto-Scaling for Private Cloud-Anything Virtual and Cloudy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
+    <meta name="author" content="Sajal Debnath">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/clr-ui.min.css">
+    <style>
+      .responsive {
+        max-width: 100%;
+        height: auto;
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px; height: 0; overflow: hidden;
+      }
+      .video-container iframe,
+      .video-container object,
+      .video-container embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+<!--  <main> body starts from here-->
+  <clr-main-container class="main-container">
+    <div class="alert alert-app-level alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                    Just moved to Hexo + VMware Clarity combination. This site is not fully working in Firefox. Try IE/Chrome/Safari Browsers instead.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Header Navigation and Subnav menus -->
+    
+<!-- <header class="header header-4"> -->
+
+<clr-header class="header-4 header">
+  <!---->
+  <button class="header-hamburger-trigger" type="button" aria-label="HeaderMenu">
+    <span></span>
+  </button>
+  <div class="branding">
+      <a class="logo-and-title" href="/" >
+          <span><img SRC="/images/logo.png" ALT="Logo" WIDTH=36 HEIGHT=36></img></span>
+          <span class="title">Anything Virtual and Cloudy</span>
+      </a>
+  </div>
+  <div class="divider"></div>
+  <ul class="header-nav list-unstyled clr-nav-level-1">
+    <li class="nav-item">
+      <a href="/" class="nav-link nav-text">Home</a>
+    </li>
+      <!---->
+      <li class="nav-item">
+        <a href="/about/" class="nav-link nav-text">About</a>
+      </li>
+        <!---->
+      <li class="nav-item">
+        <a href="/contact/" class="nav-link nav-text">Contact</a>
+      <li>
+      <li class="nav-item">
+        <a href="/archives/" class="nav-link nav-text">Archives</a>
+      <li>
+        <!---->
+  </ul>
+  <!---->
+  <button class="header-overflow-trigger ng-star-inserted" type="button" aria-label="SubnavMenu">
+    <span></span>
+  </button>
+    <div class="header-backdrop"></div>
+</clr-header>
+
+    <!-- -->
+<nav class="subnav clr-nav-level-2">
+
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm btn-info-outline" title="Click for Dropdown">
+              vRealize Suite
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Automation">vRealize Automation</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Operations">vRealize Operations</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Orchestrator">vRealize Orchestrator</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-Code-Stream">vRealize Code Stream</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/vRealize-Suite/vRealize-LogInsight">vRealize LogInsight</a></button>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button type="button" class="dropdown-toggle btn btn-sm title="Click for Dropdown" btn-info-outline">
+            Scripting
+          </button>
+          <div class="dropdown-menu">
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/PowerCLI">PowerCLI</a></button>
+            <div class="dropdown-divider"></div>
+            <button type="button" class="dropdown-item"><a class="nav-link" href="/categories/Automation-and-Scripting/Python">Python</a></button>
+          </div>
+        </div>
+      </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/NSX">NSX</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/DevOps">DevOps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/VSAN">VSAN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/General">General</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Content container starts from here-->
+    <!-- Dividing the content area into two different part. First part will Show
+      Post and Page related information. Right side will have widgets -->
+    <div class="content-container">
+      <div class="content-area">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+                <div class="card">
+     <div class="card-header">
+         <h3 class="card-title" >
+           How to configure Auto-Scaling for Private Cloud
+         </h3>
+     </div>
+     <div class="card-block">
+    
+     <div class="alert alert-warning">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-text">
+                  
+
+
+Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> <a href="/categories/vRealize-Suite/vRealize-Orchestrator/">#vRealize Orchestrator</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"></img> 2017-06-16
+
+
+
+                </div>
+            </div>
+        </div>
+     </div>
+     
+     <div class="card-text">
+     <!-- Content -->
+         <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Have you checked the auto-scaling feature provided in public cloud solutions like AWS and Azure and wished to get the same feature in your private cloud environment? Do you have an existing private cloud environment or building a new one and want to make it auto-scale enabled? This post covers this exact topic. It details what auto-scaling is and provides step by step guide on how you can build one using various VMware products.<br><a id="more"></a></p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>In recent months, during my interactions with customers, one requirement came up pretty often than others. That is of auto-scaling. Seems majority of customers who deploy Private Cloud require auto-scaling in some or other formats. Since out of the box vRealize Automation provides “Scale-Out” and “Scale-In” functions (albeit manual), these can be used in conjunction with other products to provide auto-scaling functionality. I had to configure this feature for multiple customers, so thought of writing a blog post detailing the steps. Readers can follow the blog to do it themselves. Also, auto-scaling is very dynamic in nature. Typically auto-scaling parameter requirement changes from environment to environment. Keeping that mind I have explained the steps involved so that you can customize it as per your need.</p>
+<h4 id="Required-prior-knowledge"><a href="#Required-prior-knowledge" class="headerlink" title="Required prior knowledge:"></a>Required prior knowledge:</h4><p>Though you can simply import the package in vRealize Orchestrator and follow the guide to configure other products, having a knowledge of the following will help you further configure it.</p>
+<ul>
+<li>Working knowledge of vRealize Orchestrator</li>
+<li>If you want to customize the workflows, then you need to know a bit of JavaScript</li>
+<li>For configuration of Webhook Shims, basic knowledge of Linux will help (though not strictly required, John Dias did an amazing job providing step by step guide).</li>
+<li>Familiarity with vRealize Operations Manager will help</li>
+<li>Working knowledge of vRealize Automation is required</li>
+<li>If you want to replicate my example of multi-tier application with application installation at runtime. Then you need to know NSX usage and advanced configuration of blueprints in vRealize Automation.</li>
+</ul>
+<p>If you are using vRealize Automation 7.2 and prior then [this blog post] on NSX integration with <a href="/integrating-nsx-with-vrealize-automation-part-i.html" title="Integrating NSX with vRealize Automation-Part I">Integrating NSX with vRealize Automation-Part I</a> vRA will help. Integration method has changed in 7.3 and it is simplified a lot. Check the <a href="https://docs.vmware.com/en/vRealize-Automation/7.3/com.vmware.vra.prepare.use.doc/GUID-1DCCA922-7220-405F-998B-626563C3F682.html" target="_blank" rel="noopener">VMware documentation on how it is done in</a> vRA 7.3. On how to configure Software components you can check my [earlier blog post here] <a href="/vra-7-2-auto-scale-application-authoring-container-on-demand-lb.html" title="vRA 7.2 -  Auto-Scale , Application Authoring, Container, On-Demand LB">vRA 7.2 -  Auto-Scale , Application Authoring, Container, On-Demand LB</a>.</p>
+<h4 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement:"></a>Acknowledgement:</h4><p>Before I start writing this blog I need to say thanks to few people. Though I demonstrated this feature (with PowerCLI and vCenter) 2 years back to a customer, it was never a true auto-scaling solution. So, here it goes:</p>
+<ul>
+<li>First and loudest thanks to <strong>Carsten Schaefer</strong> for com.vmware.pso.cemea.autoscaling package. It had the main “Scale Up Blueprint Layer based on VM MOID” and “Scale Down Blueprint Layer based on VM MOID”. All my other works are based on these two core workflows. These two workflows do the actual task. So thanks a lot mate for your hard work and help.</li>
+<li>Thanks to <strong>Vishal Jain, Diwan Chandrabose, Ajay Kalla and team</strong> for the Load balancer handling script. Normally when an alert is fired, it is based on a VM. But when network load comes from Load-Balancer and it fires an alert, we get the load balancer name. The script co-relating the load balancer to the corresponding virtual machine is written by the team. They showed how we can use NSX and vROps integration to handle load balancer parameters. Thanks a lot guys for this.</li>
+<li>Last but not least <strong>Vinith Menon</strong>, I was wondering how I would put a load on the test website. I was thinking of using JMeter. But it was too much to just put HTTP requests on a web page. Your one liner is absolutely fantastic and time saver for me. Thanks a lot brother for that.</li>
+</ul>
+<p>My friend Vinith Menon also have written a blog post on auto-scaling. You can check it <a href="http://virtualize-automate.com/wp/index.php/2017/05/06/auto-scale-vra-workloads-vropsvro-nsx/" target="_blank" rel="noopener">here</a>.</p>
+<h4 id="Where-to-get-the-package-for-auto-scaling"><a href="#Where-to-get-the-package-for-auto-scaling" class="headerlink" title="Where to get the package for auto-scaling?"></a>Where to get the package for auto-scaling?</h4><p>I have created a single vRealize Orchestrator package containing all the workflows, SNMP Policy and Action items. Download the package from <a href="https://github.com/sajaldebnath/auto-scaling-vra" target="_blank" rel="noopener">the GitHub repository</a> (<a href="https://github.com/sajaldebnath/auto-scaling-vra" target="_blank" rel="noopener">https://github.com/sajaldebnath/auto-scaling-vra</a>) and import it into vRealize Orchestrator server. Rest of the details are provided in the rest of the blog post.</p>
+<h4 id="What-is-included-in-the-package"><a href="#What-is-included-in-the-package" class="headerlink" title="What is included in the package?"></a>What is included in the package?</h4><p>The following workflows are included in the package:</p>
+<ul>
+<li>Scale Down Blueprint Layer based on VM MOID</li>
+<li>Scale Up Blueprint Layer based on VM MOID</li>
+<li>Scale Down vRA Deployment based on LB Load - SNMP</li>
+<li>Scale Up vRA Deployment based on LB Load - SNMP</li>
+<li>Scale Down vRA Deployment based on CPU-Mem Load - vROps REST Notification</li>
+<li>Scale Up vRA Deployment based on CPU-Mem Load - vROps REST Notification</li>
+<li>Scale Down vRA Deployment based on LB Load - vROps REST Notification</li>
+<li>Scale Up vRA Deployment based on LB Load - vROps REST Notification</li>
+</ul>
+<p>The helper workflows are:</p>
+<ul>
+<li>Count VMs in Layer</li>
+<li>Get VM Name from vROps REST Notification</li>
+<li>JSON Invoke a REST operation</li>
+<li>Submit to vRA</li>
+</ul>
+<p>The action items are:</p>
+<ul>
+<li>getCatalogResourceForIaasVmEntity</li>
+<li>findObjectById</li>
+<li>getVirtualMachineProperties</li>
+</ul>
+<p>The included SNMP policy is:</p>
+<ul>
+<li>vROps SNMP Trap for NSX</li>
+</ul>
+<p>Note, the first two workflows are core workflows (written by Carsten) all other workflows depends on these two to get the work done. If you are not using Webhook Shims, then you do not need to configure workflows which ends with “vROps REST Notification”. Also, for SNMP, you do not need to configure “Get VM Name from vROps REST Notification” and “JSON Invoke a REST operation” workflows. Alternately, if you are not going to use SNMP traps, then you do not need to configure the SNMP policy.</p>
+<h4 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites:"></a>Pre-Requisites:</h4><p>Before you can run everything you need to have the environment ready. I used the following versions:</p>
+<ul>
+<li>vRealize Automation 7.3</li>
+<li>vCenter &amp; vSphere 6.5</li>
+<li>vRealize Operations 6.5</li>
+<li>vRealize Orchestrator 7.3 (internal to vRA)</li>
+<li>NSX 6.3</li>
+<li>Webhook Shims</li>
+</ul>
+<p>The workflows should work with other versions as well. You need to have these products installed, configured and integrated to follow the example end to end.</p>
+<h4 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE::"></a><span style="color:red">UPDATE::</span></h4><h4 id="How-to-handle-the-SNMP-trap-data"><a href="#How-to-handle-the-SNMP-trap-data" class="headerlink" title="How to handle the SNMP trap data?"></a><span style="color:red">How to handle the SNMP trap data?</span></h4><p>My friend Senthil asked me to provide the SNMP trap handling script as well. So provided below is the script which I used to Handle the SNMP trap data. If you are using the SNMP method for monitoring the traps, then use the following script to handle the on trap tasks and fire the respective workflow.</p>
+<pre class=" language-javascript"><code class="language-javascript">
+<span class="token comment" spellcheck="true">// Handling SNMP Trap</span>
+
+System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"SNMP Trap Received"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Agent: "</span> <span class="token operator">+</span> event<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">"agent"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> key <span class="token operator">=</span> event<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> snmpResult <span class="token operator">=</span> SnmpService<span class="token punctuation">.</span><span class="token function">retrievePolicyData</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Get data as Array of Properties</span>
+<span class="token keyword">var</span> result <span class="token operator">=</span> System<span class="token punctuation">.</span><span class="token function">getModule</span><span class="token punctuation">(</span><span class="token string">"com.vmware.library.snmp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">processSnmpResult</span><span class="token punctuation">(</span>snmpResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//System.log("Enterprise: " + snmpResult.enterprise);</span>
+<span class="token comment" spellcheck="true">// Log data</span>
+System<span class="token punctuation">.</span><span class="token function">getModule</span><span class="token punctuation">(</span><span class="token string">"com.vmware.library.snmp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">logResult</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> dataMatch <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">var</span> lb <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment" spellcheck="true">// Setting the workflow ID's</span>
+
+<span class="token keyword">var</span> wfIdCpuDown <span class="token operator">=</span> <span class="token string">"2e8e822b-f919-4453-97e8-ce5dacd816f4"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> wfIdCpuHigh <span class="token operator">=</span> <span class="token string">"14d602b6-e1ff-4d15-83af-4f9a97928940"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> wfIdLbDown <span class="token operator">=</span> <span class="token string">"7daf80e6-852a-4a10-a3df-5d54b182f5b0"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> wfIdLbHigh <span class="token operator">=</span> <span class="token string">"db9fdd03-1c11-4305-9d22-3536c3374971"</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Processing the trap data. Element 19 has the alert name</span>
+<span class="token comment" spellcheck="true">// So checking the presence of particular Alert Name</span>
+<span class="token comment" spellcheck="true">// Element 4 has the Object name which fired the alert. So if the corrent alert is present then</span>
+<span class="token comment" spellcheck="true">// getting the object name from Element 4</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span> result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"VM vCPU Usage High - Sajal"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Trap Found::"</span><span class="token operator">+</span>result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> vmName <span class="token operator">=</span> result\<span class="token punctuation">[</span><span class="token number">3</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"VM Name : "</span> <span class="token operator">+</span> vmName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> wfId <span class="token operator">=</span> wfIdCpuHigh<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"VM vCPU Usage Down - Sajal"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Trap Found::"</span><span class="token operator">+</span>result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> vmName <span class="token operator">=</span> result\<span class="token punctuation">[</span><span class="token number">3</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"VM Name : "</span> <span class="token operator">+</span> vmName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> wfId <span class="token operator">=</span> wfIdCpuDown<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"LB Load High - Sajal"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Trap Found::"</span><span class="token operator">+</span>result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> lbName <span class="token operator">=</span> result\<span class="token punctuation">[</span><span class="token number">3</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> endIndex <span class="token operator">=</span> lbName<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">" Load Balancer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> vmName <span class="token operator">=</span> lbName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>endIndex<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lb <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment" spellcheck="true">//    System.log("LB Name : " + vmName+ "  Var lb value:"+lb);</span>
+    <span class="token keyword">var</span> wfId <span class="token operator">=</span> wfIdLbHigh<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"LB Load Down - Sajal"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Trap Found::"</span><span class="token operator">+</span>result\<span class="token punctuation">[</span><span class="token number">18</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> lbName <span class="token operator">=</span> result\<span class="token punctuation">[</span><span class="token number">3</span>\<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> endIndex <span class="token operator">=</span> lbName<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">" Load Balancer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> vmName <span class="token operator">=</span> lbName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>endIndex<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lb <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token comment" spellcheck="true">//    System.log("LB Name : " + vmName+ " Var lb value:"+lb);</span>
+        <span class="token keyword">var</span> wfId <span class="token operator">=</span> wfIdLbDown<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"No data match"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dataMatch <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// If the actual alert is found then getting the Moref of the Object in vCenter and calling the workflow</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span> dataMatch <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> lb <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> vmMoref <span class="token operator">=</span> vmName
+        <span class="token comment" spellcheck="true">//        System.log("Calling out workflow for LB: "+ vmMoref);</span>
+        <span class="token comment" spellcheck="true">//        runWF(wfId,vmMoref);</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token function">findVms</span><span class="token punctuation">(</span>vmName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"The VM is:"</span><span class="token operator">+</span> vm<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>vm <span class="token keyword">instanceof</span> <span class="token class-name">VcVirtualMachine</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Sucessfully located the vm object"</span> <span class="token operator">+</span> vm<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">var</span> vmMoref <span class="token operator">=</span> vm<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"VM MoRef is "</span> <span class="token operator">+</span> vmMoref <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            System<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Calling out to workflow run function"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">runWF</span><span class="token punctuation">(</span>wfId<span class="token punctuation">,</span>vmMoref<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// This function finds the Moref of the object in terms of vCenter server</span>
+<span class="token keyword">function</span> <span class="token function">findVms</span><span class="token punctuation">(</span>vmName<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+       <span class="token keyword">var</span> vms <span class="token operator">=</span> VcPlugin<span class="token punctuation">.</span><span class="token function">getAllVirtualMachines</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> vmResult <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> b<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>  b <span class="token operator">&lt;</span> vms<span class="token punctuation">.</span>length<span class="token punctuation">;</span> b<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> vmName <span class="token operator">==</span> vms<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                 vmResult <span class="token operator">=</span> vms<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token keyword">break</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> vmResult<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// This function calls out the workflow</span>
+
+    <span class="token keyword">function</span> <span class="token function">runWF</span><span class="token punctuation">(</span>wfid<span class="token punctuation">,</span> vmMoref<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> workflowToLaunch <span class="token operator">=</span> Server<span class="token punctuation">.</span><span class="token function">getWorkflowWithId</span><span class="token punctuation">(</span>wfid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>workflowToLaunch <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+             <span class="token keyword">throw</span> <span class="token string">"Workflow not found"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">var</span> workflowParameters <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> lb <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            workflowParameters<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lbName"</span><span class="token punctuation">,</span>vmMoref<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            workflowParameters<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"targetId"</span><span class="token punctuation">,</span>vmMoref<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//    System.log("Launching Workflow. Please refer to that workflow for specific logs."+ wfid+" :VM     Info:"+vmMoref);</span>
+        <span class="token keyword">var</span> wfToken <span class="token operator">=</span> workflowToLaunch<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>workflowParameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> wfToken<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre>
+
+<h4 id="How-to-configure-auto-scale"><a href="#How-to-configure-auto-scale" class="headerlink" title="How to configure auto-scale?"></a>How to configure auto-scale?</h4><p>There are too many steps and explanation to cover in a single post. So instead I created a video to cover all of that. Please watch the video for details on how to configure the different components. It also covers where and how you can modify the steps.  This video covers everything along with few ppt slides to cover the environment and slight background.</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/wBreU7R_r2k" frameborder="0" allowfullscreen></iframe></div>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>You can use the steps detailed in the video to configure auto-scaling in your environment. This is an amazing feature. It will be a real help if you can test it out and let me know the outcome. Also, any further suggestions are welcome. I hope this helps you as it helped me. Do provide me feedbacks on this. Also, let me know if I missed something or you need further clarification.</p>
+
+     </div>
+     </div>
+        <div class="card-footer">
+            <b>Share this Post &emsp; </b>
+
+            
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+</a>
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+  <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+</a>
+
+
+        </div>
+    </div>
+
+<!-- Comments Section -->
+
+<section class="comments">
+  <div class="card">
+    <div class="card-header">
+      <b>Comments</b>
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+        
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <!-- Shows the data for the page or posts -->
+          </div>
+          <!-- Widgets Area -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div>
+              <!-- Search Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Search the Site</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <script>
+        (function() {
+          var cx = '013858032712959220653:01en0zgxnjq';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
+      </script>
+      <gcse:search></gcse:search>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+              <!-- Socials Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Follow me on Social Media</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener" >
+          <img border="0" alt="Facebook" src="/007-facebook.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Twitter" src="/006-twitter.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="LinkedIn" src="/005-linkedin.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Youtube" src="/004-youtube.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Goolge+" src="/003-google-plus.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="Github" src="/002-github.png" width="25" height="25"></img>
+      </a>
+      &emsp;
+      <a href="https://sajaldebnath.github.io/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
+          <img border="0" alt="RSS" src="/001-rss.png" width="25" height="25"></img>
+      </a>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Latest Posts Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  
+<div class="card">
+  <div class="card-header">
+    <b>Latest Posts</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list">
+        
+          <li>
+            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
+          </li>
+        
+          <li>
+            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
+          </li>
+        
+          <li>
+            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
+          </li>
+        
+          <li>
+            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
+          </li>
+        
+          <li>
+            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+              <!-- Tags Area -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+  <div class="card-header">
+    <b>Post Tags</b>
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <ul class="list-unstyled">
+        <span class="label label-warning">
+          <a href="/tags/Automation/">Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Suite">vRealize Suite</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Automation">vRealize Automation</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Operations">vRealize Operations</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Orchestrator">vRealize Orchestrator</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-Code-Stream">vRealize Code Stream</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/vRealize-LogInsight">vRealize LogInsight</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/PowerCLI">PowerCLI</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/Python">Python</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/NSX">NSX</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/DevOps">DevOps</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/VSAN">VSAN</a>
+        </span>
+        <span class="label label-warning">
+          <a href="/tags/General">General</a>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </clr-main-container>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84051711-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-84051711-1');
+  gtag('set', {'user_id': 'UA-84051711-1'}); // Set the user ID using signed-in user_id.
+</script>
+
+  <!-- Including the Scripts Area -->
+  <script src="/js/jquery-3.3.1.slim.min.js" async></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+
+  <noscript>
+    Sorry...JavaScript is needed to go ahead.
+  </noscript>
+
+  <!-- Defining the scripts -->
+  <script type="text/javascript">
+
+    // Handling the main header menubar options in Responsive mode
+    $(".header-hamburger-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-hamburger-menu")){
+        $(".main-container").removeClass("open-hamburger-menu");
+      }else{
+      $(".main-container").addClass("open-hamburger-menu");
+    }
+    });
+
+    // Handling the Subnav menubar options in Responsive mode
+    $(".header-overflow-trigger").on('click',function(){
+      if($(".main-container").hasClass("open-overflow-menu")){
+        $(".main-container").removeClass("open-overflow-menu");
+      }else{
+        $(".main-container").addClass("open-overflow-menu");
+      }
+    });
+
+  </script>
+  <!-- Disqus Comments -->
+  
+    <script type="text/javascript">
+        var disqus_shortname = 'sajaldebnath';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+  
+
+  <script type="text/javascript">
+
+    // The following function provides the active class to header items
+    //Separate Section
+    // The following two functions creates the dropdown in Subnav
+
+    $(".dropdown").on('click',function(){
+      if($(".dropdown").hasClass("open")){
+        $(".dropdown").removeClass("open");
+        $(this).addClass("open");
+      }else{
+      $(this).addClass("open");
+      }
+    });
+
+    // Close the dropdown menu if the user clicks outside of it
+    document.onclick = function myClickHandler(event) {
+      if (!event.target.matches('.dropdown-toggle')) {
+          $(".dropdown").removeClass("open");
+      }
+    }
+  </script>
+
+</body>
+</html>
