@@ -75,7 +75,7 @@
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
   </li></ul>
-  <form class="search" action="https://sajaldebnath.com/search">
+  <form class="search" action="https://sajaldebnath.github.io/search">
         <label for="search_input">
             <input id="search_input" name="q" type="text" placeholder="Search in the blog">
         </label>
@@ -171,6 +171,14 @@
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

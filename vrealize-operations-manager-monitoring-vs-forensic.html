@@ -75,7 +75,7 @@
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
   </li></ul>
-  <form class="search" action="https://sajaldebnath.com/search">
+  <form class="search" action="https://sajaldebnath.github.io/search">
         <label for="search_input">
             <input id="search_input" name="q" type="text" placeholder="Search in the blog">
         </label>
@@ -106,16 +106,16 @@
           <!-- Right Side Space -->
           <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-3 clr-col-xl-3 clr-justify-content-end">
             <img border="0" alt="Home" src="/share-solid.svg" width="18" height="18">
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Twitter" src="/twitter.svg" width="18" height="18">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="18" height="18">
 </a>
 
@@ -142,7 +142,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 <li>Why the resource utilization metrics shown by OS and other monitoring tools does not match with those shown in vRealize Operations Manager?<a id="more"></a></li>
 <li>Why vRealize Operations Manager shows so many parameters and is complex to look at?</li>
 <li>Why the reclamation suggestions provided by vRealize Operations Manager does not align with other tools?</li>
-<li>Why only badges are shown instead of utilization in <a href="http://www.vmware.com/products/vrealize-automation.html" rel="external nofollow noopener noreferrer" target="_blank">vRealize Automation</a> when you integrate it with vRealize Operations Manager?</li>
+<li>Why only badges are shown instead of utilization in <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">vRealize Automation</a> when you integrate it with vRealize Operations Manager?</li>
 </ul>
 <p>If your answer is yes to any of the above, then this blog is for you. Before I go ahead and discuss the above questions, let’s cover some basics first.</p>
 <h4 id="What-is-Monitoring"><a href="#What-is-Monitoring" class="headerlink" title="What is Monitoring?"></a><strong>What is Monitoring?</strong></h4><p>Monitoring can be defined as observing the current behavior of any system to make sure that it runs as expected or well within the defined boundaries. We use this method in our everyday life in all possible areas. For this discussion, I am confining myself to only Datacenter monitoring and more specifically to Virtualized Datacenter. From Datacenter perspective, monitoring means the process of using manual or automated tools and techniques to continuously observe the different components of Datacenter to make sure that the health of every one of them is in compliance with defined criteria’s. Traditionally from Datacenter perspective we majorly monitor the following components:</p>
@@ -162,8 +162,8 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 <p>Next question is what to monitor for? Once you are clear about what you need to monitor then we can decide which tool to use. </p>
 <p><strong>What parameters to monitor?</strong> Here I am not going to discuss about physical server, Datacenter Network or Storage health, as that remains same (not considering Software Defined Storage or network). In this blog I am going to talk only about Operating Systems or Applications monitoring. </p>
 <p>In traditional environment we are content with monitoring different parameters and metrics for server utilization (typically CPU, Memory, Network and Storage). But as discussed above, in virtualized environment what an Operating System sees inside a virtual machine is not the entire picture. It is only part of the picture. </p>
-<p><strong>Note:</strong> From here onwards I will be more specific to VMware environment, but the general idea and discussion can be applied to any hypervisor environment. It’s just that <a href="http://www.vmware.com/products/vrealize-automation.html" rel="external nofollow noopener noreferrer" target="_blank">VMware hypervisor</a> is more sophisticated and has advanced many technologies for managing resources which is not present in other hypervisors. </p>
-<p>As a virtualization admin I am more interested about the overall utilization of the physical server. If a VM is under resource constraint (for example, I have given it 4 GB RAM and it requires 6 GB) and I have enough free resources at the hypervisor level, then simply increasing the resources for that VM will solve the problem. But consider the following scenario. The physical server has 64 GB physical RAM. If I keep aside 4 GB RAM for <a href="http://www.vmware.com/products/vrealize-automation.html" rel="external nofollow noopener noreferrer" target="_blank">ESXi Hypervisor</a>, that leaves us with 60 GB RAM. Next, let’s assume I have deployed 50 VM’s with 3 GB vRAM each in that server. So the total allocation resource is 150 GB vRAM. I am over allocating by 90 GB. </p>
+<p><strong>Note:</strong> From here onwards I will be more specific to VMware environment, but the general idea and discussion can be applied to any hypervisor environment. It’s just that <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">VMware hypervisor</a> is more sophisticated and has advanced many technologies for managing resources which is not present in other hypervisors. </p>
+<p>As a virtualization admin I am more interested about the overall utilization of the physical server. If a VM is under resource constraint (for example, I have given it 4 GB RAM and it requires 6 GB) and I have enough free resources at the hypervisor level, then simply increasing the resources for that VM will solve the problem. But consider the following scenario. The physical server has 64 GB physical RAM. If I keep aside 4 GB RAM for <a href="http://www.vmware.com/products/vrealize-automation.html" target="_blank" rel="noopener">ESXi Hypervisor</a>, that leaves us with 60 GB RAM. Next, let’s assume I have deployed 50 VM’s with 3 GB vRAM each in that server. So the total allocation resource is 150 GB vRAM. I am over allocating by 90 GB. </p>
 <p>Till the time VM’s use less RAM and the overall current requirement stays below 60GB this environment runs fine with no issues. But if somehow all the VM’s starts using 50% of the vRAM allocated to each of them at the same time (you cannot say NO ) then your active RAM requirement is 75 GB which is greater than what the server has (60GB) and you run into performance problem. </p>
 <p>You see, all your individual VM’s utilization is 50%, but overall you have severe performance issue. It is evident that in virtual environment you should monitor not only for allocation or current utilization but also for <strong>DEMAND</strong> and should be more interested about the <strong>TREND</strong> than just the current Utilization. Using normal monitoring tools, monitoring only the current utilization is not sufficient because in virtualized environment you typically over-provision resources (if not memory then always CPU) and you need to know the trend for the resource utilization so that you can predict the utilization as well. </p>
 <p>This leads to predicting the capacity as well. You need to know well in advance when you will be out of resources and need to procure more. This is particularly important for dynamic environments where the environment grows at a faster pace (service provider or private/public cloud environment). Also when a problem occurs in a VM, you should be able to see the entire environment from a single page and co-relate between all the different parameters and understand the cause and effect and thus finding Root-Cause of a problem in the shortest time possible.</p>
@@ -184,7 +184,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 <li>Memory Compression</li>
 <li>Swapping</li>
 </ul>
-<p>All of the above helps ESXi to safely give us the option to do over-provisioning of memory. So if a VM asks for new memory pages that does not always mean it is taking extra physical memory space. It may be possible some other VM has the same exact page and that page gets shared with this VM. So essentially this VM got a new page but from ESXi perspective no extra page or memory space is required to serve the request. More about these can be found <a href="http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/perf-vsphere-memory_management.pdf" rel="external nofollow noopener noreferrer" target="_blank">here</a>. </p>
+<p>All of the above helps ESXi to safely give us the option to do over-provisioning of memory. So if a VM asks for new memory pages that does not always mean it is taking extra physical memory space. It may be possible some other VM has the same exact page and that page gets shared with this VM. So essentially this VM got a new page but from ESXi perspective no extra page or memory space is required to serve the request. More about these can be found <a href="http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/perf-vsphere-memory_management.pdf" target="_blank" rel="noopener">here</a>. </p>
 <p>Hence a new memory request for a VM does not always mean a new memory page served by ESXi. So from inside the operating system it may be reported that the utilization of that OS instance is 60%, but from vRealize Operations Manager it may report that the utilization of that VM is only 50%. Notice the difference, from inside the VM, OS reports the utilization of the OS, but from outside the VM, vRealize Operations Manager reports the VM utilization which may be different and in all probability will be less than the one reported from within. Also when you talk about virtualization and memory management by Hypervisor, you need to know the following parameters and what they mean:</p>
 <ul>
 <li>Allocation (Capacity)</li>
@@ -217,9 +217,9 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 <li>Double check the reclaim values and apply realistically. For e.g if a VM has 12 GB vRAM and vRealize Operations Manager suggests 4 GB, don’t just reduce the value to 4 GB. First reduce the value to 8 GB, monitor for some time and if everything goes well then further reduce to 4 GB.</li>
 <li>While calculating overall capacity of hypervisor trust vRealize Operations Manager. It is based on Demand and is pretty good at predicting the load.</li>
 <li>Change the way you monitor your environment, specially if it a big one. With thousands of VMs you can not monitor utilization for each and every component. With the utilization metrics you need to find the health yourself. This tool gives it out of the box. It learns, knows and tells you about the health of the components. Take advantage of this.</li>
-<li>Go ahead give it a try. Download it from this <a href="https://my.vmware.com/web/vmware/info/slug/infrastructure_operations_management/vmware_vrealize_operations/6_3" rel="external nofollow noopener noreferrer" target="_blank">location</a>.</li>
+<li>Go ahead give it a try. Download it from this <a href="https://my.vmware.com/web/vmware/info/slug/infrastructure_operations_management/vmware_vrealize_operations/6_3" target="_blank" rel="noopener">location</a>.</li>
 </ol>
-<p>To know more about this great product please visit the <a href="https://www.vmware.com/support/pubs/vrealize-operations-manager-pubs.html" rel="external nofollow noopener noreferrer" target="_blank">documentation area</a>. Also check the great training available from <a href="https://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=58804" rel="external nofollow noopener noreferrer" target="_blank">VMware Education</a>. Following are the main reasons for which I use this tool:</p>
+<p>To know more about this great product please visit the <a href="https://www.vmware.com/support/pubs/vrealize-operations-manager-pubs.html" target="_blank" rel="noopener">documentation area</a>. Also check the great training available from <a href="https://mylearn.vmware.com/mgrreg/courses.cfm?ui=www_edu&amp;a=one&amp;id_subject=58804" target="_blank" rel="noopener">VMware Education</a>. Following are the main reasons for which I use this tool:</p>
 <ul>
 <li>Overall Health Monitoring</li>
 <li>performance analysis</li>
@@ -235,16 +235,16 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
        <div class="clr-row clr-align-items-start">
          <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
            <b>Share: &emsp; </b>
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Twitter" src="/twitter.svg" width="25" height="25">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
@@ -319,6 +319,14 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   
