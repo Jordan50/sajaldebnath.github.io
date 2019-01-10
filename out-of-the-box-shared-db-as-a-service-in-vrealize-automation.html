@@ -75,7 +75,7 @@
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
   </li></ul>
-  <form class="search" action="https://sajaldebnath.github.io/search">
+  <form class="search" action="https://sajaldebnath.com/search">
         <label for="search_input">
             <input id="search_input" name="q" type="text" placeholder="Search in the blog">
         </label>
@@ -106,16 +106,16 @@
           <!-- Right Side Space -->
           <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-3 clr-col-xl-3 clr-justify-content-end">
             <img border="0" alt="Home" src="/share-solid.svg" width="18" height="18">
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Facebook" src="/facebook.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Twitter" src="/twitter.svg" width="18" height="18">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="18" height="18">
 </a>
 
@@ -138,7 +138,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
    <div class="card-text">
          <!-- Content -->
       <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>This blog post provides details of shared DB-as-a-Service capability in vRealize Automation. This functionality provided by vRO workflows. A vRO package was created and is available here. Details of the required tools and configuration steps are also provided. Also, the repository details of the package given.<br><a id="more"></a></p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h3><p>In last few months, I got many requests for shared DB-as-a-Service for private cloud. Specifically, the private clouds built with <a href="https://www.vmware.com/in/products/vrealize-automation.html" target="_blank" rel="noopener">VMware</a> vRealize Automation. Considering this, I decided to create a vRealize Orchestrator package for this purpose. This will provide such capability out-of-the box in vRA. Import the package, run a single workflow, provide the inputs. The services published in vRA Catalog. Any consumer requiring such service can request the items from Catalog. As of now, this package supports three different types of databases, MSSQL, PostgreSQL and MySQL.</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h3><p>In last few months, I got many requests for shared DB-as-a-Service for private cloud. Specifically, the private clouds built with <a href="https://www.vmware.com/in/products/vrealize-automation.html" rel="external nofollow noopener noreferrer" target="_blank">VMware</a> vRealize Automation. Considering this, I decided to create a vRealize Orchestrator package for this purpose. This will provide such capability out-of-the box in vRA. Import the package, run a single workflow, provide the inputs. The services published in vRA Catalog. Any consumer requiring such service can request the items from Catalog. As of now, this package supports three different types of databases, MSSQL, PostgreSQL and MySQL.</p>
 <h4 id="Why-Shared-DB-as-a-Service"><a href="#Why-Shared-DB-as-a-Service" class="headerlink" title="Why Shared DB-as-a-Service:"></a>Why Shared DB-as-a-Service:</h4><p>I want to cover a little background before going into details of the package contents. A dedicated database server is generally used for a production environment or for heavy workloads. For development or for testing we do not need a dedicated database server. The Same policy applies to milder workloads as well. For these use cases, we need a shared database server. Here we create a database instance on the same database server and consume it as per our need.</p>
 <p>With the rise of Cloud services, shared DB-as-a-Service became very popular.  There, Database instances created and consumed as and when required. This post gives details of the vRO package which provides this exact functionality. This package used in vRealize Automation environment to provide shared DB-as-a-Service.</p>
 <h4 id="How-it-works"><a href="#How-it-works" class="headerlink" title="How it works:"></a>How it works:</h4><p>First, download and import the vRealize Orchestrator package “com.vmware.db-as-a-service.package”. After import, as an admin, run the main workflow “Setup Database-as-a-Service Environment”. This workflow will set the environment. The workflow asks for the inputs and sets the environment. It publishes Catalog items. End users request for the item and get the services. Users provide details of user name, password and db name to create the databases.</p>
@@ -170,7 +170,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 </li>
 <li><p>Registered IaaS server</p>
 </li>
-<li><p>A configured vRA environment (For details on how to configure check <a href="https://docs.vmware.com/en/vRealize-Automation/index.html" target="_blank" rel="noopener">this link</a>)</p>
+<li><p>A configured vRA environment (For details on how to configure check <a href="https://docs.vmware.com/en/vRealize-Automation/index.html" rel="external nofollow noopener noreferrer" target="_blank">this link</a>)</p>
 </li>
 </ul>
 <p><strong>Database Environmental Setup:</strong></p>
@@ -193,7 +193,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 </ul>
 <p>You can change the configurations as per your need. Let me know what modifications you need and I will incorporate them.</p>
 <p>Also, configuring all three of the databases is not mandatory. If you have only one database environment, configure that and the rest skipped.</p>
-<h4 id="Package-source-and-details"><a href="#Package-source-and-details" class="headerlink" title="Package source and details:"></a>Package source and details:</h4><p>I have created a <a href="https://github.com/sajaldebnath/shared-db-as-a-service" target="_blank" rel="noopener">GitHub repository</a> from where you can download the package. The package name is “com.vmware.db-as-a-service.package”. The package will create a folder “Database-as-a-Service” under the main workflow window. It also has “Helper Workflows”, “Database Creation Workflows” and “Environment Setup Workflows” folders. All these under this main “Database-as-a-Service” folder. The “Environment Setup Workflows” contains the workflows related to setting up the environment. The “Database Creation Workflows” contains the workflows which create the actual databases. “Helper Workflows” folder contains workflows to set and get the environment details.</p>
+<h4 id="Package-source-and-details"><a href="#Package-source-and-details" class="headerlink" title="Package source and details:"></a>Package source and details:</h4><p>I have created a <a href="https://github.com/sajaldebnath/shared-db-as-a-service" rel="external nofollow noopener noreferrer" target="_blank">GitHub repository</a> from where you can download the package. The package name is “com.vmware.db-as-a-service.package”. The package will create a folder “Database-as-a-Service” under the main workflow window. It also has “Helper Workflows”, “Database Creation Workflows” and “Environment Setup Workflows” folders. All these under this main “Database-as-a-Service” folder. The “Environment Setup Workflows” contains the workflows related to setting up the environment. The “Database Creation Workflows” contains the workflows which create the actual databases. “Helper Workflows” folder contains workflows to set and get the environment details.</p>
 <p><img src="/images/2017/07/Folder-Structure.png" alt="Folder Structure for shared DB-as-a-Service" class="responsive"></p>
 <p>The package contains other related workflows, actions, and resource items.</p>
 <h4 id="How-to-run-the-workflows"><a href="#How-to-run-the-workflows" class="headerlink" title="How to run the workflows?"></a>How to run the workflows?</h4><p>The first thing to do is to setup the environment. So login to vRO server, import the package. Next, as an administrator run the “Setup Database-as-a-Service Environment” workflow. This will ask for the following inputs:</p>
@@ -233,7 +233,7 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
 <p>The workflows create a user in the database server. The password for the user is the one user provided. Also, a database created with the provided name. The created user is the owner of the database.</p>
 <p><strong>Please watch the following video to see details and working of the service.</strong></p>
 <div class="video-container"><iframe src="//www.youtube.com/embed/CSZGpqqcNHI" frameborder="0" allowfullscreen></iframe></div>
-<h4 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement:"></a>Acknowledgement:</h4><p>This solution was based on work done by Christophe Decanini. I used the modified package available at <a href="https://code.vmware.com/samples/1151/guest-script-manager-package-for-vro-7-orginally-created-by-cdecanini-?h=vRealize%20Orchestrator" target="_blank" rel="noopener">this link</a>. The core logic uses the workflows created and described by his. So full credit goes to Christophe for this wonderful package.</p>
+<h4 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement:"></a>Acknowledgement:</h4><p>This solution was based on work done by Christophe Decanini. I used the modified package available at <a href="https://code.vmware.com/samples/1151/guest-script-manager-package-for-vro-7-orginally-created-by-cdecanini-?h=vRealize%20Orchestrator" rel="external nofollow noopener noreferrer" target="_blank">this link</a>. The core logic uses the workflows created and described by his. So full credit goes to Christophe for this wonderful package.</p>
 <h4 id="To-do"><a href="#To-do" class="headerlink" title="To do:"></a>To do:</h4><ul>
 <li>Workflows for Deletion of an existing database.</li>
 <li>To implement Error checking</li>
@@ -247,16 +247,16 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
        <div class="clr-row clr-align-items-start">
          <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
            <b>Share: &emsp; </b>
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Twitter" src="/twitter.svg" width="25" height="25">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
@@ -331,14 +331,6 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
     }
     });
 
-    // Handling the Subnav menubar options in Responsive mode
-     $(".header-overflow-trigger").on('click',function(){
-       if($(".main-container").hasClass("open-overflow-menu")){
-         $(".main-container").removeClass("open-overflow-menu");
-       }else{
-         $(".main-container").addClass("open-overflow-menu");
-       }
-     });
   </script>
   <!-- Disqus Comments -->
   

@@ -8,6 +8,13 @@
     </url>
     
     <url>
+        <loc>https://sajaldebnath.com/categories/</loc>
+        <lastmod>2019-01-10T09:11:04.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://sajaldebnath.com/search/</loc>
         <lastmod>2019-01-10T07:16:47.060Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -38,13 +45,6 @@
     <url>
         <loc>https://sajaldebnath.com/about/</loc>
         <lastmod>2018-06-29T23:48:39.063Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://sajaldebnath.com/categories/</loc>
-        <lastmod>2018-06-23T08:18:06.445Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -75,7 +75,7 @@
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
   </li></ul>
-  <form class="search" action="https://sajaldebnath.github.io/search">
+  <form class="search" action="https://sajaldebnath.com/search">
         <label for="search_input">
             <input id="search_input" name="q" type="text" placeholder="Search in the blog">
         </label>
@@ -106,16 +106,16 @@
           <!-- Right Side Space -->
           <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-3 clr-col-xl-3 clr-justify-content-end">
             <img border="0" alt="Home" src="/share-solid.svg" width="18" height="18">
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Facebook" src="/facebook.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="18" height="18">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Twitter" src="/twitter.svg" width="18" height="18">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="18" height="18">
 </a>
 
@@ -183,7 +183,7 @@ yum <span class="token function">install</span> libaio*
 </ul>
 </li>
 <li>Set <strong>JAVA_HOME</strong> in environment variable.</li>
-<li>Download latest Weblogic generic download files from (<a href="http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-for-dev-1703574.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-for-dev-1703574.html</a>)</li>
+<li>Download latest Weblogic generic download files from (<a href="http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-for-dev-1703574.html" rel="external nofollow noopener noreferrer" target="_blank">http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-for-dev-1703574.html</a>)</li>
 <li>Install sshpass on RHEL 7.2 template</li>
 </ul>
 <p><strong>Step-3: WebLogic-Common-Environment-Creation</strong> </p>
@@ -313,7 +313,7 @@ systemctl disable firewalld
 <p>Blueprint 1</p>
 <p>Save the blueprint and follow the process to expose it as a Catalog Item in vRealize Automation. </p>
 <p><strong> Please note, while giving entitlement, please provide </strong>“Scale Out (Deployment)”** as an Action Item on the items. </p>
-<p><strong>Import the vRO Package:</strong> Download the vRO package from <a href="https://github.com/sajaldebnath/Weblogic-as-a-Service" target="_blank" rel="noopener">GitHub Repository</a>. Next, import the vRO package <strong>“com.vmware.library.weblogic-as-a-service.package”</strong> in vRealize Orchestrator server.</p>
+<p><strong>Import the vRO Package:</strong> Download the vRO package from <a href="https://github.com/sajaldebnath/Weblogic-as-a-Service" rel="external nofollow noopener noreferrer" target="_blank">GitHub Repository</a>. Next, import the vRO package <strong>“com.vmware.library.weblogic-as-a-service.package”</strong> in vRealize Orchestrator server.</p>
 <h4 id="Build-the-Catalog-Item"><a href="#Build-the-Catalog-Item" class="headerlink" title="Build the Catalog Item"></a>Build the Catalog Item</h4><p>Next, build a XaaS catalog item in vRealize Automation. Login to vRA with a user with proper rights to create a XaaS Blueprint. Go to Design à XaaS à XaaS Blueprints. Click on New, in the new window, select “Weblogic-as-a-Service” workflow under the Weblogic-as-a-Service Folder in vRO workflow list. Press next and select all the default values. </p>
 <p><img src="/images/2018/02/Blueprint-2.jpg" alt="Image1" class="responsive"></p>
 <h4 id="Setting-up-Values-in-vRO"><a href="#Setting-up-Values-in-vRO" class="headerlink" title="Setting up Values in vRO"></a>Setting up Values in vRO</h4><p>We need to set up the following values in <strong>“Weblogic-as-a-Service”</strong> in vRO. </p>
@@ -635,16 +635,16 @@ EOF</span>
        <div class="clr-row clr-align-items-start">
          <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
            <b>Share: &emsp; </b>
-<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://www.linkedin.com/shareArticle?mini=true&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="LinkedIn" src="/linkedin.svg" width="25" height="25">
 </a>
-<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="http://twitter.com/intent/tweet?text=An%20intersting%20blog&url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Twitter" src="/twitter.svg" width="25" height="25">
 </a>
-<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+<a class="card-link" href="https://plus.google.com/share?url=https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" rel="external nofollow noopener noreferrer" target="_blank">
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
@@ -719,14 +719,6 @@ EOF</span>
     }
     });
 
-    // Handling the Subnav menubar options in Responsive mode
-     $(".header-overflow-trigger").on('click',function(){
-       if($(".main-container").hasClass("open-overflow-menu")){
-         $(".main-container").removeClass("open-overflow-menu");
-       }else{
-         $(".main-container").addClass("open-overflow-menu");
-       }
-     });
   </script>
   <!-- Disqus Comments -->
   
