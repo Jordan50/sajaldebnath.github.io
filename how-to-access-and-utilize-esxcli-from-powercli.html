@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation and Scripting</a> <a href="/categories/Automation-and-Scripting/PowerCLI/">#PowerCLI</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-10-25
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Automation/">#Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-10-25
 
 
 
@@ -151,7 +156,7 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
 
     EsxCli: esxi1<span class="token punctuation">.</span>lab<span class="token punctuation">.</span>com
        Elements:
-       <span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span><span class="token operator">-</span>
+<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span><span class="token operator">-</span>
        device
        elxnet
        esxcli
@@ -179,7 +184,7 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
     EsxCliElement: hardware
 
        Elements:
-       <span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span><span class="token operator">-</span>
+<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span><span class="token operator">-</span>
        bootdevice
        clock
        cpu
@@ -200,7 +205,7 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
     EsxCliElement: platform
 
        Methods:
-       <span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span>
+<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span>
 
        PlatformGet get<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -227,8 +232,9 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-access-and-utilize-esxcli-from-powercli.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -242,6 +248,12 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -273,7 +285,6 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -308,6 +319,14 @@ PS C:> Connect-VIServer esxi1.lab.com -Username root -Password abcxyz
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

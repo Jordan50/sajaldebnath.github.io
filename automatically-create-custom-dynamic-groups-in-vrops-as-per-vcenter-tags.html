@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/Automation-and-Scripting/">#Automation and Scripting</a> <a href="/categories/Automation-and-Scripting/PowerCLI/">#PowerCLI</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> <a href="/categories/Automation-and-Scripting/Python/">#Python</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-06-27
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Monitoring/">#Monitoring</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-06-27
 
 
 
@@ -175,11 +180,11 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 <li>PowerShel 5.0</li>
 <li>Python 2.7.x</li>
 </ul>
-<p>To run the script you would need Nagini module (python client) for vROps REST API. Please <a href="http://www.vrandom.com/vrops/python-api/" rel="external nofollow noopener noreferrer" target="_blank">check this blog</a> for details on how you can download and use this module.</p>
+<p>To run the script you would need Nagini module (python client) for vROps REST API. Please <a href="http://www.vrandom.com/vrops/python-api/" target="_blank" rel="noopener">check this blog</a> for details on how you can download and use this module.</p>
 <h4 id="Acknowledgement"><a href="#Acknowledgement" class="headerlink" title="Acknowledgement:"></a>Acknowledgement:</h4><p>Before I start writing this blog I need to say thanks to few people.</p>
 <ul>
-<li>To save time, for data gathering, I used the <a href="https://blogs.vmware.com/PowerCLI/2014/03/using-vsphere-tags-powercli.html" rel="external nofollow noopener noreferrer" target="_blank">ExportImportTags.ps1 given here</a> (originally created by <strong>Dimitar Barfonchovski</strong>). It is a small and simple script and I made many changes to the original script (removed the import portion and exported data in JSON format in place or original XML format). Instead of saving the entire data, I am saving a subset of it.</li>
-<li>My friend <strong>Vinith Menon</strong> already written a script similar to this. His original blog was further re-created by <strong>John Dias.</strong> You can find <a href="https://blogs.vmware.com/management/2017/03/access-internal-rest-apis-in-vr-ops-with-powershell.html" rel="external nofollow noopener noreferrer" target="_blank">details here</a>. Vinith written the script in PowerShell.</li>
+<li>To save time, for data gathering, I used the <a href="https://blogs.vmware.com/PowerCLI/2014/03/using-vsphere-tags-powercli.html" target="_blank" rel="noopener">ExportImportTags.ps1 given here</a> (originally created by <strong>Dimitar Barfonchovski</strong>). It is a small and simple script and I made many changes to the original script (removed the import portion and exported data in JSON format in place or original XML format). Instead of saving the entire data, I am saving a subset of it.</li>
+<li>My friend <strong>Vinith Menon</strong> already written a script similar to this. His original blog was further re-created by <strong>John Dias.</strong> You can find <a href="https://blogs.vmware.com/management/2017/03/access-internal-rest-apis-in-vr-ops-with-powershell.html" target="_blank" rel="noopener">details here</a>. Vinith written the script in PowerShell.</li>
 </ul>
 <h4 id="Why-similar-script-for-creating-custom-dynamic-groups"><a href="#Why-similar-script-for-creating-custom-dynamic-groups" class="headerlink" title="Why similar script for creating custom dynamic groups?"></a>Why similar script for creating custom dynamic groups?</h4><p>Question is, why I wrote script which does the similar task for which Vinith Menon already had a script? Provided below are my reasons:</p>
 <ul>
@@ -187,7 +192,7 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 <li>I always stressed that when it comes to vROps REST API, python is a far more cleaner and easier way to do it.</li>
 </ul>
 <p>Note, in PowerShell way you will actually have to do the bare bone Invoke-RestMethod. Python already handles those for you. Just call the methods and you are good.</p>
-<h4 id="Where-to-get-the-scripts-and-what-is-included"><a href="#Where-to-get-the-scripts-and-what-is-included" class="headerlink" title="Where to get the scripts and what is included?"></a>Where to get the scripts and what is included?</h4><p>I have created a <a href="https://github.com/sajaldebnath/vrops-custom-group-creation/" rel="external nofollow noopener noreferrer" target="_blank">GitHub repository</a> from where you can download the scripts.   The following scripts are available:</p>
+<h4 id="Where-to-get-the-scripts-and-what-is-included"><a href="#Where-to-get-the-scripts-and-what-is-included" class="headerlink" title="Where to get the scripts and what is included?"></a>Where to get the scripts and what is included?</h4><p>I have created a <a href="https://github.com/sajaldebnath/vrops-custom-group-creation/" target="_blank" rel="noopener">GitHub repository</a> from where you can download the scripts.   The following scripts are available:</p>
 <ul>
 <li><p>create-custom-group-vrops.py</p>
 </li>
@@ -224,8 +229,9 @@ C:\> python create-custom-group-vrops.py
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/automatically-create-custom-dynamic-groups-in-vrops-as-per-vcenter-tags.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -239,6 +245,12 @@ C:\> python create-custom-group-vrops.py
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -270,7 +282,6 @@ C:\> python create-custom-group-vrops.py
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -305,6 +316,14 @@ C:\> python create-custom-group-vrops.py
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

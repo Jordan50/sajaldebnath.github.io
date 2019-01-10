@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Automation/">#vRealize Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-12-19
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Automation/">#Automation</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-12-19
 
 
 
@@ -141,7 +146,7 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 <li>Converged Blueprint Designer: In this version vRA is completely integrated with previously known product Application Director. Also the Blueprint designer is completely re-designed to that of Application Director. So all of you who have worked with App. Director you will find no surprise here. Though this feature gives tremendous strength to XaaS offering.</li>
 <li>Event Broker Service: Remember the Message Bus Service in vCloud Director RabbitMQ? In this version it is integrated in vRA as well, thus extending the extensibility. This is called Event Broker Service in vRA.</li>
 </ol>
-<p>Those were the main points. For details please check the excellent blog by Jad El-Zain at <a href="https://blogs.vmware.com/management/2015/10/vrealize-automation-7-0-spotlight-innovations-overview.html" rel="external nofollow noopener noreferrer" target="_blank">vrealize-automation-7-0-spotlight-innovations-overview</a>.</p>
+<p>Those were the main points. For details please check the excellent blog by Jad El-Zain at <a href="https://blogs.vmware.com/management/2015/10/vrealize-automation-7-0-spotlight-innovations-overview.html" target="_blank" rel="noopener">vrealize-automation-7-0-spotlight-innovations-overview</a>.</p>
 <p>So I decided to take this version for a spin and check for myself what are the changes and how they look. I am going to write a blog series on Installation and Configuration of vRA 7.0.</p>
 <p><strong>Installation Options:</strong> When it comes to installation for vRA 7.0, we have following options:</p>
 <ol>
@@ -154,7 +159,7 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 <li>Deploy an Enterprise environment with complex distributed architecture</li>
 </ol>
 <p>For the purpose of this testing I will use the Installation Wizard and the PoC Deployment type.</p>
-<p>The first task is to download the vRealize Automation 7.0 appliance. You can download it from <a href="https://my.vmware.com/group/vmware/info?slug=infrastructure_operations_management/vmware_vrealize_automation/7_0" rel="external nofollow noopener noreferrer" target="_blank">(vRealize Automation 7.0 download)</a>. Once downloaded deploy it in your environment the way you do for any ova template. Remember you need to provide network, dns, domain, hostname etc. related information during the deployment. I am not detailing the ova deployment as that is similar to any ova deployment.</p>
+<p>The first task is to download the vRealize Automation 7.0 appliance. You can download it from <a href="https://my.vmware.com/group/vmware/info?slug=infrastructure_operations_management/vmware_vrealize_automation/7_0" target="_blank" rel="noopener">(vRealize Automation 7.0 download)</a>. Once downloaded deploy it in your environment the way you do for any ova template. Remember you need to provide network, dns, domain, hostname etc. related information during the deployment. I am not detailing the ova deployment as that is similar to any ova deployment.</p>
 <p>The Wizard installation supports two different modes. The first one where you use the wizard to configure only the vRA Appliance. The second one in which it configures the vRA appliance and installs the IaaS server as well.</p>
 <p>I will cover them one by one.</p>
 <p><strong>My lab environment:</strong></p>
@@ -166,7 +171,7 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 <p>IAAS          : iaas.lab.com (hosts DB as well)</p>
 <p>VRA           : vra.lab.com</p>
 <p><strong>Configuring only vRA Appliance:</strong></p>
-<p>Since I am going to use the vRA appliance configuration option only so I have not prepared a VM for IaaS at this stage. Once you deploy the appliance you need to access it through https://&lt;appliance FQDN/IP&gt;:5480 , this would open the configuration page. In my case after the deployment of vRA I accessed it through <a href="https://vra.lab.com:5480" rel="external nofollow noopener noreferrer" target="_blank">https://vra.lab.com:5480</a> it asks for user id and password. Provided the root id and password. It directly opens the Wizard on top of the details tabs.</p>
+<p>Since I am going to use the vRA appliance configuration option only so I have not prepared a VM for IaaS at this stage. Once you deploy the appliance you need to access it through https://&lt;appliance FQDN/IP&gt;:5480 , this would open the configuration page. In my case after the deployment of vRA I accessed it through <a href="https://vra.lab.com:5480" target="_blank" rel="noopener">https://vra.lab.com:5480</a> it asks for user id and password. Provided the root id and password. It directly opens the Wizard on top of the details tabs.</p>
 <ul>
 <li>This is the first screen that you get. Remember if you cancel it once then you can not get it back. At the top right corner there is a “LogOff” option. You can logoff at any time and when you log back in Wizard will start again, but if you cancel it once and do any manual step, you can not take help of Wizard again.</li>
 </ul>
@@ -217,8 +222,9 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/part-i-vrealize-automation-7-0-installation-configuration.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -232,6 +238,12 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -263,7 +275,6 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -298,6 +309,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

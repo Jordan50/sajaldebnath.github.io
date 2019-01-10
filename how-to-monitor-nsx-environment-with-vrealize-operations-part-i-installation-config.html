@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/NSX/">#NSX</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2016-09-16
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Monitoring/">#Monitoring</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2016-09-16
 
 
 
@@ -133,7 +138,7 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
    <div class="card-text">
          <!-- Content -->
       <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Hello, my last post was about monitoring NSX environment using vRealize Network Insight. That is an amazing tool and a must have if you have NSX in your environment. In the meantime I thought of writing a post on using vRealize Operations (vRops) to monitor NSX environment. This is going to be a two part blog, where, in the first part I will cover the installation and configure portion and in the second part will explore the solution.<br><a id="more"></a></p>
-<p>To start with, you need to install NSX plugin for vROps. Go to Solution Exchange and download from the link <a href="https://solutionexchange.vmware.com/store/products/management-pack-for-nsx-for-vsphere-3-1-x" rel="external nofollow noopener noreferrer" target="_blank">https://solutionexchange.vmware.com/store/products/management-pack-for-nsx-for-vsphere-3-1-x</a> . In the link you can check the pre-requisites for the package as well. Note, it is supported for vROps version 6.1.x, 6.2.x and the latest 6.3. It is not supported on version 6.0. Also check for other compatibilities as well. Currently the PAK version is 3.1.x. So let’s assume we have downloaded the PAK file (vmware-MPforNSX-vSphere-3.1.1-4247401.pak) and ready to upload the file. </p>
+<p>To start with, you need to install NSX plugin for vROps. Go to Solution Exchange and download from the link <a href="https://solutionexchange.vmware.com/store/products/management-pack-for-nsx-for-vsphere-3-1-x" target="_blank" rel="noopener">https://solutionexchange.vmware.com/store/products/management-pack-for-nsx-for-vsphere-3-1-x</a> . In the link you can check the pre-requisites for the package as well. Note, it is supported for vROps version 6.1.x, 6.2.x and the latest 6.3. It is not supported on version 6.0. Also check for other compatibilities as well. Currently the PAK version is 3.1.x. So let’s assume we have downloaded the PAK file (vmware-MPforNSX-vSphere-3.1.1-4247401.pak) and ready to upload the file. </p>
 <p>I have already logged into vROps environment using Admin account. In your environment, you can use any RBAC with admin rights. To start the installation Go to <strong>Administration–&gt;Solutions</strong>, and on the right side of the page click on the green Plus sign to add the downloaded PAK file.   </p>
 <p><img src="/images/2016/09/Picture1.png" alt="picture1" class="responsive"></p>
 <p>It will open up a new window to provide the details. Click on Browse button to browse for the file and select it. </p>
@@ -178,8 +183,9 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-monitor-nsx-environment-with-vrealize-operations-part-i-installation-config.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -193,6 +199,12 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -224,7 +236,6 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -259,6 +270,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

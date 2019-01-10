@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-05-01
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-05-01
 
 
 
@@ -133,7 +138,7 @@ Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbs
    <div class="card-text">
          <!-- Content -->
       <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>If you are working in Virtualization and Cloud space, then you must have heard about Software Defined Storage (SDS). It is part of Software-Defined Data Center (SDDC) (a term coined by VMware). Since VMware started the SDDC journey and is a pioneer in this technology, so, today I am going to cover VMware solution in this space. Virtual SAN or vSAN is the solution from VMware which provides SDS capabilities in VMware environment.<br><a id="more"></a><br>This post will cover vSAN in detail with a demo at the end. By following this post you will have a clear understanding of vSAN and would be able to utilize it in your environment.</p>
-<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>Before we discuss vSAN, let’s talk about Software Defined Storage a bit. In <a href="http://www.vmware.com/products/software-defined-storage.html" rel="external nofollow noopener noreferrer" target="_blank">VMware words</a>, Software-defined storage (SDS) abstracts the underlying storage through a virtual data plane, making the VM (and the application) the fundamental unit of storage provisioning and management across heterogeneous storage systems. Also, in the <a href="http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/solutions/vmware-perspective-on-software-defined-storage-white-paper.pdf" rel="external nofollow noopener noreferrer" target="_blank">VMware software-defined storage (SDS)</a> model, storage services are dynamically composed and driven by policy. This is accomplished by abstracting the underlying hardware, similar to the server and network virtualization. Unlike traditional SAN environment, in SDS, the end VM’s are of utmost importance. In typical SAN environment, we configure storage first. The endpoints consume storage through configured LUN’s.  All VM’s residing in the LUN gets the same protection, performance, and incurs same IO penalty. For example, a transactional database will benefit greatly from a LUN backed by RAID10. A typical website with random read/write will benefit from RAID5. Archival data benefits from a RAID6 LUN. We rarely segregate VM’s per their IO profile in a traditional enviornment. Which leads to less performing VM’s. Per VM policies and specialized software define storage in SDS environment. So, if a VM hosts a database we can set individual policies according to it. It has no effect on another VM. Thus we benefit greatly from this type of setup. Besides management of these environments are really easy.</p>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>Before we discuss vSAN, let’s talk about Software Defined Storage a bit. In <a href="http://www.vmware.com/products/software-defined-storage.html" target="_blank" rel="noopener">VMware words</a>, Software-defined storage (SDS) abstracts the underlying storage through a virtual data plane, making the VM (and the application) the fundamental unit of storage provisioning and management across heterogeneous storage systems. Also, in the <a href="http://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/whitepaper/solutions/vmware-perspective-on-software-defined-storage-white-paper.pdf" target="_blank" rel="noopener">VMware software-defined storage (SDS)</a> model, storage services are dynamically composed and driven by policy. This is accomplished by abstracting the underlying hardware, similar to the server and network virtualization. Unlike traditional SAN environment, in SDS, the end VM’s are of utmost importance. In typical SAN environment, we configure storage first. The endpoints consume storage through configured LUN’s.  All VM’s residing in the LUN gets the same protection, performance, and incurs same IO penalty. For example, a transactional database will benefit greatly from a LUN backed by RAID10. A typical website with random read/write will benefit from RAID5. Archival data benefits from a RAID6 LUN. We rarely segregate VM’s per their IO profile in a traditional enviornment. Which leads to less performing VM’s. Per VM policies and specialized software define storage in SDS environment. So, if a VM hosts a database we can set individual policies according to it. It has no effect on another VM. Thus we benefit greatly from this type of setup. Besides management of these environments are really easy.</p>
 <h4 id="Any-Doubts"><a href="#Any-Doubts" class="headerlink" title="Any Doubts?"></a>Any Doubts?</h4><p>SDS is generally considered to be slower than traditional storages. The performance of a traditional SAN certainly does not come from capacity disks. Highest performing disks give you 15K RPM. So, whether it is in a storage box or local to a server, performance of a disk remains same. The performance of the storage boxes comes from the large cache they use. Essentially, a storage box runs a specialized software in a dedicated processor and the performance is from the high performing cache tier. What if we give such a cache tier on every server? In a typical virtualized environment, we don’t use the local disks as a capctiy tier. Thus underutilizing resources. We can utilize this storage as capacity tier. For performance, we provide a high performing cache tier on each server. Also, we put a specialized software for handling storage in the hypervisor code. So essentially we mimic a traditional SAN environment.  A dedicated processor handles data processing in a traditional storage. Though a Hypervisor already handles IO requests for VM’s, putting storage decisions in it will place extra load on its resources (about 10%). With careful design and accounting this extra loadremoves the problem. Besides, since Hypervisor now provides both virtualization and storage capabilities, it has greater visibility into the environment and can define policies with more granularity.</p>
 <h4 id="Why-vSAN"><a href="#Why-vSAN" class="headerlink" title="Why vSAN?"></a>Why vSAN?</h4><p>vSAN has the following advantages:</p>
 <ul>
@@ -163,13 +168,14 @@ Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbs
 </ul>
 <p>As always live demo is provided in the session to showcase the information provided in the slides.  </p>
 <div class="video-container"><iframe src="//www.youtube.com/embed/-jnujKHC2-k" frameborder="0" allowfullscreen></iframe></div>
-<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>The vSAN software is already included in the hypervisor. To use it all you need to do is unlock the capabilities with a license key. It is an amazing technology which makes storage so easy to use. So if you are not actively using it, I hope this session will enable and encourage you to start using it. For more details please check the official <a href="http://www.vmware.com/in/products/virtual-san.html" rel="external nofollow noopener noreferrer" target="_blank">VMware site</a> and <a href="https://www.vmware.com/support/pubs/virtual-san-pubs.html" rel="external nofollow noopener noreferrer" target="_blank">product documentation</a>. As always I welcome your feedbacks. Please do share them so that I can fine tune my further sessions.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>The vSAN software is already included in the hypervisor. To use it all you need to do is unlock the capabilities with a license key. It is an amazing technology which makes storage so easy to use. So if you are not actively using it, I hope this session will enable and encourage you to start using it. For more details please check the official <a href="http://www.vmware.com/in/products/virtual-san.html" target="_blank" rel="noopener">VMware site</a> and <a href="https://www.vmware.com/support/pubs/virtual-san-pubs.html" target="_blank" rel="noopener">product documentation</a>. As always I welcome your feedbacks. Please do share them so that I can fine tune my further sessions.</p>
 
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/learn-basic-to-advance-vsan-in-80-minutes.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -183,6 +189,12 @@ Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbs
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -214,7 +226,6 @@ Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbs
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -249,6 +260,14 @@ Related Categories: <a href="/categories/VSAN/">#VSAN</a> &nbsp &nbsp &nbsp &nbs
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

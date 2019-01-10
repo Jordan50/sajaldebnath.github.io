@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,14 +130,14 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-10-24
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Monitoring/">#Monitoring</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-10-24
 
 
 
      
    <div class="card-text">
          <!-- Content -->
-      <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>In the previous post I informed about the general structure of the dashboard. In this post I am going to go deeper and talk about how exactly I built the solution. For this I created a new dashboard by the name “Organization Details”. There is a very good and detailed blog by Jason Gaudreau on how to create a custom dashboard. So instead of re-inventing the wheel I have provided below a link to the blog.<br><a id="more"></a><br>Please check the blog on this topic. <a href="http://www.jasongaudreau.com/2015/05/vrealize-operations-manager-creating.html" rel="external nofollow noopener noreferrer" target="_blank">Jason Gaudreau’s Blog: vRealize Operations Manager - Creating a Custom Monitoring Portal</a> As mentioned earlier I created our custom Dashboard by the name “Organization Details”. The difference being in my case I chose different set of Widgets. I chose a total of 10 Widgets details of which is provided below:</p>
+      <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>In the previous post I informed about the general structure of the dashboard. In this post I am going to go deeper and talk about how exactly I built the solution. For this I created a new dashboard by the name “Organization Details”. There is a very good and detailed blog by Jason Gaudreau on how to create a custom dashboard. So instead of re-inventing the wheel I have provided below a link to the blog.<br><a id="more"></a><br>Please check the blog on this topic. <a href="http://www.jasongaudreau.com/2015/05/vrealize-operations-manager-creating.html" target="_blank" rel="noopener">Jason Gaudreau’s Blog: vRealize Operations Manager - Creating a Custom Monitoring Portal</a> As mentioned earlier I created our custom Dashboard by the name “Organization Details”. The difference being in my case I chose different set of Widgets. I chose a total of 10 Widgets details of which is provided below:</p>
 <p><img src="/images/2015/10/Image004.png" alt="Widget Details" class="responsive"></p>
 <p>Widget Details</p>
 <p>Once the Widgets are added to the dashboard then I need to setup the interaction between them. Since the first widget (Object List Widget) provides a list of the Departments, so it does not depend on any other widget. I configured it as: </p>
@@ -157,19 +162,20 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </code></pre>
 
 
-<p>Note the parameters that I am monitoring here. For a detailed list of parameters you can check the documentation at <a href="http://pubs.vmware.com/vrealizeoperationsmanager-61/index.jsp#com.vmware.vcom.core.doc/GUID-C272EDE0-49E0-44D6-B47F-C32723AC9246.html" rel="external nofollow noopener noreferrer" target="_blank">vROps documentation for metrices</a>. Provided below is a screenshot from where you can add customized XML files.</p>
+<p>Note the parameters that I am monitoring here. For a detailed list of parameters you can check the documentation at <a href="http://pubs.vmware.com/vrealizeoperationsmanager-61/index.jsp#com.vmware.vcom.core.doc/GUID-C272EDE0-49E0-44D6-B47F-C32723AC9246.html" target="_blank" rel="noopener">vROps documentation for metrices</a>. Provided below is a screenshot from where you can add customized XML files.</p>
 <p><img src="/images/2015/10/Image005.png" alt="Custom XML Location" class="responsive"></p>
 <p>Custom XML Location</p>
 <p>Now when we configure the 5th and 6th widgets all we need to do is to select the XML file that we created in the Metric Configuration window. You can see the same from the below screenshot.</p>
 <p><img src="/images/2015/10/Image006.png" alt="Custom XML selection for Scoreboard Widget" class="responsive"></p>
 <p>Custom XML selection for Scoreboard Widget</p>
-<p>Once the configuration of the widgets is finished. I need to create custom users and roles. Remember the 3rd Widget where we got a list of all the VM’s. But our primary aim was to show case only those VM’s which are related to the selected Department only. To achieve this first we will create a custom group, the dashboard will be provided to this group so that whoever is part of this group will be able to see the dashboard. Next we will create a custom role which will be copies from Read Only role and further customize it so that all the unnecessary information will not be shown. Again there is an excellent blog from Jason Gaudreau about how to create custom roles and access policies, so I am not going to cover that portion here. Please check the information at <a href="http://www.jasongaudreau.com/2015/01/vrealize-operations-60-access-control.html" rel="external nofollow noopener noreferrer" target="_blank">Jason Gaudreau’s Blog: vRealize Operations 6.0 - Access Control and Dashboard Management</a>. All I am doing here is creating custom user with Custom Read Only information (roles only which is required to show minimum information) and provide them access to the required Department only. So when I will log in with the user id, I will be able to see the only Department for which he has access in the 1st widget. Also since I have access to that department and its child items only so I will be able to see only those VM’s which are part of that department only in the 3rd Widget. So we have covered all the configuration portion. In the next blog we will see result.</p>
+<p>Once the configuration of the widgets is finished. I need to create custom users and roles. Remember the 3rd Widget where we got a list of all the VM’s. But our primary aim was to show case only those VM’s which are related to the selected Department only. To achieve this first we will create a custom group, the dashboard will be provided to this group so that whoever is part of this group will be able to see the dashboard. Next we will create a custom role which will be copies from Read Only role and further customize it so that all the unnecessary information will not be shown. Again there is an excellent blog from Jason Gaudreau about how to create custom roles and access policies, so I am not going to cover that portion here. Please check the information at <a href="http://www.jasongaudreau.com/2015/01/vrealize-operations-60-access-control.html" target="_blank" rel="noopener">Jason Gaudreau’s Blog: vRealize Operations 6.0 - Access Control and Dashboard Management</a>. All I am doing here is creating custom user with Custom Read Only information (roles only which is required to show minimum information) and provide them access to the required Department only. So when I will log in with the user id, I will be able to see the only Department for which he has access in the 1st widget. Also since I have access to that department and its child items only so I will be able to see only those VM’s which are part of that department only in the 3rd Widget. So we have covered all the configuration portion. In the next blog we will see result.</p>
 
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-2.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -183,6 +189,12 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -214,7 +226,6 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -249,6 +260,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

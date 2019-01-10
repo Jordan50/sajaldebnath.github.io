@@ -8,80 +8,8 @@
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/auto-scaling-deep-dive.html</loc>
-        <lastmod>2019-01-02T20:07:56.379Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/journey-from-wordpress-to-hexo-and-clarity.html</loc>
-        <lastmod>2018-09-24T08:09:48.742Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/finally-it-is-here-powershell-for-linux-and-mac.html</loc>
-        <lastmod>2018-07-31T17:58:59.484Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html</loc>
-        <lastmod>2018-07-31T17:58:46.596Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-monitor-nsx-environment-with-vrealize-operations-part-ii-result.html</loc>
-        <lastmod>2018-07-31T17:40:25.502Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/learn-all-about-vrops-rest-notifications-and-rest-apis-in-60-minutes.html</loc>
-        <lastmod>2018-07-31T17:39:44.824Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-monitor-nsx-environment-with-vrealize-operations-part-i-installation-config.html</loc>
-        <lastmod>2018-07-31T17:38:59.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/automatically-create-custom-dynamic-groups-in-vrops-as-per-vcenter-tags.html</loc>
-        <lastmod>2018-07-28T04:46:43.077Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html</loc>
-        <lastmod>2018-07-27T23:36:05.903Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/vsphere-security-check-script.html</loc>
-        <lastmod>2018-07-27T23:24:42.432Z</lastmod>
+        <loc>https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html</loc>
+        <lastmod>2019-01-07T05:59:38.874Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -89,15 +17,23 @@
 
     <url>
         <loc>https://sajaldebnath.com/vsphere-capacity-report.html</loc>
-        <lastmod>2018-07-27T23:24:13.109Z</lastmod>
+        <lastmod>2019-01-07T04:48:50.547Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/vrealize-operations-manager-monitoring-vs-forensic.html</loc>
-        <lastmod>2018-07-27T23:23:37.902Z</lastmod>
+        <loc>https://sajaldebnath.com/vsphere-security-check-script.html</loc>
+        <lastmod>2019-01-07T04:48:41.875Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/dont-do-it-simply-because-you-can-distributed-vs-simple-architecture.html</loc>
+        <lastmod>2019-01-07T04:47:18.162Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,15 +41,7 @@
 
     <url>
         <loc>https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-3.html</loc>
-        <lastmod>2018-07-27T23:21:56.631Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-2.html</loc>
-        <lastmod>2018-07-27T23:20:34.508Z</lastmod>
+        <lastmod>2019-01-07T04:46:09.401Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,183 +49,15 @@
 
     <url>
         <loc>https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-1.html</loc>
-        <lastmod>2018-07-27T23:19:08.538Z</lastmod>
+        <lastmod>2019-01-07T04:46:00.445Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html</loc>
-        <lastmod>2018-07-27T23:18:19.509Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html</loc>
-        <lastmod>2018-07-27T23:15:20.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/part-iii-vrealize-automation-7-0-installation-configuration.html</loc>
-        <lastmod>2018-07-27T23:14:23.296Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/ootb-shared-db-as-a-service-complete-with-day-2-operations.html</loc>
-        <lastmod>2018-07-27T22:46:16.251Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html</loc>
-        <lastmod>2018-07-27T22:45:19.298Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html</loc>
-        <lastmod>2018-07-27T22:42:01.937Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-ii.html</loc>
-        <lastmod>2018-07-27T22:25:42.732Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/part-i-vrealize-automation-7-0-installation-configuration.html</loc>
-        <lastmod>2018-07-27T22:17:02.083Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html</loc>
-        <lastmod>2018-07-27T22:13:54.285Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-install-and-configure-vrealize-network-insight-3-0.html</loc>
-        <lastmod>2018-07-27T20:04:19.338Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html</loc>
-        <lastmod>2018-07-27T19:47:06.652Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-build-a-home-lab-without-dedicated-servers.html</loc>
-        <lastmod>2018-07-27T19:06:45.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-programmatically-collect-metric-values-from-vrops.html</loc>
-        <lastmod>2018-07-27T18:52:07.829Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-access-and-utilize-esxcli-from-powercli.html</loc>
-        <lastmod>2018-07-27T18:50:35.351Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/configuring-ntp-in-vmware-itbm-standard-appliance-1-0-1.html</loc>
-        <lastmod>2018-07-27T18:44:14.131Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/basics-of-virtualization-part-b.html</loc>
-        <lastmod>2018-07-27T18:42:42.800Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/basics-of-virtualization-part-a.html</loc>
-        <lastmod>2018-07-27T18:41:56.556Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/update-configuring-ntp-in-vmware-itbm-standard-appliance.html</loc>
-        <lastmod>2018-07-27T03:32:55.957Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-remote-execute-scripts-inside-a-vm-in-vsphere.html</loc>
-        <lastmod>2018-07-27T03:30:34.256Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/learn-basics-of-powershell-powercli-under-1-5-hours.html</loc>
-        <lastmod>2018-07-27T03:10:50.045Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html</loc>
-        <lastmod>2018-07-27T03:06:29.322Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html</loc>
-        <lastmod>2018-07-27T02:44:34.942Z</lastmod>
+        <loc>https://sajaldebnath.com/vrealize-operations-manager-custom-dashboard-part-2.html</loc>
+        <lastmod>2019-01-07T04:45:48.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -305,7 +65,287 @@
 
     <url>
         <loc>https://sajaldebnath.com/vra-7-2-auto-scale-application-authoring-container-on-demand-lb.html</loc>
-        <lastmod>2018-07-26T23:07:09.162Z</lastmod>
+        <lastmod>2019-01-07T04:45:25.806Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-use-api-in-vro-to-build-xaas-services-in-vra.html</loc>
+        <lastmod>2019-01-07T04:45:02.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/update-configuring-ntp-in-vmware-itbm-standard-appliance.html</loc>
+        <lastmod>2019-01-07T04:44:47.409Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/out-of-the-box-shared-db-as-a-service-in-vrealize-automation.html</loc>
+        <lastmod>2019-01-07T04:44:25.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-remote-execute-scripts-inside-a-vm-in-vsphere.html</loc>
+        <lastmod>2019-01-07T04:43:52.366Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/part-iii-vrealize-automation-7-0-installation-configuration.html</loc>
+        <lastmod>2019-01-07T04:43:36.366Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/oracle-weblogic-as-a-service-for-vrealize-automation.html</loc>
+        <lastmod>2019-01-07T04:43:18.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/ootb-shared-db-as-a-service-complete-with-day-2-operations.html</loc>
+        <lastmod>2019-01-07T04:43:00.701Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-manually-edit-vrealize-automation-vpostgres-database.html</loc>
+        <lastmod>2019-01-07T04:42:43.469Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/learn-basic-to-advance-vsan-in-80-minutes.html</loc>
+        <lastmod>2019-01-07T04:42:31.333Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/learn-all-about-vrops-rest-notifications-and-rest-apis-in-60-minutes.html</loc>
+        <lastmod>2019-01-07T04:42:19.876Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/learn-all-about-vrealize-log-insight-in-under-90-minutes.html</loc>
+        <lastmod>2019-01-07T04:41:57.454Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/learn-basics-of-powershell-powercli-under-1-5-hours.html</loc>
+        <lastmod>2019-01-07T04:41:01.180Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/learn-advance-powercli-in-under-100-minutes.html</loc>
+        <lastmod>2019-01-07T04:40:06.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/journey-from-wordpress-to-hexo-and-clarity.html</loc>
+        <lastmod>2019-01-07T04:39:10.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-ii.html</loc>
+        <lastmod>2019-01-07T04:38:47.854Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/integrating-nsx-with-vrealize-automation-part-i.html</loc>
+        <lastmod>2019-01-07T04:38:32.832Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/part-ii-vrealize-automation-7-0-installation-configuration.html</loc>
+        <lastmod>2019-01-07T04:38:10.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/part-i-vrealize-automation-7-0-installation-configuration.html</loc>
+        <lastmod>2019-01-07T04:37:51.311Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-programmatically-push-data-in-vrealize-operations-manager.html</loc>
+        <lastmod>2019-01-07T04:37:32.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-monitor-nsx-environment-with-vrealize-operations-part-ii-result.html</loc>
+        <lastmod>2019-01-07T04:36:57.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-install-and-configure-vrealize-network-insight-3-0.html</loc>
+        <lastmod>2019-01-07T04:36:29.210Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-monitor-nsx-environment-with-vrealize-operations-part-i-installation-config.html</loc>
+        <lastmod>2019-01-07T04:36:17.963Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-configure-nsx-load-balancer-for-distributed-deployment-of-vra-7-1.html</loc>
+        <lastmod>2019-01-07T04:35:30.897Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-build-a-home-lab-without-dedicated-servers.html</loc>
+        <lastmod>2019-01-07T04:34:59.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-access-and-utilize-esxcli-from-powercli.html</loc>
+        <lastmod>2019-01-07T04:33:53.364Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-programmatically-collect-metric-values-from-vrops.html</loc>
+        <lastmod>2019-01-07T04:33:40.747Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/finally-it-is-here-powershell-for-linux-and-mac.html</loc>
+        <lastmod>2019-01-07T04:32:09.419Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/auto-scaling-deep-dive.html</loc>
+        <lastmod>2019-01-07T04:28:06.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/automatically-create-custom-dynamic-groups-in-vrops-as-per-vcenter-tags.html</loc>
+        <lastmod>2019-01-07T04:27:58.809Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html</loc>
+        <lastmod>2019-01-07T04:27:52.328Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/basics-of-virtualization-part-b.html</loc>
+        <lastmod>2019-01-07T04:27:44.081Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/basics-of-virtualization-part-a.html</loc>
+        <lastmod>2019-01-07T04:27:38.232Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/how-to-configure-auto-scaling-for-private-cloud.html</loc>
+        <lastmod>2019-01-07T04:27:19.984Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/configuring-ntp-in-vmware-itbm-standard-appliance-1-0-1.html</loc>
+        <lastmod>2019-01-07T04:27:11.202Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/demystifying-vrealize-automation-%E2%80%93-getting-it-right.html</loc>
+        <lastmod>2019-01-07T04:26:47.778Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -314,46 +354,6 @@
     <url>
         <loc>https://sajaldebnath.com/vmworld-report-from-the-field.html</loc>
         <lastmod>2018-07-26T23:06:16.258Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/learn-basic-to-advance-vsan-in-80-minutes.html</loc>
-        <lastmod>2018-07-26T21:26:47.543Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/learn-all-about-vrealize-log-insight-in-under-90-minutes.html</loc>
-        <lastmod>2018-07-26T19:22:18.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/learn-advance-powercli-in-under-100-minutes.html</loc>
-        <lastmod>2018-07-26T19:21:14.861Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/demystifying-vrealize-automation-%E2%80%93-getting-it-right.html</loc>
-        <lastmod>2018-07-26T05:38:37.192Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/automating-infrastructure-with-vrealize-code-stream-and-artifactory.html</loc>
-        <lastmod>2018-07-25T23:11:02.225Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

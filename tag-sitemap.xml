@@ -4,91 +4,105 @@
 
     <url>
         <loc>https://sajaldebnath.com/tags/DevOps/</loc>
-        <lastmod>2018-07-25T23:11:02.225Z</lastmod>
+        <lastmod>2019-01-07T04:27:52.328Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sajaldebnath.com/tags/vRealize-Code-Stream/</loc>
-        <lastmod>2018-07-25T23:11:02.225Z</lastmod>
+        <lastmod>2019-01-07T04:27:52.328Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/tags/vRealize-LogInsight/</loc>
-        <lastmod>2018-07-26T19:22:18.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/tags/VSAN/</loc>
-        <lastmod>2018-07-26T21:26:47.543Z</lastmod>
+        <loc>https://sajaldebnath.com/tags/Scripting/</loc>
+        <lastmod>2019-01-07T04:27:58.809Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sajaldebnath.com/tags/Python/</loc>
-        <lastmod>2018-07-28T04:46:43.077Z</lastmod>
+        <lastmod>2019-01-07T04:37:32.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sajaldebnath.com/tags/NSX/</loc>
-        <lastmod>2018-07-31T17:40:25.502Z</lastmod>
+        <lastmod>2019-01-07T04:38:47.854Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/tags/Automation/</loc>
-        <lastmod>2018-07-31T17:58:59.484Z</lastmod>
+        <loc>https://sajaldebnath.com/tags/vRealize-LogInsight/</loc>
+        <lastmod>2019-01-07T04:41:57.454Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://sajaldebnath.com/tags/PowerCLI/</loc>
-        <lastmod>2018-07-31T17:58:59.484Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/tags/General/</loc>
-        <lastmod>2018-09-24T08:09:48.742Z</lastmod>
+        <loc>https://sajaldebnath.com/tags/VSAN/</loc>
+        <lastmod>2019-01-07T04:42:31.333Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sajaldebnath.com/tags/vRealize-Automation/</loc>
-        <lastmod>2019-01-02T20:07:56.379Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/tags/vRealize-Suite/</loc>
-        <lastmod>2019-01-02T20:07:56.379Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://sajaldebnath.com/tags/vRealize-Operations/</loc>
-        <lastmod>2019-01-02T20:07:56.379Z</lastmod>
+        <lastmod>2019-01-07T04:45:25.806Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://sajaldebnath.com/tags/vRealize-Orchestrator/</loc>
-        <lastmod>2019-01-02T20:07:56.379Z</lastmod>
+        <lastmod>2019-01-07T04:45:25.806Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/How-to/</loc>
+        <lastmod>2019-01-07T04:46:09.401Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/General/</loc>
+        <lastmod>2019-01-07T04:47:18.162Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/Automation/</loc>
+        <lastmod>2019-01-07T04:48:50.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/PowerCLI/</loc>
+        <lastmod>2019-01-07T04:48:50.547Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/vRealize-Operations/</loc>
+        <lastmod>2019-01-07T05:59:38.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://sajaldebnath.com/tags/Architecture/</loc>
+        <lastmod>2019-01-07T05:59:38.874Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

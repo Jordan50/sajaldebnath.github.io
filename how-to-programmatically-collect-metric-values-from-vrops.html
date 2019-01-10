@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/Automation-and-Scripting/">#Automation and Scripting</a> <a href="/categories/vRealize-Suite/vRealize-Operations/">#vRealize Operations</a> <a href="/categories/Automation-and-Scripting/Python/">#Python</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-05-17
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> <a href="/categories/Virtualization-Cloud/Monitoring/">#Monitoring</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-05-17
 
 
 
@@ -135,8 +140,8 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
       <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Few customers inquired about how they can collect metric values directly from vROps. They majorly wanted to get that information using REST API’s. I wrote [another blog post detailing how you can do it]<a href="/learn-all-about-vrops-rest-notifications-and-rest-apis-in-60-minutes.html" title="Learn all about vROps REST notifications and REST APIs in 60 minutes">Learn all about vROps REST notifications and REST APIs in 60 minutes</a>. I wrote a python script to automatically collect metric values from vROps.<br><a id="more"></a><br>This post provides details about that script. Where you can get that script and how it needs to be run.</p>
 <h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h4><p>This python script uses the vROps python client to query and gather information directly from vROps server. Its task is to collect metric values from vROps. It uses REST API’s at the backend to get the information. So, to run the script you to download and install Python Client from vROps server. Also, this script was written and tested in Python 2.7 environment. Check my other blog post on details about how you can use python client to interact with vROps server.</p>
 <h4 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case:"></a>Use Case:</h4><p>This script will automate the task of collecting metric values directly from vROps for you. You can later use the values as per your requirements.</p>
-<h4 id="Where-to-get-it"><a href="#Where-to-get-it" class="headerlink" title="Where to get it?"></a>Where to get it?</h4><p>You can get the script by going to <a href="https://github.com/sajaldebnath/vrops-metric-collection" rel="external nofollow noopener noreferrer" target="_blank">GitHub page</a> (<a href="https://github.com/sajaldebnath/vrops-metric-collection)and" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/sajaldebnath/vrops-metric-collection)and</a> downloading it from there. There are samples provided in the script.</p>
-<h4 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run?"></a>How to run?</h4><p>There are two scripts, “<a href="https://github.com/sajaldebnath/vrops-metric-collection/blob/master/metric-collection.py" title="metric-collection.py" rel="external nofollow noopener noreferrer" target="_blank">metric-collection.py</a>“ and <a href="https://github.com/sajaldebnath/vrops-metric-collection/blob/master/set-config.py" title="set-config.py" rel="external nofollow noopener noreferrer" target="_blank">set-config.py</a>. Download both the scripts in the same location.<br>Run <strong>set-config.py</strong> first. </p>
+<h4 id="Where-to-get-it"><a href="#Where-to-get-it" class="headerlink" title="Where to get it?"></a>Where to get it?</h4><p>You can get the script by going to <a href="https://github.com/sajaldebnath/vrops-metric-collection" target="_blank" rel="noopener">GitHub page</a> (<a href="https://github.com/sajaldebnath/vrops-metric-collection)and" target="_blank" rel="noopener">https://github.com/sajaldebnath/vrops-metric-collection)and</a> downloading it from there. There are samples provided in the script.</p>
+<h4 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run?"></a>How to run?</h4><p>There are two scripts, “<a href="https://github.com/sajaldebnath/vrops-metric-collection/blob/master/metric-collection.py" title="metric-collection.py" target="_blank" rel="noopener">metric-collection.py</a>“ and <a href="https://github.com/sajaldebnath/vrops-metric-collection/blob/master/set-config.py" title="set-config.py" target="_blank" rel="noopener">set-config.py</a>. Download both the scripts in the same location.<br>Run <strong>set-config.py</strong> first. </p>
 <pre class=" language-bash"><code class="language-bash">
 <span class="token comment" spellcheck="true"># python &lt;localtion to="" file="">/set-config.py </span>
 <span class="token operator">&lt;</span>/localtion<span class="token operator">></span></code></pre>
@@ -169,8 +174,9 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/how-to-programmatically-collect-metric-values-from-vrops.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -184,6 +190,12 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -215,7 +227,6 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -250,6 +261,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

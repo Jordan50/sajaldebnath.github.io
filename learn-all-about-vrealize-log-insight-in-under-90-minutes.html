@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,24 +74,28 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-        
-
 
 <div class="content-container">
   <div class="content-area">
     <div class="clr-row clr-align-items-start">
-      <div class="clr-col-xs-0 clr-col-sm-0 clr-col-md-0 clr-col-lg-0 clr-col-xl-1">
+      <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-3">
+        <!-- Left side space -->
       </div>
-      <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-7">
+      <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-6">
         <div class="card">
    <div class="card-header">
       <h3 class="card-title">
@@ -125,7 +130,7 @@
         
 
 
-Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a href="/categories/vRealize-Suite/vRealize-LogInsight/">#vRealize LogInsight</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-03-05
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2017-03-05
 
 
 
@@ -165,13 +170,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 </ul>
 <p>As always live demo is provided throughout the session to showcase the information provided in the slides. </p>
 <div class="video-container"><iframe src="//www.youtube.com/embed/DWpOnY9JQr4" frameborder="0" allowfullscreen></iframe></div>
-<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>vRealize Log Insight comes pre-bundled with all the versions of vRealize Suite. It is an amazing tool which can make your life much easier. So if you are not actively using it, I hope this session will enable and encourage you to start using it. For more details please check the official <a href="http://www.vmware.com/products/vrealize-log-insight.html" rel="external nofollow noopener noreferrer" target="_blank">VMware site</a> and <a href="https://www.vmware.com/support/pubs/log-insight-pubs.html" rel="external nofollow noopener noreferrer" target="_blank">product documentation</a>. As always I welcome your feedbacks. Please do share them so that I am fine tune my further sessions.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>vRealize Log Insight comes pre-bundled with all the versions of vRealize Suite. It is an amazing tool which can make your life much easier. So if you are not actively using it, I hope this session will enable and encourage you to start using it. For more details please check the official <a href="http://www.vmware.com/products/vrealize-log-insight.html" target="_blank" rel="noopener">VMware site</a> and <a href="https://www.vmware.com/support/pubs/log-insight-pubs.html" target="_blank" rel="noopener">product documentation</a>. As always I welcome your feedbacks. Please do share them so that I am fine tune my further sessions.</p>
 
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/learn-all-about-vrealize-log-insight-in-under-90-minutes.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -185,6 +191,12 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -209,129 +221,13 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
 
 
       </div>
-      <!-- Widgets Area -->
-      <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-3 clr-align-items-start">
-          <!-- Search Area -->
-        <div class="clr-row">
-            <div class="clr-col">
-              <div class="card">
-  <div class="card-block">
-    <div class="card-text">
-      <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search this blog"><button type="submit" class="search-form-submit">Search this blog</button><input type="hidden" name="sitesearch" value="https://sajaldebnath.com"></form>
-    </div>
-  </div>
-</div>
-
-            </div>
-        </div>
-          <!-- Socials Area -->
-        <div class="clr-row">
-            <div class="clr-col">
-              <div class="card">
-  <div class="card-header">
-   <div class="clr-row clr-align-items-start">
-     <div class="clr-col-4">
-       <b>Follow me: </b>
-     </div>
-    <div class="clr-col-8">
-
-      <a href="https://www.facebook.com/sajal.debnath" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="Facebook" src="/facebook.svg" width="24" height="24">
-      </a>
-
-      <a href="https://twitter.com/sajal_debnath" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="Twitter" src="/twitter.svg" width="24" height="24">
-      </a>
-
-      <a href="https://in.linkedin.com/in/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="LinkedIn" src="/linkedin.svg" width="24" height="24">
-      </a>
-
-      <a href="https://www.youtube.com/user/vmunix1234" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="Youtube" src="/youtube.svg" width="24" height="24">
-      </a>
-
-      <a href="https://plus.google.com/+SajalDebnath" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="Goolge+" src="/google-plus.svg" width="24" height="24">
-      </a>
-
-      <a href="https://github.com/sajaldebnath" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="Github" src="/github.svg" width="24" height="24">
-      </a>
-
-      <a href="https://sajaldebnath.com/atom.xml" class="nav-link nav-text" target="_blank" rel="noopener">
-          <img border="0" alt="RSS" src="/rss.svg" width="22" height="22">
-      </a>
-
-  </div>
-  </div>
-</div>
-</div>
-            </div>
-        </div>
-          <!-- Latest Posts Area -->
-        <div class="clr-row">
-            <div class="clr-col">
-              
-<div class="card">
-  <div class="card-header">
-    <b>Latest Posts</b>
-  </div>
-  <div class="card-block">
-    <div class="card-text">
-      <ul class="list">
-        
-          <li>
-            <a href="auto-scaling-deep-dive.html">Auto-Scaling Deep Dive</a>
-          </li>
-        
-          <li>
-            <a href="journey-from-wordpress-to-hexo-and-clarity.html">Journey from Wordpress to Hexo and Clarity</a>
-          </li>
-        
-          <li>
-            <a href="oracle-weblogic-as-a-service-for-vrealize-automation.html">Oracle Weblogic-as-a-Service for vRealize Automation</a>
-          </li>
-        
-          <li>
-            <a href="vmworld-report-from-the-field.html">VMworld report from the field</a>
-          </li>
-        
-          <li>
-            <a href="how-to-manually-edit-vrealize-automation-vpostgres-database.html">How to manually edit vRealize Automation vPostgres database</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</div>
-
-            </div>
-        </div>
-          <!-- Tags Area -->
-        <div class="clr-row">
-          <div class="clr-col">
-              <div class="card">
-  <div class="card-header">
-    <b>Explore by Tags</b>
-  </div>
-  <div class="card-block">
-    <div class="card-text">
-      <a href="tags/Automation/" style="font-size: 18px; color: #002baa">Automation</a> <a href="tags/DevOps/" style="font-size: 14px; color: #008000">DevOps</a> <a href="tags/General/" style="font-size: 16.67px; color: #004771">General</a> <a href="tags/NSX/" style="font-size: 15.33px; color: #006439">NSX</a> <a href="tags/PowerCLI/" style="font-size: 17.33px; color: #00398e">PowerCLI</a> <a href="tags/Python/" style="font-size: 14.67px; color: #00721c">Python</a> <a href="tags/VSAN/" style="font-size: 14px; color: #008000">VSAN</a> <a href="tags/vRealize-Automation/" style="font-size: 19.33px; color: #000ee3">vRealize Automation</a> <a href="tags/vRealize-Code-Stream/" style="font-size: 14px; color: #008000">vRealize Code Stream</a> <a href="tags/vRealize-LogInsight/" style="font-size: 14px; color: #008000">vRealize LogInsight</a> <a href="tags/vRealize-Operations/" style="font-size: 18.67px; color: #001cc6">vRealize Operations</a> <a href="tags/vRealize-Orchestrator/" style="font-size: 16px; color: #055">vRealize Orchestrator</a> <a href="tags/vRealize-Suite/" style="font-size: 20px; color: #00f">vRealize Suite</a>
-    </div>
-  </div>
-</div>
-
-          </div>
-        </div>
-      </div>
-      <div class="clr-col-xs-0 clr-col-sm-0 clr-col-md-0 clr-col-lg-0 clr-col-xl-1">
+      <!-- Right Side Space -->
+      <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-3">
       </div>
   </div>
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -366,6 +262,14 @@ Related Categories: <a href="/categories/vRealize-Suite/">#vRealize Suite</a> <a
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   

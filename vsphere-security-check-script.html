@@ -4,6 +4,7 @@
 <!-- Including the Head tag and metadata -->
 
 
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="Here you will find posts on various VMware and other technologies including but not limited to vRealize Suite, NSX, VSAN, PowerCLI, Python, and DevOps. A special focus is on vRA, vROps and vRO">
     <meta name="author" content="Sajal Debnath">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/clr-ui.min.css">
     <style>
       .responsive {
@@ -53,7 +54,7 @@
   </button>
   <div class="branding">
       <a class="logo-and-title" href="/">
-          <span><img src="/images/logo.png" alt="Logo" width="36" height="36"></span>
+          <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
           <span class="title">Anything Virtual and Cloudy</span>
       </a>
   </div>
@@ -73,16 +74,20 @@
       </li><li class="nav-item">
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
-        <!---->
   </li></ul>
-  <!---->
+  <form class="search" action="http://localhost:4000/search">
+        <label for="search_input">
+            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
+        </label>
+  </form>
+
 </clr-header>
+
 
     <!-- Content container starts from here-->
     <!-- Dividing the content area into two different part. First part will Show
       Post and Page related information. Right side will have widgets -->
       
-          
 
 <div class="content-container">
   <div class="content-area">
@@ -125,14 +130,14 @@
         
 
 
-Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation and Scripting</a> <a href="/categories/Automation-and-Scripting/PowerCLI/">#PowerCLI</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-09-28
+Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization & Cloud</a> &nbsp &nbsp &nbsp &nbsp <img border="0" alt="Info-Standard" src="/calendar-line.svg" width="18" height="18"> 2015-09-28
 
 
 
      
    <div class="card-text">
          <!-- Content -->
-      <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Dear Readers, Its been long since I have written a blog. But as promised, we will collaborate here and continue to work towards making the scripts more stable and incorporate more features into it. Towards that goal I am writing this blog. When run, the script will automatically check whether security best practices are implemented in a vSphere environment or not.<br><a id="more"></a><br>The best practices are checked as per the security hardening guide given in <strong>vSphere_6_0_Hardening_Guide_GA_15_Jun_2015.xls</strong> document released by VMware. You can get more details about the guide in <a href="https://blogs.vmware.com/vsphere/2015/06/vsphere-6-hardening-guide-ga-now-available.html" rel="external nofollow noopener noreferrer" target="_blank">https://blogs.vmware.com/vsphere/2015/06/vsphere-6-hardening-guide-ga-now-available.html</a>.There are two parts in the script. The first part Get-Security.ps1 is the one which invokes the other functions. The second part and the most important one is SecurityFunctions.ps1. This is the main script with all the required functions which does the actual job. The functions in SecurityFunctions.ps1 file can be divided into three main categories.</p>
+      <h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>Dear Readers, Its been long since I have written a blog. But as promised, we will collaborate here and continue to work towards making the scripts more stable and incorporate more features into it. Towards that goal I am writing this blog. When run, the script will automatically check whether security best practices are implemented in a vSphere environment or not.<br><a id="more"></a><br>The best practices are checked as per the security hardening guide given in <strong>vSphere_6_0_Hardening_Guide_GA_15_Jun_2015.xls</strong> document released by VMware. You can get more details about the guide in <a href="https://blogs.vmware.com/vsphere/2015/06/vsphere-6-hardening-guide-ga-now-available.html" target="_blank" rel="noopener">https://blogs.vmware.com/vsphere/2015/06/vsphere-6-hardening-guide-ga-now-available.html</a>.There are two parts in the script. The first part Get-Security.ps1 is the one which invokes the other functions. The second part and the most important one is SecurityFunctions.ps1. This is the main script with all the required functions which does the actual job. The functions in SecurityFunctions.ps1 file can be divided into three main categories.</p>
 <ol>
 <li>The functions related to HTML report file generation</li>
 <li>Log write function which generates Logs</li>
@@ -150,13 +155,14 @@ Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation 
 <li>Create more detailed logging</li>
 <li>Take input from credential file instead of at the runtime</li>
 </ul>
-<p>I expect inputs from you so that we can work together to make it better. The script and sample can be availed from <a href="https://github.com/sajaldebnath/vsphere-security-hardening" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/sajaldebnath/vsphere-security-hardening</a> .</p>
+<p>I expect inputs from you so that we can work together to make it better. The script and sample can be availed from <a href="https://github.com/sajaldebnath/vsphere-security-hardening" target="_blank" rel="noopener">https://github.com/sajaldebnath/vsphere-security-hardening</a> .</p>
 
    </div>
   </div>
      <div class="card-footer">
-        <b>Share this Post &emsp; </b>
-          
+       <div class="clr-row clr-align-items-start">
+         <div class="clr-col-xs-11 clr-col-sm-11 clr-col-md-11 clr-col-lg-11 clr-col-xl-11">
+           <b>Share: &emsp; </b>
 <a class="card-link" href="http://www.facebook.com/sharer.php?u=https://sajaldebnath.com/vsphere-security-check-script.html" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
   <img border="0" alt="Facebook" src="/facebook.svg" width="25" height="25">
 </a>
@@ -170,6 +176,12 @@ Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation 
   <img border="0" alt="Goolge+" src="/google-plus.svg" width="25" height="25">
 </a>
 
+         </div>
+         <!-- Right Side Space -->
+         <div class="clr-col-xs-1 clr-col-sm-1 clr-col-md-1 clr-col-lg-1 clr-col-xl-1 clr-justify-content-end">
+           <a href="/"><img border="0" alt="Home" src="/home-solid.svg" width="18" height="18"></a>
+         </div>
+       </div>
      </div>
 </div>
 <!-- Comments Section -->
@@ -201,7 +213,6 @@ Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation 
 </div>
 </div>
 
-      
 
   </clr-main-container>
 
@@ -236,6 +247,14 @@ Related Categories: <a href="/categories/Automation-and-Scripting/">#Automation 
     }
     });
 
+    // Handling the Subnav menubar options in Responsive mode
+     $(".header-overflow-trigger").on('click',function(){
+       if($(".main-container").hasClass("open-overflow-menu")){
+         $(".main-container").removeClass("open-overflow-menu");
+       }else{
+         $(".main-container").addClass("open-overflow-menu");
+       }
+     });
   </script>
   <!-- Disqus Comments -->
   
