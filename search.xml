@@ -22,15 +22,15 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> Automation </tag>
             
             <tag> vRealize Operations </tag>
             
-            <tag> vRealize Orchestrator </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
+            
+            <tag> vRealize Orchestrator </tag>
             
         </tags>
       
@@ -55,9 +55,9 @@
       
         <tags>
             
-            <tag> General </tag>
-            
             <tag> How to </tag>
+            
+            <tag> General </tag>
             
         </tags>
       
@@ -84,11 +84,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> vRealize Orchestrator </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -140,9 +140,9 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -169,11 +169,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> vRealize Orchestrator </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -200,11 +200,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> vRealize Orchestrator </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -233,15 +233,15 @@
             
             <tag> Automation </tag>
             
-            <tag> PowerCLI </tag>
+            <tag> Scripting </tag>
             
-            <tag> vRealize Operations </tag>
+            <tag> PowerCLI </tag>
             
             <tag> Python </tag>
             
-            <tag> How to </tag>
+            <tag> vRealize Operations </tag>
             
-            <tag> Scripting </tag>
+            <tag> How to </tag>
             
         </tags>
       
@@ -268,15 +268,15 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> Automation </tag>
             
             <tag> vRealize Operations </tag>
             
-            <tag> vRealize Orchestrator </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
+            
+            <tag> vRealize Orchestrator </tag>
             
         </tags>
       
@@ -307,9 +307,9 @@
             
             <tag> PowerCLI </tag>
             
-            <tag> vRealize Operations </tag>
-            
             <tag> Python </tag>
+            
+            <tag> vRealize Operations </tag>
             
             <tag> How to </tag>
             
@@ -340,9 +340,9 @@
             
             <tag> Automation </tag>
             
-            <tag> vRealize Operations </tag>
-            
             <tag> Python </tag>
+            
+            <tag> vRealize Operations </tag>
             
             <tag> How to </tag>
             
@@ -423,9 +423,9 @@
       
         <tags>
             
-            <tag> vRealize LogInsight </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize LogInsight </tag>
             
         </tags>
       
@@ -483,11 +483,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> vRealize Orchestrator </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -545,13 +545,13 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
+            <tag> How to </tag>
             
             <tag> DevOps </tag>
             
             <tag> vRealize Code Stream </tag>
             
-            <tag> How to </tag>
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -578,9 +578,9 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -607,11 +607,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> vRealize Orchestrator </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -638,11 +638,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> NSX </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -700,11 +700,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> NSX </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -731,11 +731,11 @@
       
         <tags>
             
-            <tag> NSX </tag>
-            
             <tag> vRealize Operations </tag>
             
             <tag> How to </tag>
+            
+            <tag> NSX </tag>
             
         </tags>
       
@@ -762,11 +762,11 @@
       
         <tags>
             
-            <tag> NSX </tag>
-            
             <tag> vRealize Operations </tag>
             
             <tag> How to </tag>
+            
+            <tag> NSX </tag>
             
         </tags>
       
@@ -793,9 +793,9 @@
       
         <tags>
             
-            <tag> NSX </tag>
-            
             <tag> How to </tag>
+            
+            <tag> NSX </tag>
             
         </tags>
       
@@ -820,11 +820,11 @@
       
         <tags>
             
+            <tag> How to </tag>
+            
             <tag> vRealize Automation </tag>
             
             <tag> NSX </tag>
-            
-            <tag> How to </tag>
             
         </tags>
       
@@ -909,9 +909,9 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -938,9 +938,9 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -967,9 +967,9 @@
       
         <tags>
             
-            <tag> vRealize Automation </tag>
-            
             <tag> How to </tag>
+            
+            <tag> vRealize Automation </tag>
             
         </tags>
       
@@ -1222,9 +1222,9 @@
       
         <tags>
             
-            <tag> General </tag>
-            
             <tag> How to </tag>
+            
+            <tag> General </tag>
             
         </tags>
       
@@ -1249,9 +1249,9 @@
       
         <tags>
             
-            <tag> General </tag>
-            
             <tag> How to </tag>
+            
+            <tag> General </tag>
             
         </tags>
       
@@ -1301,9 +1301,9 @@
       
         <tags>
             
-            <tag> General </tag>
-            
             <tag> How to </tag>
+            
+            <tag> General </tag>
             
         </tags>
       

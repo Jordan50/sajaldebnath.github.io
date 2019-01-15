@@ -15,15 +15,15 @@
     </url>
     
     <url>
-        <loc>https://sajaldebnath.com/search/</loc>
-        <lastmod>2019-01-10T07:16:47.060Z</lastmod>
+        <loc>https://sajaldebnath.com/tags/</loc>
+        <lastmod>2019-01-07T05:28:37.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://sajaldebnath.com/tags/</loc>
-        <lastmod>2019-01-07T05:28:37.753Z</lastmod>
+        <loc>https://sajaldebnath.com/about/</loc>
+        <lastmod>2019-01-03T22:25:11.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -38,13 +38,6 @@
     <url>
         <loc>https://sajaldebnath.com/contact/</loc>
         <lastmod>2018-07-31T04:05:35.636Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://sajaldebnath.com/about/</loc>
-        <lastmod>2018-06-29T23:48:39.063Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

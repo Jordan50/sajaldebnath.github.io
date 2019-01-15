@@ -37,15 +37,15 @@ I wrote a blog on Auto-Scaling and got many questions regarding that topic. Also
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
-      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
-    
       <category term="Automation" scheme="https://sajaldebnath.com/tags/Automation/"/>
     
       <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
     
-      <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
-    
       <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
+      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
+    
+      <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
     
   </entry>
   
@@ -68,9 +68,9 @@ I recently moved my blog from Wordpress to Hexo. Also, I moved hosting platform 
       <category term="General" scheme="https://sajaldebnath.com/categories/General/"/>
     
     
-      <category term="General" scheme="https://sajaldebnath.com/tags/General/"/>
-    
       <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
+      <category term="General" scheme="https://sajaldebnath.com/tags/General/"/>
     
   </entry>
   
@@ -98,11 +98,11 @@ The requirement is to deploy a Weblogic Cluster as a whole. Also,
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
+      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
       <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
     
       <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
-    
-      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
     
   </entry>
   
@@ -111,7 +111,7 @@ The requirement is to deploy a Weblogic Cluster as a whole. Also,
     <link href="https://sajaldebnath.com/vmworld-report-from-the-field.html"/>
     <id>https://sajaldebnath.com/vmworld-report-from-the-field.html</id>
     <published>2017-08-30T11:34:16.000Z</published>
-    <updated>2018-07-26T23:06:16.258Z</updated>
+    <updated>2019-01-07T04:45:08.154Z</updated>
     
     <content type="html"><![CDATA[<h4 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h4><p>I am attending this year’s VMworld US and decided to write my experience so far. Read on to know what’s new with VMware and other technologies.</p><a id="more"></a><h4 id="Details"><a href="#Details" class="headerlink" title="Details:"></a>Details:</h4><p>First, this is an amazing experience. If you are someone working with VMware technologies, then at least once you need to be in a VMworld. It’s amazing to see so many people in a single place talking about the same technology. The energy is infectious and you get that sense of belonging. This year VMworld is not an exception. So without further ado let me start about my experience so far.</p><h4 id="Day-1-keynote"><a href="#Day-1-keynote" class="headerlink" title="Day 1 keynote:"></a>Day 1 keynote:</h4><p>It is the keynote which is most important part to watch out for. It is where you get to understand where the company is heading forward to. Pat did not disappoint in giving his views on future of technology. As per him “tech is leaving the nest of tech and is now woven into the future of our fabric”. Andy Jassy of AWS joined Pat in the keynote to announce the initial availability of VMware on AWS solution. He also announced few new offerings.</p><ul><li>VMware Cloud Services</li><li>VMware Appdefense</li><li>New version of VMware integrated OpenStack and vRealize Network Insight</li></ul><h4 id="Day-2-General-Session"><a href="#Day-2-General-Session" class="headerlink" title="Day 2 General Session:"></a>Day 2 General Session:</h4><p>Day 2 started with an amazing general session. It started with a fireside chat between Pat Gelsinger and Michael Dell. Later they were joined on stage by Rob Mee of Pivotal and Sam Ramjee of Google. They talked about Pivotal Cloud Foundry/Services and “Kubo”. Full support for Kubernetes cluster. Automation for Kubernetes. Amazing to see container as the first class citizen. Also, now containers have full support out of the box for storage and network. NSX provides out of the box network support for containers. Next came the most exciting part, demo, I was very impressed with the demo presented by Purnima Padmanavan and Chris Wolf of VMware. The way the entire story was built is amazing. The showcased capabilities blew the mind. VMware Cloud Services (a series of features on Cloud - SaaS model) is something I am looking forward to. Now VMware has IaaS, PaaS, CaaS (container as a service) and FaaS services. The most exciting for me though was VMware FaaS services (Function as a Service). Something similar to what you get in AWS Lambda. But the important point is, you get the same functionality in an on-prem environment. Do you have vSphere environment? Sure, we run FaaS there. How cool is that? Did you know that vRealize Network Insight not only monitors your network environment but also profiles your applications? It can tell you which applications are a good fit for migration to Cloud and which are probably not.  It understands the dependencies from the network flow and provide suggestions.</p><h4 id="Solution-Exchange"><a href="#Solution-Exchange" class="headerlink" title="Solution Exchange:"></a>Solution Exchange:</h4><p>Like every year, this year also a range of partners have setup booth in Solution Exchange showcasing the amazing range of technologies. The major focus can be seen in the following areas:</p><ul><li>Infrastructure as a Service</li><li>Monitoring. Which again can be divided into the following groups<ul><li>Datacenter monitoring</li><li>Network monitoring</li><li>Cloud based monitoring</li><li>On-prem monitoring</li></ul></li><li>Software defined Storage</li><li>Software defined Network</li><li>Security. Both cloud based and on-prem</li></ul><p>VMvillage is something to look forward to. VMTN community has a good presence. Felt good to meet Corey Romero in person. Tim, amazing job with VMware{code}.</p><h4 id="Other-points"><a href="#Other-points" class="headerlink" title="Other points:"></a>Other points:</h4><p>No VMworld is complete without Hands-on-Labs. Awesome work. You need to be there to get the feel. The scale and time in which they built that are unbelievable. Certification site, Partner Exchange, Education booth all are amazing. This time VMware has a special zone for VMware solutions. Exciting to see the IoT and other solutions from VMware. As VMware employee, I did not have access to schedule builder. It is for customer and partners after all. But if there is a place I can always walk up to and attend. Due to my engagements and customer workshops, I could not attend any. But I will get and go through the sessions later as they become available.</p><h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h4><p>I feel honored and humbled to be in a VMworld. Being in the presence of so many amazing people humbles you. Also, you get the amazing opportunity to network with great minds. This is the place where you get to meet the people of whom we read. We learn from their blogs. Now we can directly meet them. I am looking forward to next two days.</p>]]></content>
     
@@ -121,7 +121,7 @@ The requirement is to deploy a Weblogic Cluster as a whole. Also,
 I am attending this year’s VMworld US and decided to write my experience so far. Read on to know what’s new with VMware and other technologies.
 
 Details:
-First, this is an amazing experience. If you are someone working with VMware technologies, then at least once you need to be in a VMworld. It’s amazing to see so many people in a single pl
+First, this is an amazing experience. If you are someone working with VMware technologies, then at least once you need to be in a VMworld.
     
     </summary>
     
@@ -156,9 +156,9 @@ There are times when we are
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
-      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
-    
       <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
+      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
     
   </entry>
   
@@ -183,11 +183,11 @@ The [first part of the post]Out-of-the-box shared DB-as-a-Service in vRealize Au
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
+      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
       <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
     
       <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
-    
-      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
     
   </entry>
   
@@ -212,11 +212,11 @@ This blog post provides details of shared DB-as-a-Service capability in vRealize
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
+      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
       <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
     
       <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
-    
-      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
     
   </entry>
   
@@ -243,15 +243,15 @@ Do you want to create custom dynamic groups in vROps which matches the tags crea
     
       <category term="Automation" scheme="https://sajaldebnath.com/tags/Automation/"/>
     
-      <category term="PowerCLI" scheme="https://sajaldebnath.com/tags/PowerCLI/"/>
+      <category term="Scripting" scheme="https://sajaldebnath.com/tags/Scripting/"/>
     
-      <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
+      <category term="PowerCLI" scheme="https://sajaldebnath.com/tags/PowerCLI/"/>
     
       <category term="Python" scheme="https://sajaldebnath.com/tags/Python/"/>
     
-      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+      <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
     
-      <category term="Scripting" scheme="https://sajaldebnath.com/tags/Scripting/"/>
+      <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
     
   </entry>
   
@@ -276,15 +276,15 @@ Have you checked the auto-scaling feature provided in public cloud solutions lik
       <category term="Automation" scheme="https://sajaldebnath.com/categories/Virtualization-Cloud/Automation/"/>
     
     
-      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
-    
       <category term="Automation" scheme="https://sajaldebnath.com/tags/Automation/"/>
     
       <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
     
-      <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
-    
       <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
+    
+      <category term="vRealize Automation" scheme="https://sajaldebnath.com/tags/vRealize-Automation/"/>
+    
+      <category term="vRealize Orchestrator" scheme="https://sajaldebnath.com/tags/vRealize-Orchestrator/"/>
     
   </entry>
   
@@ -313,9 +313,9 @@ Did you ever feel the need to push custom data to vRealize Operations Manager (v
     
       <category term="PowerCLI" scheme="https://sajaldebnath.com/tags/PowerCLI/"/>
     
-      <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
-    
       <category term="Python" scheme="https://sajaldebnath.com/tags/Python/"/>
+    
+      <category term="vRealize Operations" scheme="https://sajaldebnath.com/tags/vRealize-Operations/"/>
     
       <category term="How to" scheme="https://sajaldebnath.com/tags/How-to/"/>
     
