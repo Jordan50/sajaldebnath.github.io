@@ -8,7 +8,8 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <!--Meta-->
     <meta charset="UTF-8">
-    <title>Auto-Scaling Deep Dive-Anything Virtual and Cloudy</title>
+    <!-- <title>Auto-Scaling Deep Dive-Deciphering Clouds</title> -->
+    <title>Deciphering Clouds</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -55,7 +56,7 @@
   <div class="branding">
       <a class="logo-and-title" href="/">
           <span><img src="/images/Logo.png" alt="Logo" width="36" height="36"></span>
-          <span class="title">Anything Virtual and Cloudy</span>
+          <span class="title">Deciphering Clouds</span>
       </a>
   </div>
   <div class="divider"></div>
@@ -75,12 +76,6 @@
         <a href="/archives/" class="nav-link nav-text">Archives</a>
       </li><li>
   </li></ul>
-  <form class="search" action="https://sajaldebnath.github.io/search">
-        <label for="search_input">
-            <input id="search_input" name="q" type="text" placeholder="Search in the blog">
-        </label>
-  </form>
-
 </clr-header>
 
 
@@ -361,6 +356,16 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
       </div>
       <!-- Right Side Space -->
       <div class="clr-col-xs-12 clr-col-sm-12 clr-col-md-12 clr-col-lg-12 clr-col-xl-3">
+        <div class="card">
+          <div class="card-header">
+              <h3 class="card-title">Table of Contents</h3>
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <ol class="list"><li class="list-item list-level-4"><a class="list-link" href="#Purpose"><span class="list-text">Purpose</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Definition"><span class="list-text">Definition</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Why"><span class="list-text">Why</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Points-to-consider"><span class="list-text">Points to consider</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Possible-Candidates"><span class="list-text">Possible Candidates</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Methods"><span class="list-text">Methods</span></a><ol class="list-child"><li class="list-item list-level-5"><a class="list-link" href="#Pre-Deployment-Method"><span class="list-text">Pre-Deployment Method</span></a></li><li class="list-item list-level-5"><a class="list-link" href="#Runtime-Deployment-Method"><span class="list-text">Runtime Deployment Method</span></a></li></ol></li><li class="list-item list-level-4"><a class="list-link" href="#Lab-Example"><span class="list-text">Lab Example</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Videos"><span class="list-text">Videos</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Acknowledgement"><span class="list-text">Acknowledgement</span></a></li><li class="list-item list-level-4"><a class="list-link" href="#Conclusion"><span class="list-text">Conclusion</span></a></li></ol>
+            </div>
+          </div>
+        </div>
       </div>
   </div>
 </div>
@@ -383,11 +388,25 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
   <!-- Including the Scripts Area -->
   <script src="/js/jquery-3.3.1.slim.min.js" async></script>
   <script>window.jQuery || document.write('<script src="/js/jquery-3.3.1.slim.min.js"><\/script>')</script>
+  <script src="/js/search.js"></script>
 
   <noscript>
     Sorry...JavaScript is needed to go ahead.
   </noscript>
 
+<!-- Local Search Function    -->
+
+  
+     <script type="text/javascript">
+       var search_path = "search.xml";
+  	 if (search_path.length == 0) {
+  	 	search_path = "search.xml";
+  	 }
+  	 var path = "/" + search_path;
+       searchFunc(path, 'local-search-input', 'local-search-result');
+     </script>
+  
+  
   <!-- Defining the scripts -->
   <script type="text/javascript">
 
@@ -400,14 +419,6 @@ Related Categories: <a href="/categories/Virtualization-Cloud/">#Virtualization 
     }
     });
 
-    // Handling the Subnav menubar options in Responsive mode
-     $(".header-overflow-trigger").on('click',function(){
-       if($(".main-container").hasClass("open-overflow-menu")){
-         $(".main-container").removeClass("open-overflow-menu");
-       }else{
-         $(".main-container").addClass("open-overflow-menu");
-       }
-     });
   </script>
   <!-- Disqus Comments -->
   
